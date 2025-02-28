@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AnotherView: View {
+struct StartView: View {
     var body: some View {
         ZStack {
             Color(red: 1.0, green: 0.945, blue: 0.816)
@@ -27,7 +27,7 @@ struct AnotherView: View {
                 //VStack body
                 VStack (spacing: 70) {
                     
-                    Image("app.icon")
+                    Image("app.icon.nobackground")
                         .resizable()
                         .frame(width: 300, height: 300)
                     
@@ -61,6 +61,6 @@ struct AnotherView: View {
 }
 
 #Preview {
-    AnotherView()
+    StartView()
 }
 
