@@ -46,7 +46,7 @@ struct CountryView: View {
                 if !showFlag {
                     LottieView(animation: .named("Worldsimple"))
                         .playbackMode(isPlaying ? .playing(.toProgress(1, loopMode: .loop)) : .paused)
-                        .animationSpeed(5)
+                        .animationSpeed(3)
                         .frame(width: 350, height: 350)
                         .onTapGesture {
                             isPlaying = true

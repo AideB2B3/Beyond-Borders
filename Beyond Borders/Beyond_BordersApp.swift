@@ -9,7 +9,7 @@ struct BBApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(
+            StartView(
                 numParticipants: numParticipants,
                 participants: participants,
                 numRounds: numRounds,
