@@ -15,14 +15,34 @@ struct CountryView: View {
     @State private var showFlag = false
     @State private var showStartButton = false
     @State private var isPlaying = false
-    @State private var selectedCountry: (flag: String, name: String) = ("🇮🇹", "Italia")
+    @State private var selectedCountry: Country = Country(name: "Italia", flagImage: "flag_italia")
     
-    let countries: [(flag: String, name: String)] = [
-        ("🇮🇹", "Italia"),
-        ("🇫🇷", "Francia"),
-        ("🇩🇪", "Germania"),
-        ("🇪🇸", "Spagna"),
-        ("🇬🇧", "Regno Unito")
+    struct Country {
+        let name: String
+        let flagImage: String
+    }
+    
+    let countries: [Country] = [
+        Country(name: "India", flagImage: "flag_india"),
+        Country(name: "China", flagImage: "flag_china"),
+        Country(name: "Nigeria", flagImage: "flag_nigeria"),
+        Country(name: "Pakistan", flagImage: "flag_pakistan"),
+        Country(name: "Bangladesh", flagImage: "flag_bangladesh"),
+        Country(name: "Egypt", flagImage: "flag_egypt"),
+        Country(name: "Brazil", flagImage: "flag_brazil"),
+        Country(name: "Mexico", flagImage: "flag_mexico"),
+        Country(name: "South Africa", flagImage: "flag_southafrica"),
+        Country(name: "Kenya", flagImage: "flag_kenya"),
+        Country(name: "Vietnam", flagImage: "flag_vietnam"),
+        Country(name: "Turkey", flagImage: "flag_turkey"),
+        Country(name: "Iran", flagImage: "flag_iran"),
+        Country(name: "Colombia", flagImage: "flag_colombia"),
+        Country(name: "Morocco", flagImage: "flag_morocco"),
+        Country(name: "Afghanistan", flagImage: "flag_afghanistan"),
+        Country(name: "Nepal", flagImage: "flag_nepal"),
+        Country(name: "Congo", flagImage: "flag_congo"),
+        Country(name: "Sri Lanka", flagImage: "flag_srilanka"),
+        Country(name: "Saudi Arabia", flagImage: "flag_saudiarabia")
     ]
     
     var body: some View {
@@ -31,7 +51,6 @@ struct CountryView: View {
                 .ignoresSafeArea()
             
             VStack {
-
                 if showText {
                     Text("Tap to choose a country")
                         .multilineTextAlignment(.center)
@@ -44,18 +63,18 @@ struct CountryView: View {
                 Spacer()
                 
                 if !showFlag {
-                    LottieView(animation: .named("Worldsimple"))
+                    LottieView(animation: .named("world_pin"))
                         .playbackMode(isPlaying ? .playing(.toProgress(1, loopMode: .loop)) : .paused)
-                        .animationSpeed(3)
+                        .animationSpeed(1.5)
                         .frame(width: 350, height: 350)
                         .onTapGesture {
                             isPlaying = true
                             showText = false
                             playSound()
                             
-                            selectedCountry = countries.randomElement() ?? ("🇮🇹", "Italia")
+                            selectedCountry = countries.randomElement() ?? Country(name: "Italia", flagImage: "flag_italia")
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 withAnimation {
                                     showFlag = true
                                 }
@@ -68,23 +87,19 @@ struct CountryView: View {
                         }
                         .transition(.opacity)
                 } else {
-                    // Flag + Nome del Paese
+                    // Bandiera + Nome del Paese
                     VStack {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color.white)
-                            .frame(width: 200, height: 200)
+                        Image(selectedCountry.flagImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 250, height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(radius: 5)
-                            .overlay(
-                                VStack {
-                                    Text(selectedCountry.flag)
-                                        .font(.largeTitle)
-                                        .bold()
-                                    
-                                    Text(selectedCountry.name)
-                                        .font(.title)
-                                        .bold()
-                                }
-                            )
+                        
+                        Text(selectedCountry.name)
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                     }
                     .transition(.opacity)
                 }
