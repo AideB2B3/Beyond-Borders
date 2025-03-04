@@ -47,7 +47,7 @@ struct SettingsView: View {
                             Stepper("Rounds: \(numRounds)", value: $numRounds, in: 1...10)
                                 .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
                             
-                            Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 10...600, step: 10)
+                            Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
                                 .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
                         }
                         .scrollContentBackground(.hidden)

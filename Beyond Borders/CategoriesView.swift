@@ -71,7 +71,8 @@ struct CategoriesView: View {
                 }
             }
         }
-        .tint(Color(red: 0.176, green: 0.188, blue: 0.278))
+        .tint(Color(red: 0.176, green: 0.188, blue: 0.278)) //Per colorare tasto back
+        .navigationBarBackButtonHidden(true) // leva il tasto back
     }
 }
 struct CategoriesView_Previews: PreviewProvider {

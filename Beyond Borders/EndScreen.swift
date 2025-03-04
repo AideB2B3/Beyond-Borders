@@ -51,6 +51,7 @@ struct EndScreen: View {
             }
             .padding(.bottom, 40)
         }
+        .navigationBarBackButtonHidden(true) // leva il tasto back
     }
 }
 

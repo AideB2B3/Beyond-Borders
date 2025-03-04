@@ -131,6 +131,7 @@ struct CountryView: View {
             } // end VStack
             .padding(.horizontal, 20)
         } // end ZStack
+        .navigationBarBackButtonHidden(true) // leva il tasto back
     } // End Body
     
     func playSound() {

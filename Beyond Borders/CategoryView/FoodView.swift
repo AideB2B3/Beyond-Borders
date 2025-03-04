@@ -78,6 +78,7 @@ struct FoodView: View {
                 }
                 .padding(.bottom, 35)
             }
+            .navigationBarBackButtonHidden(true) // leva il tasto back
         }
     }
 }

@@ -144,6 +144,7 @@ struct TimerScreen: View {
                 .padding(.bottom, 40)
             }
         }
+        .navigationBarBackButtonHidden(true) // leva il tasto back
         .onAppear {
             if turnOrder.isEmpty {
                 generateTurnOrder()
