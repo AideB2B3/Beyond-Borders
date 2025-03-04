@@ -6,19 +6,45 @@ struct FoodView: View {
     @Binding var numRounds: Int
     @Binding var turnDuration: Int
     var onHome: () -> Void
+    
+    let foodquestions: [String] = ["A","B","C","D","E","F","G","H","I","L","M","N","O","P","Q","R","S","T","U","V"]
+    
+    // State variable to store the random question
+    @State private var randomQuestion: String = ""
+    
+    // Function to get a random question
+    private func getRandomQuestion() -> String {
+        return foodquestions.randomElement() ?? "No questions available"
+    }
+    
+     //Initialize the random question when the view appears
+    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>, onHome: @escaping () -> Void) {
+        self._numParticipants = numParticipants
+        self._participants = participants
+        self._numRounds = numRounds
+        self._turnDuration = turnDuration
+        self.onHome = onHome
+        
+        // Initialize with a random question
+        let initialQuestion = foodquestions.randomElement() ?? "No questions available"
+        self._randomQuestion = State(initialValue: initialQuestion)
+        
+    }
+
+    
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             ZStack {
                 Color(red: 1.0, green: 0.647, blue: 0.274)
                     .ignoresSafeArea()
                 
                 VStack {
-                    
                     Text("Food / China")
                         .font(.largeTitle)
                         .bold()
                         .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                         .padding(.top, 50)
+                    
                     ZStack {
                         Rectangle()
                             .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
@@ -28,7 +54,8 @@ struct FoodView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color(red: 0.176, green: 0.188, blue: 0.278), lineWidth: 4)
                             )
-                        Text("Is chinese food considered spicy?")
+                        
+                        Text(randomQuestion)
                             .font(.system(size: 25, weight: .bold))
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .frame(width: 320)
@@ -50,13 +77,10 @@ struct FoodView: View {
                     .padding()
                 }
                 .padding(.bottom, 35)
-            } // end ZStack
-    //        .navigationBarBackButtonHidden(true)
+            }
         }
-
-    }//end Body
-    
-}//end struct
+    }
+}
 
 struct FoodView_Previews: PreviewProvider {
     static var previews: some View {
@@ -69,3 +93,4 @@ struct FoodView_Previews: PreviewProvider {
         )
     }
 }
+
