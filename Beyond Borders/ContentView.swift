@@ -15,7 +15,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("assets and instructions")
+                    Text("Start Screen")
                         .bold()
                         .font(.largeTitle)
                     

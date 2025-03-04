@@ -5,30 +5,34 @@ import AudioToolbox
 struct TimerScreen: View {
     
     @Binding var participants: [String]
-    var totalRounds: Int
-    var timerDuration: Int
-    var onHome: () -> Void
-    
-    @State private var remainingTime: Int
-    @State private var currentTurn: Int = 0
-    @State private var completedRounds: Int = 0
-    @State private var timer: Timer?
-    @State private var showEndScreen = false
-    @State private var showTransitionScreen = false
-    @State private var extraRound = false
-    @State private var turnOrder: [[String]] = []
-    
-    init(participants: Binding<[String]>, totalRounds: Int, timerDuration: Int, onHome: @escaping () -> Void) {
-        self._participants = participants
-        self.totalRounds = totalRounds
-        self.timerDuration = timerDuration
-        self.onHome = onHome
-        self._remainingTime = State(initialValue: timerDuration)
-    }
-    
-    var currentRound: Int {
-        completedRounds + (currentTurn / participants.count) + 1
-    }
+      var totalRounds: Int
+      var timerDuration: Int
+      var onHome: () -> Void
+      
+      @State private var remainingTime: Int
+      @State private var currentTurn: Int = 0
+      @State private var completedRounds: Int = 0
+      @State private var timer: Timer?
+      @State private var showEndScreen = false
+      @State private var showTransitionScreen = false
+      @State private var extraRound = false
+      @State private var turnOrder: [[String]] = []
+      
+      init(participants: Binding<[String]>,
+           totalRounds: Int,
+           timerDuration: Int,
+           onHome: @escaping () -> Void) {
+          self._participants = participants
+          self.totalRounds = totalRounds
+          self.timerDuration = timerDuration
+          self.onHome = onHome
+          self._remainingTime = State(initialValue: timerDuration)
+      }
+      
+      var currentRound: Int {
+          completedRounds + (currentTurn / participants.count) + 1
+      }
+      
     
     var body: some View {
         ZStack {
@@ -63,7 +67,7 @@ struct TimerScreen: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color(red: 0.176, green: 0.188, blue: 0.278), lineWidth: 4) // Bordo color 2d3047
                             )
-                        Text("Is chinese food considered spicy?")
+                        Text("currentQuestion")
                             .font(.system(size: 25, weight: .bold))
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .frame(width: 320)
