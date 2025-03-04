@@ -58,7 +58,7 @@ struct SettingsView: View {
                         .background(Color(red: 1.0, green: 0.945, blue: 0.816))
                     }
                     
-                    NavigationLink(destination: CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onStart)) {
+                    NavigationLink(destination: CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onStart)) {
                         Text("Start")
                             .font(.title3)
                             .padding()

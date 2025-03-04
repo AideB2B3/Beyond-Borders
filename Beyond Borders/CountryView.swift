@@ -15,7 +15,7 @@ struct CountryView: View {
     @State private var showFlag = false
     @State private var showStartButton = false
     @State private var isPlaying = false
-    @State private var selectedCountry: Country = Country(name: "Italia", flagImage: "flag_italia")
+    @State private var selectedCountry: Country = Country(name: "", flagImage: "")
     
     struct Country {
         let name: String
@@ -81,7 +81,7 @@ struct CountryView: View {
                             showText = false
                             playSound()
                             
-                            selectedCountry = countries.randomElement() ?? Country(name: "Italia", flagImage: "flag_italia")
+                            selectedCountry = countries.randomElement() ?? Country(name: "", flagImage: "")
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 withAnimation {
