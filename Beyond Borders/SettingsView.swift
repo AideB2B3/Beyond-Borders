@@ -8,8 +8,12 @@ struct SettingsView: View {
     @State var turnDuration: Int
     var onStart: () -> Void
     
-    // Per gestire la visibilità della tastiera
     @State private var keyboardIsVisible = false
+    
+    var isStartEnabled: Bool {
+        let validNames = participants.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
+        return validNames.count >= 2 && validNames.count == numParticipants
+    }
     
     var body: some View {
         NavigationStack {
@@ -28,7 +32,7 @@ struct SettingsView: View {
                         Spacer()
                         
                         Form {
-                            Stepper("Total People: \(numParticipants)", value: $numParticipants, in: 0...8)
+                            Stepper("Total People: \(numParticipants)", value: $numParticipants, in: 2...8)
                                 .onChange(of: numParticipants) {
                                     if numParticipants > participants.count {
                                         participants.append(contentsOf: Array(repeating: "", count: numParticipants - participants.count))
@@ -64,20 +68,20 @@ struct SettingsView: View {
                             .padding()
                             .bold()
                             .frame(maxWidth: 150)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .background(isStartEnabled ? Color(red: 0.176, green: 0.188, blue: 0.278) : Color.gray)
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
+                    .disabled(!isStartEnabled)
                     .padding(.bottom, 30)
-                    .opacity(keyboardIsVisible ? 0 : 1) // Nasconde il pulsante quando la tastiera è visibile
+                    .opacity(keyboardIsVisible ? 0 : 1)
                 }
                 .padding()
             }
             .onAppear {
-                numParticipants = 0
-                participants = []
+                numParticipants = 2
+                participants = ["", ""]
                 
-                // Registra notifiche per la tastiera
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { _ in
                     keyboardIsVisible = true
                 }
@@ -86,11 +90,12 @@ struct SettingsView: View {
                     keyboardIsVisible = false
                 }
             }
-        } //End NavigationStack
+        }
         .tint(Color(red: 0.176, green: 0.188, blue: 0.278))
-        .navigationBarBackButtonHidden(true) // leva il tasto back
+        .navigationBarBackButtonHidden(true)
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

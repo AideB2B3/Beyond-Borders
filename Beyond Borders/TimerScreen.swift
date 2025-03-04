@@ -5,34 +5,34 @@ import AudioToolbox
 struct TimerScreen: View {
     
     @Binding var participants: [String]
-      var totalRounds: Int
-      var timerDuration: Int
-      var onHome: () -> Void
-      
-      @State private var remainingTime: Int
-      @State private var currentTurn: Int = 0
-      @State private var completedRounds: Int = 0
-      @State private var timer: Timer?
-      @State private var showEndScreen = false
-      @State private var showTransitionScreen = false
-      @State private var extraRound = false
-      @State private var turnOrder: [[String]] = []
-      
-      init(participants: Binding<[String]>,
-           totalRounds: Int,
-           timerDuration: Int,
-           onHome: @escaping () -> Void) {
-          self._participants = participants
-          self.totalRounds = totalRounds
-          self.timerDuration = timerDuration
-          self.onHome = onHome
-          self._remainingTime = State(initialValue: timerDuration)
-      }
-      
-      var currentRound: Int {
-          completedRounds + (currentTurn / participants.count) + 1
-      }
-      
+    var totalRounds: Int
+    var timerDuration: Int
+    var onHome: () -> Void
+    
+    @State private var remainingTime: Int
+    @State private var currentTurn: Int = 0
+    @State private var completedRounds: Int = 0
+    @State private var timer: Timer?
+    @State private var showEndScreen = false
+    @State private var showTransitionScreen = false
+    @State private var extraRound = false
+    @State private var turnOrder: [[String]] = []
+    
+    init(participants: Binding<[String]>,
+         totalRounds: Int,
+         timerDuration: Int,
+         onHome: @escaping () -> Void) {
+        self._participants = participants
+        self.totalRounds = totalRounds
+        self.timerDuration = timerDuration
+        self.onHome = onHome
+        self._remainingTime = State(initialValue: timerDuration)
+    }
+    
+    var currentRound: Int {
+        completedRounds + (currentTurn / participants.count) + 1
+    }
+    
     
     var body: some View {
         ZStack {
@@ -50,8 +50,8 @@ struct TimerScreen: View {
                 }
             } else {
                 VStack() {
-
-//                    Spacer()
+                    
+                    //                    Spacer()
                     
                     Text("Food / China")
                         .font(.largeTitle)
@@ -81,7 +81,7 @@ struct TimerScreen: View {
                             .font(.largeTitle)
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .bold()
-
+                        
                         Text("Round \(currentRound)")
                             .font(.title3)
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
@@ -89,7 +89,7 @@ struct TimerScreen: View {
                     } else {
                         ProgressView()
                     }
-
+                    
                     Spacer()
                     ZStack {
                         // Rettangolo grigio di sfondo
@@ -109,7 +109,7 @@ struct TimerScreen: View {
                         .frame(width: 320, height: 50)
                         .cornerRadius(30)
                         .animation(.linear(duration: 1), value: remainingTime)
-
+                        
                         Text(formatTime(remainingTime))
                             .font(.largeTitle)
                             .foregroundColor(.white)
@@ -117,29 +117,29 @@ struct TimerScreen: View {
                     }
                     .frame(width: 250, height: 50)
                     Spacer()
-                    HStack {
-                        Button(action: handleHome) {
-                            Label("Home", systemImage: "house.fill")
-                                .font(.title3)
-                                .padding()
-                                .bold()
-                                .frame(maxWidth: 150)
-                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                .foregroundColor(.white)
-                                .cornerRadius(30)
-                        }
-                        Button(action: endTurn) {
-                            Label("Skip", systemImage: "arrow.right")
-                                .font(.title3)
-                                .padding()
-                                .bold()
-                                .frame(maxWidth: 150)
-                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                .foregroundColor(.white)
-                                .cornerRadius(30)
-                        }
-                        .padding(.horizontal)
+                    //                    HStack {
+                    //                        Button(action: handleHome) {
+                    //                            Label("Home", systemImage: "house.fill")
+                    //                                .font(.title3)
+                    //                                .padding()
+                    //                                .bold()
+                    //                                .frame(maxWidth: 150)
+                    //                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                    //                                .foregroundColor(.white)
+                    //                                .cornerRadius(30)
+                    //                        }
+                    Button(action: endTurn) {
+                        Label("Skip", systemImage: "arrow.right")
+                            .font(.title3)
+                            .padding()
+                            .bold()
+                            .frame(maxWidth: 150)
+                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(.white)
+                            .cornerRadius(30)
                     }
+                    .padding(.horizontal)
+                    //                    }
                 }
                 .padding(.bottom, 40)
             }
@@ -155,21 +155,21 @@ struct TimerScreen: View {
             stopTimer()
         }
     }
-
+    
     func handleHome() {
         stopTimer()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             onHome()
         }
     }
-
+    
     func stopTimer() {
         if let timer = timer {
             timer.invalidate()
             self.timer = nil
         }
     }
-
+    
     func currentTurnSafe() -> String? {
         guard !turnOrder.isEmpty,
               currentTurn / participants.count < turnOrder.count,
