@@ -60,15 +60,13 @@ struct CountryView: View {
                 .ignoresSafeArea()
             
             VStack {
-                if showText {
-                    Text("Tap to choose a country")
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 40, weight: .bold))
-                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                        .padding(.top, 40)
-                        .transition(.opacity)
-                }
-                
+                Text("Tap to choose a country")
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 40, weight: .bold))
+                    .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                    .padding(.top, 40)
+                    .opacity(showText ? 1 : 0) // Mantiene lo spazio ma rende il testo invisibile
+
                 Spacer()
                 
                 if !showFlag {
