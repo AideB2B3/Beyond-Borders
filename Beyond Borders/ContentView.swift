@@ -18,6 +18,7 @@ struct ContentView: View {
                     Text("Start Screen")
                         .bold()
                         .font(.largeTitle)
+                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                     
                     
                     Spacer()
@@ -33,6 +34,7 @@ struct ContentView: View {
                             .bold()
                             .font(.title2)
                             .multilineTextAlignment(.center)
+                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                         
                         NavigationLink(destination: SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart)) {
                             Text("Start")
