@@ -8,8 +8,12 @@ struct SettingsView: View {
     @State var turnDuration: Int
     var onStart: () -> Void
     
-    // Per gestire la visibilità della tastiera
     @State private var keyboardIsVisible = false
+    
+    // Variabile calcolata: il pulsante è disabilitato se meno di 2 nomi validi
+    private var isStartDisabled: Bool {
+        participants.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }.count < 2
+    }
     
     var body: some View {
         NavigationStack {
@@ -60,12 +64,13 @@ struct SettingsView: View {
                             .padding()
                             .bold()
                             .frame(maxWidth: 150)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .background(isStartDisabled ? Color.gray : Color(red: 0.176, green: 0.188, blue: 0.278)) // Grigio se disabilitato
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
                     .padding(.bottom, 30)
                     .opacity(keyboardIsVisible ? 0 : 1) // Nasconde il pulsante quando la tastiera è visibile
+                    .disabled(isStartDisabled) // Disabilita il pulsante se non ci sono almeno 2 nomi validi
                 }
                 .padding()
             }
@@ -82,11 +87,12 @@ struct SettingsView: View {
                     keyboardIsVisible = false
                 }
             }
-        } //End NavigationStack
+        } // End NavigationStack
         .tint(Color(red: 0.176, green: 0.188, blue: 0.278))
         .navigationBarBackButtonHidden(true) // leva il tasto back
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
