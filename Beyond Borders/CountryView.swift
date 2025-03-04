@@ -23,26 +23,35 @@ struct CountryView: View {
     }
     
     let countries: [Country] = [
-        Country(name: "India", flagImage: "flag_india"),
-        Country(name: "China", flagImage: "flag_china"),
-        Country(name: "Nigeria", flagImage: "flag_nigeria"),
-        Country(name: "Pakistan", flagImage: "flag_pakistan"),
-        Country(name: "Bangladesh", flagImage: "flag_bangladesh"),
-        Country(name: "Egypt", flagImage: "flag_egypt"),
-        Country(name: "Brazil", flagImage: "flag_brazil"),
-        Country(name: "Mexico", flagImage: "flag_mexico"),
-        Country(name: "South Africa", flagImage: "flag_southafrica"),
-        Country(name: "Kenya", flagImage: "flag_kenya"),
-        Country(name: "Vietnam", flagImage: "flag_vietnam"),
-        Country(name: "Turkey", flagImage: "flag_turkey"),
-        Country(name: "Iran", flagImage: "flag_iran"),
-        Country(name: "Colombia", flagImage: "flag_colombia"),
-        Country(name: "Morocco", flagImage: "flag_morocco"),
-        Country(name: "Afghanistan", flagImage: "flag_afghanistan"),
-        Country(name: "Nepal", flagImage: "flag_nepal"),
-        Country(name: "Congo", flagImage: "flag_congo"),
-        Country(name: "Sri Lanka", flagImage: "flag_srilanka"),
-        Country(name: "Saudi Arabia", flagImage: "flag_saudiarabia")
+        Country(name: "Afghanistan", flagImage: "flags_afghanistan"),
+        Country(name: "Albania", flagImage: "flags_albania"),
+        Country(name: "Bangladesh", flagImage: "flags_bangladesh"),
+        Country(name: "Brazil", flagImage: "flags_brazil"),
+        Country(name: "Bulgaria", flagImage: "flags_bulgaria"),
+        Country(name: "China", flagImage: "flags_china"),
+        Country(name: "Colombia", flagImage: "flags_colombia"),
+        Country(name: "Congo (DRC)", flagImage: "flags_congo"),
+        Country(name: "Egypt", flagImage: "flags_egypt"),
+        Country(name: "Germany", flagImage: "flags_germany"),
+        Country(name: "Greece", flagImage: "flags_greece"),
+        Country(name: "India", flagImage: "flags_india"),
+        Country(name: "Iran", flagImage: "flags_iran"),
+        Country(name: "Italy", flagImage: "flags_italy"),
+        Country(name: "Kenya", flagImage: "flags_kenya"),
+        Country(name: "Mexico", flagImage: "flags_mexico"),
+        Country(name: "Morocco", flagImage: "flags_morocco"),
+        Country(name: "Nepal", flagImage: "flags_nepal"),
+        Country(name: "Nigeria", flagImage: "flags_nigeria"),
+        Country(name: "Pakistan", flagImage: "flags_pakistan"),
+        Country(name: "Portugal", flagImage: "flags_portugal"),
+        Country(name: "Romania", flagImage: "flags_romania"),
+        Country(name: "Saudi Arabia", flagImage: "flags_saudiarabia"),
+        Country(name: "South Africa", flagImage: "flags_southafrica"),
+        Country(name: "Spain", flagImage: "flags_spain"),
+        Country(name: "Sri Lanka", flagImage: "flags_srilanka"),
+        Country(name: "Turkey", flagImage: "flags_turkey"),
+        Country(name: "Vietnam", flagImage: "flags_vietnam")
+
     ]
     
     var body: some View {
@@ -117,10 +126,10 @@ struct CountryView: View {
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
-                    .padding(.bottom, 30) // Spazio dal bordo inferiore
+                    .padding(.bottom, 30)
                 }
             } // end VStack
-            .padding(.horizontal, 20) // Margini laterali
+            .padding(.horizontal, 20)
         } // end ZStack
     } // End Body
     
