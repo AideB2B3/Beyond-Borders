@@ -34,7 +34,7 @@ struct CategoriesView: View {
                     }
                     .padding()
                     
-                    NavigationLink(destination: CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)) {
+                    NavigationLink(destination: FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)) {
                         Text("Food")
                             .font(.title2)
                             .bold()

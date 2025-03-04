@@ -116,7 +116,7 @@ struct CountryView: View {
                 Spacer()
 
                 if showStartButton {
-                    NavigationLink(destination: FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)) {
+                    NavigationLink(destination: CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)) {
                         Text("Next")
                             .font(.title3)
                             .padding()
