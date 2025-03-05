@@ -64,6 +64,55 @@ struct FoodView: View {
                     }
        
                     Spacer()
+                    
+                    Text("Nome partecipante")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                    Text("E' vero o non è vero?")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+
+                    
+                    Spacer()
+                    
+                    HStack {
+                        
+                        Spacer()
+                        
+                        Button("V"){
+                            
+                        }
+                        .font(.title3)
+                        .padding(30)
+                        .bold()
+                        .frame(maxWidth: 80)
+                        .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                        .foregroundColor(.white)
+                        .cornerRadius(50)
+                        
+                        Spacer()
+                        
+                        Button("X"){
+                            
+                        }
+                        .font(.title3)
+                        .padding(30)
+                        .bold()
+                        .frame(maxWidth: 80)
+                        .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                        .foregroundColor(.white)
+                        .cornerRadius(50)
+                        
+                        Spacer()
+                        
+                    }
+                    
+                    
+                    
+                    
+                    Spacer()
                     NavigationLink(destination: TimerScreen(participants: $participants, totalRounds: numRounds, timerDuration: turnDuration, onHome: onHome)) {
                         Text("Start")
                             .font(.title3)

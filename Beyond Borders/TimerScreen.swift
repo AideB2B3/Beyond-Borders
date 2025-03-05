@@ -82,10 +82,10 @@ struct TimerScreen: View {
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .bold()
                         
-                        Text("Round \(currentRound)")
-                            .font(.title3)
-                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                            .bold()
+//                        Text("Round \(currentRound)")
+//                            .font(.title3)
+//                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+//                            .bold()
                     } else {
                         ProgressView()
                     }
