@@ -85,12 +85,12 @@ struct FoodView: View {
                             
                         }
                         .font(.title3)
-                        .padding(30)
+                        .padding()
                         .bold()
-                        .frame(maxWidth: 80)
+                        .frame(maxWidth: 150)
                         .background(Color(red: 0.176, green: 0.188, blue: 0.278))
                         .foregroundColor(.white)
-                        .cornerRadius(50)
+                        .cornerRadius(30)
                         
                         Spacer()
                         
@@ -98,12 +98,12 @@ struct FoodView: View {
                             
                         }
                         .font(.title3)
-                        .padding(30)
+                        .padding()
                         .bold()
-                        .frame(maxWidth: 80)
+                        .frame(maxWidth: 150)
                         .background(Color(red: 0.176, green: 0.188, blue: 0.278))
                         .foregroundColor(.white)
-                        .cornerRadius(50)
+                        .cornerRadius(30)
                         
                         Spacer()
                         
