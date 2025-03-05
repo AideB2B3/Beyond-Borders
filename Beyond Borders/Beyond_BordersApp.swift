@@ -16,8 +16,15 @@ struct BBApp: App {
                 turnDuration: turnDuration,
                 onStart: {
                     print("Discussion Started with \(numParticipants) participants")
+                },
+                totalRounds: numRounds, // Passa il numero totale di round
+                timerDuration: turnDuration, // Passa la durata del turno
+               
+                onHome: {
+                    print("Returning to Home")
                 }
             )
         }
     }
 }
+

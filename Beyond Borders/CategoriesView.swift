@@ -6,6 +6,8 @@ struct CategoriesView: View {
     @Binding var numRounds: Int
     @Binding var turnDuration: Int
     var onHome: () -> Void
+    var totalRounds: Int
+    var timerDuration: Int
 
     var body: some View {
 
@@ -34,7 +36,7 @@ struct CategoriesView: View {
                     }
                     .padding()
                     
-                    NavigationLink(destination: FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)) {
+                    NavigationLink(destination: FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)) {
                         Text("Food")
                             .font(.title2)
                             .bold()
@@ -75,6 +77,7 @@ struct CategoriesView: View {
         .navigationBarBackButtonHidden(true) // leva il tasto back
     }
 }
+
 struct CategoriesView_Previews: PreviewProvider {
     static var previews: some View {
         CategoriesView(
@@ -82,7 +85,11 @@ struct CategoriesView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),
             turnDuration: .constant(60),
-            onHome: {}
+            onHome: {},
+            totalRounds: 3, // Aggiunto
+            timerDuration: 60// Aggiunto
+            
         )
     }
 }
+

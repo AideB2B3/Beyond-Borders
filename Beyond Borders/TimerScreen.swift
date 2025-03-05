@@ -95,18 +95,18 @@ struct TimerScreen: View {
                         // Rettangolo grigio di sfondo
                         Rectangle()
                             .fill(Color.gray.opacity(0.3))
-                            .frame(width: 320, height: 50)
+                            .frame(width: 320, height: 70)
                             .cornerRadius(30)
                         
                         // Rettangolo blu che si svuota da destra a sinistra
                         HStack(spacing: 0) {
                             Rectangle()
                                 .fill(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                .frame(width: CGFloat(remainingTime) / CGFloat(timerDuration) * 320, height: 50) // La larghezza diminuisce nel tempo
+                                .frame(width: CGFloat(remainingTime) / CGFloat(timerDuration) * 320, height: 70) // La larghezza diminuisce nel tempo
                             
                             Spacer(minLength: 0)
                         }
-                        .frame(width: 320, height: 50)
+                        .frame(width: 320, height: 70)
                         .cornerRadius(30)
                         .animation(.linear(duration: 1), value: remainingTime)
                         
@@ -129,11 +129,11 @@ struct TimerScreen: View {
                     //                                .cornerRadius(30)
                     //                        }
                     Button(action: endTurn) {
-                        Label("Skip", systemImage: "arrow.right")
-                            .font(.title3)
+                        Text("Skip")
+                            .font(.title)
                             .padding()
                             .bold()
-                            .frame(maxWidth: 150)
+                            .frame(width: 130, height: 70)
                             .background(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .foregroundColor(.white)
                             .cornerRadius(30)

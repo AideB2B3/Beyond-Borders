@@ -9,6 +9,8 @@ struct CountryView: View {
     @Binding var numRounds: Int
     @Binding var turnDuration: Int
     var onHome: () -> Void
+    var totalRounds: Int
+    var timerDuration: Int
     
     @State private var audioPlayer: AVAudioPlayer?
     @State private var showText = true
@@ -114,7 +116,7 @@ struct CountryView: View {
                 Spacer()
 
                 if showStartButton {
-                    NavigationLink(destination: CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)) {
+                    NavigationLink(destination: CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, totalRounds: totalRounds, timerDuration: timerDuration)) {
                         Text("Next")
                             .font(.title3)
                             .padding()
@@ -151,7 +153,9 @@ struct CountryView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(5),
             turnDuration: .constant(60),
-            onHome: {}
+            onHome: {},
+            totalRounds: 3, // Aggiunto
+            timerDuration: 60// Aggiunto
         )
     }
 }

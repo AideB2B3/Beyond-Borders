@@ -7,6 +7,9 @@ struct ContentView: View {
     @State var numRounds: Int
     @State var turnDuration: Int
     var onStart: () -> Void
+    var totalRounds: Int
+    var timerDuration: Int
+    var onHome: () -> Void
     
     var body: some View {
         NavigationStack{
@@ -36,7 +39,7 @@ struct ContentView: View {
                             .multilineTextAlignment(.center)
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                         
-                        NavigationLink(destination: SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart)) {
+                        NavigationLink(destination: SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)) {
                             Text("Start")
                                 .font(.title3)
                                 .padding()
@@ -65,6 +68,10 @@ struct ContentView: View {
         participants: ["Player 1", "Player 2", "Player 3", "Player 4"],
         numRounds: 3,
         turnDuration: 60,
-        onStart: {}
+        onStart: {},
+        totalRounds: 3, // Aggiunto
+        timerDuration: 60,
+        onHome: {} // Aggiunto
     )
 }
+

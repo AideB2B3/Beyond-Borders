@@ -7,6 +7,9 @@ struct SettingsView: View {
     @State var numRounds: Int
     @State var turnDuration: Int
     var onStart: () -> Void
+    var totalRounds: Int
+    var timerDuration: Int
+    var onHome: () -> Void
     
     @State private var keyboardIsVisible = false
     
@@ -62,7 +65,7 @@ struct SettingsView: View {
                         .background(Color(red: 1.0, green: 0.945, blue: 0.816))
                     }
                     
-                    NavigationLink(destination: CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onStart)) {
+                    NavigationLink(destination: CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, totalRounds: totalRounds, timerDuration: timerDuration)) {
                         Text("Start")
                             .font(.title3)
                             .padding()
@@ -104,7 +107,10 @@ struct ContentView_Previews: PreviewProvider {
             participants: ["Alice", "Bob", "Charlie"],
             numRounds: 3,
             turnDuration: 60,
-            onStart: {}
+            onStart: {},
+            totalRounds: 3,
+            timerDuration: 60, // Aggiunto
+            onHome: {}// Aggiunto
         )
     }
 }

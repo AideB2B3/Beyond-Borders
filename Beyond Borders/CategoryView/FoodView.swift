@@ -1,34 +1,46 @@
 import SwiftUI
 
 struct FoodView: View {
-    @Binding var numParticipants: Int
+    
     @Binding var participants: [String]
+    @Binding var numParticipants: Int
     @Binding var numRounds: Int
     @Binding var turnDuration: Int
+    
+    var totalRounds: Int
+    var timerDuration: Int
     var onHome: () -> Void
     
-    let foodquestions: [String] = ["A","B","C","D","E","F","G","H","I","L","M","N","O","P","Q","R","S","T","U","V"]
+    @State private var remainingTime: Int
+    @State private var currentTurn: Int = 0
+    @State private var completedRounds: Int = 0
+    @State private var timer: Timer?
+    @State private var showEndScreen = false
+    @State private var showTransitionScreen = false
+    @State private var extraRound = false
+    @State private var turnOrder: [[String]] = []
     
-    // State variable to store the random question
+    let foodquestions: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V"]
+    
     @State private var randomQuestion: String = ""
+    @State private var showStart = true // Controlla la visibilità del pulsante Start
     
-    // Function to get a random question
     private func getRandomQuestion() -> String {
         return foodquestions.randomElement() ?? "No questions available"
     }
     
-     //Initialize the random question when the view appears
-    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>, onHome: @escaping () -> Void) {
+    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>, totalRounds: Int, timerDuration: Int, onHome: @escaping () -> Void) {
         self._numParticipants = numParticipants
         self._participants = participants
         self._numRounds = numRounds
         self._turnDuration = turnDuration
+        self.totalRounds = totalRounds
+        self.timerDuration = timerDuration
         self.onHome = onHome
+        self._remainingTime = State(initialValue: timerDuration)
         
-        // Initialize with a random question
         let initialQuestion = foodquestions.randomElement() ?? "No questions available"
         self._randomQuestion = State(initialValue: initialQuestion)
-        
     }
 
     
@@ -62,75 +74,134 @@ struct FoodView: View {
                             .multilineTextAlignment(.center)
                             .padding()
                     }
-       
-                    Spacer()
-                    
-                    Text("Nome partecipante")
-                        .font(.title)
-                        .bold()
-                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                    Text("E' vero o non è vero?")
-                        .font(.title)
-                        .bold()
-                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-
                     
                     Spacer()
                     
-                    HStack {
-                        
-                        Spacer()
-                        
-                        Button("V"){
+                    if showStart {
+                        Button(action: {
+                            showStart = false // Nasconde il pulsante Start e mostra nuovi elementi
+                        }) {
+                            Text("Start")
+                                .font(.title)
+                                .padding()
+                                .bold()
+                                .frame(width: 130, height: 70)
+                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(.white)
+                                .cornerRadius(30)
+                        }
+                        .padding()
+                    } else {
+                        // Qui puoi aggiungere il nuovo contenuto che comparirà dopo aver premuto Start
+                        VStack(spacing: 20) {
+                            
+                            Spacer()
+                            
+                            if let currentParticipant = currentTurnSafe() {
+                                Text("\(currentParticipant)")
+                                    .font(.title)
+                                    .bold()
+                                    .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                
+        //                        Text("Round \(currentRound)")
+        //                            .font(.title3)
+        //                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+        //                            .bold()
+                            }
+                            else {
+                                Text("Re open the app")
+                            }
+                                
+                            
+                            Spacer()
+                            
+                            Text("Do you agree?")
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            
+                            
+                            
+                            
+                            HStack {
+                                
+                                Spacer()
+                                
+                                Button("Yes"){
+                                    
+                                }
+                                .font(.title)
+                                .padding()
+                                .bold()
+                                .frame(width: 130, height: 70)
+                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(.white)
+                                .cornerRadius(30)
+                                
+                                Spacer()
+                                
+                                Button("No"){
+                                    
+                                }
+                                .font(.title)
+                                .padding()
+                                .bold()
+                                .frame(width: 130, height: 70)
+                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(.white)
+                                .cornerRadius(30)
+                                
+                                Spacer()
+                                
+                            }
                             
                         }
-                        .font(.title3)
-                        .padding()
-                        .bold()
-                        .frame(maxWidth: 150)
-                        .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                        .foregroundColor(.white)
-                        .cornerRadius(30)
-                        
-                        Spacer()
-                        
-                        Button("X"){
-                            
-                        }
-                        .font(.title3)
-                        .padding()
-                        .bold()
-                        .frame(maxWidth: 150)
-                        .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                        .foregroundColor(.white)
-                        .cornerRadius(30)
-                        
-                        Spacer()
-                        
+                        .transition(.opacity) // Effetto di transizione
                     }
-                    
-                    
-                    
-                    
-                    Spacer()
-                    NavigationLink(destination: TimerScreen(participants: $participants, totalRounds: numRounds, timerDuration: turnDuration, onHome: onHome)) {
-                        Text("Start")
-                            .font(.title3)
-                            .padding()
-                            .bold()
-                            .frame(maxWidth: 150)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                            .foregroundColor(.white)
-                            .cornerRadius(30)
-                    }
-                    .padding()
                 }
                 .padding(.bottom, 35)
             }
-            .navigationBarBackButtonHidden(true) // leva il tasto back
-        }
+            .navigationBarBackButtonHidden(true)
+            
+            .onAppear {
+                // Ensure turn order is generated when view appears
+                if turnOrder.isEmpty {
+                    generateTurnOrder()
+                }
+            }
+            
+        }// End Nav Stack
     }
+    
+    func currentTurnSafe() -> String? {
+        guard !turnOrder.isEmpty,
+              currentTurn / participants.count < turnOrder.count,
+              currentTurn % participants.count < turnOrder[currentTurn / participants.count].count else {
+            return nil
+        }
+        return turnOrder[currentTurn / participants.count][currentTurn % participants.count]
+    }
+    
+    func generateTurnOrder() {
+            turnOrder = []
+            var lastParticipant = ""
+            for _ in 0..<(extraRound ? 1 : totalRounds) {
+                var order: [String]
+                repeat {
+                    order = participants.shuffled()
+                } while !turnOrder.isEmpty && order.first == lastParticipant
+                
+                lastParticipant = order.last ?? ""
+                turnOrder.append(order)
+            }
+            
+            // Debug print to verify turn order generation
+            print("Generated Turn Order: \(turnOrder)")
+        }
+
+    
 }
+
 
 struct FoodView_Previews: PreviewProvider {
     static var previews: some View {
@@ -139,8 +210,11 @@ struct FoodView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),
             turnDuration: .constant(60),
+            totalRounds: 3, // Aggiunto
+            timerDuration: 60, // Aggiunto
             onHome: {}
         )
     }
 }
+
 
