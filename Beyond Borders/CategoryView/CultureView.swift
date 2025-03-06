@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct OffensiveView: View {
+struct CultureView: View {
     
     @Binding var participants: [String]
     @Binding var numParticipants: Int
@@ -47,11 +47,11 @@ struct OffensiveView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(red: 0.588, green: 0.447, blue: 0.584)
+                Color(red: 0.286, green: 0.678, blue: 0.635)
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("Offensive / China")
+                    Text("Culture / China")
                         .font(.largeTitle)
                         .bold()
                         .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
@@ -203,9 +203,9 @@ struct OffensiveView: View {
 }
 
 
-struct OffensiveView_Previews: PreviewProvider {
+struct CultureView_Previews: PreviewProvider {
     static var previews: some View {
-        OffensiveView(
+        CultureView(
             numParticipants: .constant(3),
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),

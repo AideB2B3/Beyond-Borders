@@ -13,6 +13,8 @@ struct SettingsView: View {
     
     @State private var keyboardIsVisible = false
     
+    @State private var isCountryPresented = false
+    
     var isStartEnabled: Bool {
         let validNames = participants.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
         return validNames.count >= 2 && validNames.count == numParticipants
@@ -65,19 +67,38 @@ struct SettingsView: View {
                         .background(Color(red: 1.0, green: 0.945, blue: 0.816))
                     }
                     
-                    NavigationLink(destination: CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, totalRounds: totalRounds, timerDuration: timerDuration)) {
+//                    NavigationLink(destination: CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, totalRounds: totalRounds, timerDuration: timerDuration)) {
+//                        Text("Start")
+//                            .font(.title3)
+//                            .padding()
+//                            .bold()
+//                            .frame(maxWidth: 150)
+//                            .background(isStartEnabled ? Color(red: 0.176, green: 0.188, blue: 0.278) : Color.gray)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(30)
+//                    }
+                    
+                    Button(action: {
+                        print("Settings Button tapped")
+                        isCountryPresented = true  // Mostra la schermata delle nazioni
+                        
+                    }) {
                         Text("Start")
-                            .font(.title3)
+                            .font(.title)
                             .padding()
                             .bold()
-                            .frame(maxWidth: 150)
-                            .background(isStartEnabled ? Color(red: 0.176, green: 0.188, blue: 0.278) : Color.gray)
+                            .frame(width: 130, height: 70)
+                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
                     .disabled(!isStartEnabled)
                     .padding(.bottom, 30)
                     .opacity(keyboardIsVisible ? 0 : 1)
+                    
+                    .fullScreenCover(isPresented: $isCountryPresented){
+                        CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, totalRounds: totalRounds, timerDuration: timerDuration)
+                    }
                 }
                 .padding()
             }
