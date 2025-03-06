@@ -7,8 +7,6 @@ struct SettingsView: View {
     @State var numRounds: Int
     @State var turnDuration: Int
     var onStart: () -> Void
-    var totalRounds: Int
-    var timerDuration: Int
     var onHome: () -> Void
     
     @State private var keyboardIsVisible = false
@@ -59,7 +57,7 @@ struct SettingsView: View {
                                 .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
                                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             
-                            Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
+                            Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 5...600, step: 30)
                                 .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
                                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                         }
@@ -97,7 +95,7 @@ struct SettingsView: View {
                     .opacity(keyboardIsVisible ? 0 : 1)
                     
                     .fullScreenCover(isPresented: $isCountryPresented){
-                        CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, totalRounds: totalRounds, timerDuration: timerDuration)
+                        CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
                     }
                 }
                 .padding()
@@ -115,8 +113,6 @@ struct SettingsView: View {
                 }
             }
         }
-        .tint(Color(red: 0.176, green: 0.188, blue: 0.278))
-        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -129,8 +125,6 @@ struct ContentView_Previews: PreviewProvider {
             numRounds: 3,
             turnDuration: 60,
             onStart: {},
-            totalRounds: 3,
-            timerDuration: 60, // Aggiunto
             onHome: {}// Aggiunto
         )
     }

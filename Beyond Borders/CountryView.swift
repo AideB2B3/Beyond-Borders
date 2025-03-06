@@ -9,8 +9,6 @@ struct CountryView: View {
     @Binding var numRounds: Int
     @Binding var turnDuration: Int
     var onHome: () -> Void
-    var totalRounds: Int
-    var timerDuration: Int
     
     @State private var audioPlayer: AVAudioPlayer?
     @State private var showText = true
@@ -146,14 +144,13 @@ struct CountryView: View {
                     .padding(.bottom, 30)
                     
                     .fullScreenCover(isPresented: $isCategoriesPresented){
-                        CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, totalRounds: totalRounds, timerDuration: timerDuration)
+                        CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
                     }
                     
                 }
             } // end VStack
             .padding(.horizontal, 20)
         } // end ZStack
-        .navigationBarBackButtonHidden(true) // leva il tasto back
     } // End Body
     
     func playSound() {
@@ -175,9 +172,7 @@ struct CountryView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(5),
             turnDuration: .constant(60),
-            onHome: {},
-            totalRounds: 3, // Aggiunto
-            timerDuration: 60// Aggiunto
+            onHome: {}
         )
     }
 }

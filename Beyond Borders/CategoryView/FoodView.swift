@@ -9,8 +9,6 @@ struct FoodView: View {
     @Binding var numRounds: Int
     @Binding var turnDuration: Int
     
-    var totalRounds: Int
-    var timerDuration: Int
     var onHome: () -> Void
     
     @State private var remainingTime: Int
@@ -36,16 +34,13 @@ struct FoodView: View {
         return foodquestions.randomElement() ?? "No questions available"
     }
     
-    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>, totalRounds: Int, timerDuration: Int, onHome: @escaping () -> Void) {
+    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void) {
         self._numParticipants = numParticipants
         self._participants = participants
         self._numRounds = numRounds
         self._turnDuration = turnDuration
-        self.totalRounds = totalRounds
-        self.timerDuration = timerDuration
         self.onHome = onHome
-        self._remainingTime = State(initialValue: timerDuration)
-        
+        self._remainingTime = State(initialValue: turnDuration.wrappedValue)
         let initialQuestion = foodquestions.randomElement() ?? "No questions available"
         self._randomQuestion = State(initialValue: initialQuestion)
     }
@@ -197,7 +192,7 @@ struct FoodView: View {
                                             HStack(spacing: 0) {
                                                 Rectangle()
                                                     .fill(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                                    .frame(width: CGFloat(remainingTime) / CGFloat(timerDuration) * 320, height: 70) // La larghezza diminuisce nel tempo
+                                                    .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 70) // La larghezza diminuisce nel tempo
                                                 
                                                 Spacer(minLength: 0)
                                             }
@@ -257,100 +252,100 @@ struct FoodView: View {
         }// End Nav Stack
         
     }
-     
-
-func stopTimer() {
-    if let timer = timer {
-        timer.invalidate()
-        self.timer = nil
-    }
-}
-
-func startTimer() {
-    timer?.invalidate()
-    remainingTime = timerDuration
-    timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-        if remainingTime > 0 {
-            remainingTime -= 1
-        } else {
-            endTurn()
+    
+    
+    func stopTimer() {
+        if let timer = timer {
+            timer.invalidate()
+            self.timer = nil
         }
     }
-}
-
-func endTurn() {
-    timer?.invalidate()
-    playSound()
     
-    if currentTurn + 1 < (extraRound ? participants.count : totalRounds * participants.count) {
-        currentTurn += 1
-        showTransitionScreen = true
-        showTimer = false
-    } else {
-        showEndScreen = true
+    func startTimer() {
+        timer?.invalidate()
+        remainingTime = turnDuration
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            if remainingTime > 0 {
+                remainingTime -= 1
+            } else {
+                endTurn()
+            }
+        }
     }
     
-}
-
-func playSound() {
-    AudioServicesPlaySystemSound(1005)
-}
-
-func currentTurnSafe() -> String? {
-    guard !turnOrder.isEmpty,
-          currentTurn / participants.count < turnOrder.count,
-          currentTurn % participants.count < turnOrder[currentTurn / participants.count].count else {
-        return nil
-    }
-    return turnOrder[currentTurn / participants.count][currentTurn % participants.count]
-}
-
-func formatTime(_ seconds: Int) -> String {
-    let minutes = seconds / 60
-    let secs = seconds % 60
-    return String(format: "%d:%02d", minutes, secs)
-}
-
-func generateTurnOrder() {
-    turnOrder = []
-    var lastParticipant = ""
-    for _ in 0..<(extraRound ? 1 : totalRounds) {
-        var order: [String]
-        repeat {
-            order = participants.shuffled()
-        } while !turnOrder.isEmpty && order.first == lastParticipant
+    func endTurn() {
+        timer?.invalidate()
+        playSound()
         
-        lastParticipant = order.last ?? ""
-        turnOrder.append(order)
+        if currentTurn + 1 < (extraRound ? participants.count : numRounds * participants.count) {
+            currentTurn += 1
+            showTransitionScreen = true
+            showTimer = false
+        } else {
+            showEndScreen = true
+        }
+        
     }
     
-    // Debug print to verify turn order generation
-    print("Generated Turn Order: \(turnOrder)")
-}
+    func playSound() {
+        AudioServicesPlaySystemSound(1005)
+    }
     
-func handleHome() {
+    func currentTurnSafe() -> String? {
+        guard !turnOrder.isEmpty,
+              currentTurn / participants.count < turnOrder.count,
+              currentTurn % participants.count < turnOrder[currentTurn / participants.count].count else {
+            return nil
+        }
+        return turnOrder[currentTurn / participants.count][currentTurn % participants.count]
+    }
+    
+    func formatTime(_ seconds: Int) -> String {
+        let minutes = seconds / 60
+        let secs = seconds % 60
+        return String(format: "%d:%02d", minutes, secs)
+    }
+    
+    func generateTurnOrder() {
+        turnOrder = []
+        var lastParticipant = ""
+        for _ in 0..<(extraRound ? 1 : numRounds) {
+            var order: [String]
+            repeat {
+                order = participants.shuffled()
+            } while !turnOrder.isEmpty && order.first == lastParticipant
+            
+            lastParticipant = order.last ?? ""
+            turnOrder.append(order)
+        }
+        
+        // Debug print to verify turn order generation
+        print("Generated Turn Order: \(turnOrder)")
+    }
+    
+    func handleHome() {
         stopTimer()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             onHome()
         }
     }
     
-func restartGame() {
-    if extraRound {
-        completedRounds += 1
-    }else{
-        completedRounds = totalRounds
+    func restartGame() {
+        if extraRound {
+            completedRounds += 1
+        }else{
+            completedRounds = numRounds
+            extraRound = true
+        }
+        currentTurn = 0
+        showEndScreen = false
+        showTransitionScreen = false
         extraRound = true
+        generateTurnOrder()
+        startTimer()
     }
-    currentTurn = 0
-    showEndScreen = false
-    showTransitionScreen = false
-    extraRound = true
-    generateTurnOrder()
-    startTimer()
-}
-
-
+    
+    
 }
 
 
@@ -361,8 +356,6 @@ struct FoodView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),
             turnDuration: .constant(60),
-            totalRounds: 3, // Aggiunto
-            timerDuration: 60, // Aggiunto
             onHome: {}
         )
     }

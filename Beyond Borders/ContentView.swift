@@ -7,8 +7,8 @@ struct ContentView: View {
     @State var numRounds: Int
     @State var turnDuration: Int
     var onStart: () -> Void
-    var totalRounds: Int
-    var timerDuration: Int
+//    var totalRounds: Int
+//    var timerDuration: Int
     var onHome: () -> Void
     
     @State private var isSettingsPresented = false
@@ -57,7 +57,7 @@ struct ContentView: View {
                                 .cornerRadius(30)
                         }
                         .fullScreenCover(isPresented: $isSettingsPresented) {
-                            SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)
+                            SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, onHome: onHome)
                             
                         }
 //                        NavigationLink(destination: SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)) {
@@ -90,8 +90,6 @@ struct ContentView: View {
         numRounds: 3,
         turnDuration: 60,
         onStart: {},
-        totalRounds: 3, // Aggiunto
-        timerDuration: 60,
         onHome: {} // Aggiunto
     )
 }

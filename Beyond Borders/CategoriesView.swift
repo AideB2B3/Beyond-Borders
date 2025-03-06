@@ -6,8 +6,6 @@ struct CategoriesView: View {
     @Binding var numRounds: Int
     @Binding var turnDuration: Int
     var onHome: () -> Void
-    var totalRounds: Int
-    var timerDuration: Int
     
     @State private var isLanguagePresented = false
     @State private var isFoodPresented = false
@@ -54,7 +52,7 @@ struct CategoriesView: View {
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isLanguagePresented){
-                        LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)
+                        LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
                     }
                     
                     .padding()
@@ -83,7 +81,7 @@ struct CategoriesView: View {
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isFoodPresented){
-                        FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)
+                        FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
                     }
                     
                     .padding()
@@ -112,7 +110,7 @@ struct CategoriesView: View {
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isCulturePresented){
-                        CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)
+                        CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
                     }
                     
                     .padding()
@@ -140,8 +138,8 @@ struct CategoriesView: View {
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .cornerRadius(50)
                     }
-                    .fullScreenCover(isPresented: $isCulturePresented){
-                        OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)
+                    .fullScreenCover(isPresented: $isOffensivePresented){
+                        OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
                     }
                     
                     .padding()
@@ -150,8 +148,6 @@ struct CategoriesView: View {
                 }
             }
         }
-        .tint(Color(red: 0.176, green: 0.188, blue: 0.278)) //Per colorare tasto back
-        .navigationBarBackButtonHidden(true) // leva il tasto back
     }
 }
 
@@ -162,10 +158,7 @@ struct CategoriesView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),
             turnDuration: .constant(60),
-            onHome: {},
-            totalRounds: 3, // Aggiunto
-            timerDuration: 60// Aggiunto
-            
+            onHome: {}
         )
     }
 }
