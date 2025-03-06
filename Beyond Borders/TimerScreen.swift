@@ -117,17 +117,7 @@ struct TimerScreen: View {
                     }
                     .frame(width: 250, height: 50)
                     Spacer()
-                    //                    HStack {
-                    //                        Button(action: handleHome) {
-                    //                            Label("Home", systemImage: "house.fill")
-                    //                                .font(.title3)
-                    //                                .padding()
-                    //                                .bold()
-                    //                                .frame(maxWidth: 150)
-                    //                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                    //                                .foregroundColor(.white)
-                    //                                .cornerRadius(30)
-                    //                        }
+                    
                     Button(action: endTurn) {
                         Text("Skip")
                             .font(.title)
@@ -139,12 +129,11 @@ struct TimerScreen: View {
                             .cornerRadius(30)
                     }
                     .padding(.horizontal)
-                    //                    }
+                   
                 }
                 .padding(.bottom, 40)
             }
         }
-        .navigationBarBackButtonHidden(true) // leva il tasto back
         .onAppear {
             if turnOrder.isEmpty {
                 generateTurnOrder()
