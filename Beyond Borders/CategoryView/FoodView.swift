@@ -24,6 +24,9 @@ struct FoodView: View {
     
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start
+    @State private var showNo = false
+    @State private var showYes = false
+    @State private var showTimer = false
     
     private func getRandomQuestion() -> String {
         return foodquestions.randomElement() ?? "No questions available"
@@ -42,7 +45,7 @@ struct FoodView: View {
         let initialQuestion = foodquestions.randomElement() ?? "No questions available"
         self._randomQuestion = State(initialValue: initialQuestion)
     }
-
+    
     
     var body: some View {
         NavigationStack {
@@ -103,73 +106,81 @@ struct FoodView: View {
                                     .bold()
                                     .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                                 
-        //                        Text("Round \(currentRound)")
-        //                            .font(.title3)
-        //                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-        //                            .bold()
+                                //                        Text("Round \(currentRound)")
+                                //                            .font(.title3)
+                                //                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                //                            .bold()
                             }
                             else {
                                 Text("Re open the app")
                             }
-                                
+                            
                             
                             Spacer()
                             
-                            Text("Do you agree?")
-                                .font(.title)
-                                .bold()
-                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                            
-                            
-                            
-                            
-                            HStack {
+                            if !showTimer{
+                                Text("Do you agree?")
+                                    .font(.title)
+                                    .bold()
+                                    .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                                 
-                                Spacer()
                                 
-                                Button("Yes"){
+                                
+                                
+                                HStack {
+                                    
+                                    Spacer()
+                                    
+                                    Button(action: {
+                                        showTimer = true // Nasconde il pulsante Start e mostra nuovi elementi
+                                    })
+                                    {
+                                        Text("Yes")
+                                            .font(.title)
+                                            .padding()
+                                            .bold()
+                                            .frame(width: 130, height: 70)
+                                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                            .foregroundColor(.white)
+                                            .cornerRadius(30)
+                                    }
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            showTimer = true // Nasconde il pulsante Start e mostra nuovi elementi
+                                        })
+                                        {
+                                            Text("No")
+                                                .font(.title)
+                                                .padding()
+                                                .bold()
+                                                .frame(width: 130, height: 70)
+                                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                                .foregroundColor(.white)
+                                                .cornerRadius(30)
+                                            
+                                            
+                                        }
+                                    Spacer()
                                     
                                 }
-                                .font(.title)
-                                .padding()
-                                .bold()
-                                .frame(width: 130, height: 70)
-                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                .foregroundColor(.white)
-                                .cornerRadius(30)
-                                
-                                Spacer()
-                                
-                                Button("No"){
-                                    
-                                }
-                                .font(.title)
-                                .padding()
-                                .bold()
-                                .frame(width: 130, height: 70)
-                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                .foregroundColor(.white)
-                                .cornerRadius(30)
-                                
-                                Spacer()
                                 
                             }
                             
                         }
                         .transition(.opacity) // Effetto di transizione
                     }
+                    
                 }
                 .padding(.bottom, 35)
-            }
-            .navigationBarBackButtonHidden(true)
-            
-            .onAppear {
-                // Ensure turn order is generated when view appears
-                if turnOrder.isEmpty {
-                    generateTurnOrder()
+                
+                .onAppear {
+                    // Ensure turn order is generated when view appears
+                    if turnOrder.isEmpty {
+                        generateTurnOrder()
+                    }
                 }
             }
-            
         }// End Nav Stack
     }
     
@@ -183,22 +194,22 @@ struct FoodView: View {
     }
     
     func generateTurnOrder() {
-            turnOrder = []
-            var lastParticipant = ""
-            for _ in 0..<(extraRound ? 1 : totalRounds) {
-                var order: [String]
-                repeat {
-                    order = participants.shuffled()
-                } while !turnOrder.isEmpty && order.first == lastParticipant
-                
-                lastParticipant = order.last ?? ""
-                turnOrder.append(order)
-            }
+        turnOrder = []
+        var lastParticipant = ""
+        for _ in 0..<(extraRound ? 1 : totalRounds) {
+            var order: [String]
+            repeat {
+                order = participants.shuffled()
+            } while !turnOrder.isEmpty && order.first == lastParticipant
             
-            // Debug print to verify turn order generation
-            print("Generated Turn Order: \(turnOrder)")
+            lastParticipant = order.last ?? ""
+            turnOrder.append(order)
         }
-
+        
+        // Debug print to verify turn order generation
+        print("Generated Turn Order: \(turnOrder)")
+    }
+    
     
 }
 
