@@ -22,13 +22,9 @@ struct FoodView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let foodquestions: [String] = [
-        "In [COUNTRY], there is a traditional dish that is prepared during major holidays.",
-        "The cuisine of [COUNTRY] is famous for using local and seasonal ingredients.",
-        "In [COUNTRY], it is traditional to share a special meal at family events and celebrations.",
-        "One of the most commonly used ingredients in the cuisine of [COUNTRY] is rice.",
-        "In [COUNTRY], some traditional recipes have remained unchanged for centuries and are part of the cultural heritage."
-    ]
+    let selectedCountry: Country
+    private var foodquestions: [String] = []
+    
     
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start
@@ -40,15 +36,25 @@ struct FoodView: View {
         return foodquestions.randomElement() ?? "No questions available"
     }
     
-    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void) {
+    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void,selectedCountry: Country) {
         self._numParticipants = numParticipants
         self._participants = participants
         self._numRounds = numRounds
         self._turnDuration = turnDuration
         self.onHome = onHome
-        self._remainingTime = State(initialValue: turnDuration.wrappedValue)
-        let initialQuestion = foodquestions.randomElement() ?? "No questions available"
-        self._randomQuestion = State(initialValue: initialQuestion)
+        self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
+        
+        self.foodquestions = [
+            "In \(selectedCountry.name), there is a traditional dish that is prepared during major holidays.",
+            "The cuisine of \(selectedCountry.name) is famous for using local and seasonal ingredients.",
+            "In \(selectedCountry.name), it is traditional to share a special meal at family events and celebrations.",
+            "One of the most commonly used ingredients in the cuisine of \(selectedCountry.name) is rice.",
+            "In \(selectedCountry.name), some traditional recipes have remained unchanged for centuries and are part of the cultural heritage."
+        ]
+        
+        // Inizializzazione delle variabili di stato
+        _remainingTime = State(initialValue: turnDuration.wrappedValue)
+        _randomQuestion = State(initialValue: foodquestions.randomElement() ?? "No questions available")
     }
     
     
@@ -74,7 +80,7 @@ struct FoodView: View {
                 } else {
                     
                     VStack {
-                        Text("Food / China")
+                        Text("Food / \(selectedCountry.name)")
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
@@ -369,7 +375,8 @@ struct FoodView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),
             turnDuration: .constant(60),
-            onHome: {}
+            onHome: {},
+            selectedCountry: Country(name: "Italy", flagImage: "flags_italy")
         )
     }
 }

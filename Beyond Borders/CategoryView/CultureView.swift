@@ -23,9 +23,7 @@ struct CultureView: View {
     @State private var turnOrder: [[String]] = []
     
     let selectedCountry: Country
-    
-    
-    let foodquestions: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V"]
+    private var culturequestions: [String] = []
     
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start
@@ -34,7 +32,7 @@ struct CultureView: View {
     @State private var showTimer = false
     
     private func getRandomQuestion() -> String {
-        return foodquestions.randomElement() ?? "No questions available"
+        return culturequestions.randomElement() ?? "No questions available"
     }
     
     init(numParticipants: Binding<Int>,
@@ -50,10 +48,18 @@ struct CultureView: View {
         self._turnDuration = turnDuration
         self.onHome = onHome
         self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
+        
+        self.culturequestions = [
+            "In \(selectedCountry.name), one of the most important traditional holidays is linked to a significant historical event.",
+            "The traditional architecture of \(selectedCountry.name) is characterized by unique elements that set it apart from other neighboring countries.",
+            "In \(selectedCountry.name), there is a traditional dance that is still practiced during official celebrations and festivals.",
+            "One of the oldest art forms in \(selectedCountry.name) is still displayed in major museums around the world.",
+            "In \(selectedCountry.name), some cultural rituals have been handed down for generations and are recognized by UNESCO as intangible heritage of humanity."
+        ]
 
         // Inizializzazione delle variabili di stato
         _remainingTime = State(initialValue: turnDuration.wrappedValue)
-        _randomQuestion = State(initialValue: foodquestions.randomElement() ?? "No questions available")
+        _randomQuestion = State(initialValue: culturequestions.randomElement() ?? "No questions available")
     }
 
     
@@ -96,7 +102,7 @@ struct CultureView: View {
                                         .stroke(Color(red: 0.176, green: 0.188, blue: 0.278), lineWidth: 4)
                                 )
                             
-                            Text(randomQuestion+" \(selectedCountry.name)")
+                            Text(randomQuestion)
                                 .font(.system(size: 25, weight: .bold))
                                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                                 .frame(width: 320)

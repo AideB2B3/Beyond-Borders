@@ -22,13 +22,8 @@ struct OffensiveView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let foodquestions: [String] = [
-        "In [COUNTRY], everyone follows the same traditions and customs without exception.",
-        "People in [COUNTRY] still dress only in traditional clothes in daily life?",
-        "In [COUNTRY], everyone practices the same religion.",
-        "People in [COUNTRY] all behave the same way because their culture is very rigid.",
-        "In [COUNTRY], women/men have fixed roles and cannot freely choose their lifestyle."
-    ]
+    let selectedCountry: Country
+    private var offensivequestions: [String] = []
     
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start
@@ -37,18 +32,28 @@ struct OffensiveView: View {
     @State private var showTimer = false
     
     private func getRandomQuestion() -> String {
-        return foodquestions.randomElement() ?? "No questions available"
+        return offensivequestions.randomElement() ?? "No questions available"
     }
     
-    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void) {
+    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void,selectedCountry: Country) {
         self._numParticipants = numParticipants
         self._participants = participants
         self._numRounds = numRounds
         self._turnDuration = turnDuration
         self.onHome = onHome
-        self._remainingTime = State(initialValue: turnDuration.wrappedValue)
-        let initialQuestion = foodquestions.randomElement() ?? "No questions available"
-        self._randomQuestion = State(initialValue: initialQuestion)
+        self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
+        
+        self.offensivequestions = [
+            "In \(selectedCountry.name), everyone follows the same traditions and customs without exception.",
+            "People in \(selectedCountry.name) still dress only in traditional clothes in daily life?",
+            "In \(selectedCountry.name), everyone practices the same religion.",
+            "People in \(selectedCountry.name) all behave the same way because their culture is very rigid.",
+            "In \(selectedCountry.name), women/men have fixed roles and cannot freely choose their lifestyle."
+        ]
+
+        // Inizializzazione delle variabili di stato
+        _remainingTime = State(initialValue: turnDuration.wrappedValue)
+        _randomQuestion = State(initialValue: offensivequestions.randomElement() ?? "No questions available")
     }
     
     
@@ -74,7 +79,7 @@ struct OffensiveView: View {
                 } else {
                     
                     VStack {
-                        Text("Offensive / China")
+                        Text("Offensive / \(selectedCountry.name)")
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
@@ -369,7 +374,8 @@ struct OffensiveView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),
             turnDuration: .constant(60),
-            onHome: {}
+            onHome: {},
+            selectedCountry: Country(name: "Italy", flagImage: "flags_italy")
         )
     }
 }

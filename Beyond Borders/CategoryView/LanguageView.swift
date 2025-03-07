@@ -22,13 +22,9 @@ struct LanguageView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let foodquestions: [String] = [
-        "In [COUNTRY], there are words or expressions that are untranslatable into other languages.",
-        "The official language of [COUNTRY] has been influenced by multiple foreign languages throughout history.",
-        "In [COUNTRY], there are regional dialects that vary significantly from the standard language.",
-        "The alphabet used in [COUNTRY] is the same as in English.",
-        "Some traditional expressions in [COUNTRY] are related to ancient proverbs."
-    ]
+    let selectedCountry: Country
+    private var languagequestions: [String] = []
+
     
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start
@@ -37,18 +33,28 @@ struct LanguageView: View {
     @State private var showTimer = false
     
     private func getRandomQuestion() -> String {
-        return foodquestions.randomElement() ?? "No questions available"
+        return languagequestions.randomElement() ?? "No questions available"
     }
     
-    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void) {
+    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void,selectedCountry: Country) {
         self._numParticipants = numParticipants
         self._participants = participants
         self._numRounds = numRounds
         self._turnDuration = turnDuration
         self.onHome = onHome
-        self._remainingTime = State(initialValue: turnDuration.wrappedValue)
-        let initialQuestion = foodquestions.randomElement() ?? "No questions available"
-        self._randomQuestion = State(initialValue: initialQuestion)
+        self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
+        
+        self.languagequestions = [
+            "In \(selectedCountry.name), there are words or expressions that are untranslatable into other languages.",
+            "The official language of \(selectedCountry.name) has been influenced by multiple foreign languages throughout history.",
+            "In \(selectedCountry.name), there are regional dialects that vary significantly from the standard language.",
+            "The alphabet used in \(selectedCountry.name) is the same as in English.",
+            "Some traditional expressions in \(selectedCountry.name) are related to ancient proverbs."
+        ]
+
+        // Inizializzazione delle variabili di stato
+        _remainingTime = State(initialValue: turnDuration.wrappedValue)
+        _randomQuestion = State(initialValue: languagequestions.randomElement() ?? "No questions available")
     }
     
     
@@ -74,7 +80,7 @@ struct LanguageView: View {
                 } else {
                     
                     VStack {
-                        Text("Language / China")
+                        Text("Language / \(selectedCountry.name)")
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
@@ -369,7 +375,8 @@ struct LanguageView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),
             turnDuration: .constant(60),
-            onHome: {}
+            onHome: {},
+            selectedCountry: Country(name: "Italy", flagImage: "flags_italy")
         )
     }
 }

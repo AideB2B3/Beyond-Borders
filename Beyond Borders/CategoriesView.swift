@@ -54,7 +54,7 @@ struct CategoriesView: View {
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isLanguagePresented){
-                        LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                        LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                     }
                     
                     .padding()
@@ -83,7 +83,7 @@ struct CategoriesView: View {
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isFoodPresented){
-                        FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                        FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                     }
                     
                     .padding()
@@ -141,7 +141,7 @@ struct CategoriesView: View {
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isOffensivePresented){
-                        OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                        OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                     }
                     
                     .padding()
