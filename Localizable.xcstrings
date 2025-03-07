@@ -1,7 +1,149 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    " Is touching someone's head considered disrespectful in Romania?" : {
 
+    },
+    "%@" : {
+      "comment" : "%@ = participants "
+    },
+    "Choose The Category!" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "श्रेणी चुनें!"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli La Categoria!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kategori Seçin! "
+          }
+        }
+      }
+    },
+    "Coming Soon..." : {
+
+    },
+    "currentQuestion" : {
+
+    },
+    "E' vero o non è vero?" : {
+
+    },
+    "Festivals" : {
+
+    },
+    "Festivals / India" : {
+
+    },
+    "Food" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "खाना"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cibo "
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yemek"
+          }
+        }
+      }
+    },
+    "Food / China" : {
+
+    },
+    "Home" : {
+
+    },
+    "Insert Name %lld" : {
+      "comment" : "Insert Name : \"name of participant\""
+    },
+    "Is TOUCHING the feet of elders during festivals common in India?" : {
+
+    },
+    "Language" : {
+
+    },
+    "Language / Turkey" : {
+
+    },
+    "Match Settings" : {
+
+    },
+    "Next" : {
+
+    },
+    "Next turn: %@" : {
+      "comment" : "Next turn: \"name of participant\""
+    },
+    "Nome partecipante" : {
+
+    },
+    "Offensive / Romania" : {
+
+    },
+    "Offensive Rumors" : {
+
+    },
+    "Round" : {
+
+    },
+    "Rounds: %lld" : {
+      "comment" : "%lld = number of rounds"
+    },
+    "Skip" : {
+
+    },
+    "spin the globe \nland on a country \nprova prova " : {
+
+    },
+    "start" : {
+
+    },
+    "Start" : {
+
+    },
+    "Start Screen" : {
+
+    },
+    "Tap to choose a country" : {
+
+    },
+    "Tap to Start the Turn" : {
+
+    },
+    "Total People: %lld" : {
+      "comment" : "%lld = number of participant"
+    },
+    "Turn Duration: %lld sec" : {
+      "comment" : "%lld = number of participant"
+    },
+    "V" : {
+
+    },
+    "Which is the most common language spoken in Turkey?" : {
+
+    },
+    "X" : {
+
+    }
   },
   "version" : "1.0"
 }
