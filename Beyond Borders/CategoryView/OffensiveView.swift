@@ -44,11 +44,26 @@ struct OffensiveView: View {
         self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
         
         self.offensivequestions = [
-            "In \(selectedCountry.name), everyone follows the same traditions and customs without exception.",
-            "People in \(selectedCountry.name) still dress only in traditional clothes in daily life?",
-            "In \(selectedCountry.name), everyone practices the same religion.",
-            "People in \(selectedCountry.name) all behave the same way because their culture is very rigid.",
-            "In \(selectedCountry.name), women/men have fixed roles and cannot freely choose their lifestyle."
+            "People in \(selectedCountry.name) are often stereotyped as being rude or unfriendly.",
+            "It is commonly believed that people in \(selectedCountry.name) are overly nationalistic.",
+            "There are rumours that people in \(selectedCountry.name) are always involved in corruption.",
+            "Many outsiders think that the people in \(selectedCountry.name) are hostile towards foreigners.",
+            "People in \(selectedCountry.name) are often accused of being intolerant of other cultures.",
+            "Some say that the people in \(selectedCountry.name) are untrustworthy in business dealings.",
+            "People in \(selectedCountry.name) are often wrongly believed to be unfriendly to outsiders.",
+            "There are common misconceptions that people in \(selectedCountry.name) have a bad sense of humor.",
+            "People in \(selectedCountry.name) are often thought to be lazy or unwilling to work hard.",
+            "Many people believe that the people in \(selectedCountry.name) are overly conservative.",
+            "Outsiders often think that people in \(selectedCountry.name) are too materialistic.",
+            "There are rumours that people in \(selectedCountry.name) are extremely closed-minded.",
+            "It is often said that people in \(selectedCountry.name) are obsessed with social status and wealth.",
+            "People in \(selectedCountry.name) are sometimes unfairly labelled as being violent or aggressive.",
+            "There is a belief that people in \(selectedCountry.name) are intolerant towards immigrants.",
+            "Some people think that people in \(selectedCountry.name) are excessively traditional.",
+            "People in \(selectedCountry.name) are often said to be resistant to change or progress.",
+            "People from \(selectedCountry.name) are sometimes unfairly seen as unsophisticated or unrefined.",
+            "There are rumours that people in \(selectedCountry.name) are always suspicious of outsiders.",
+            "People in \(selectedCountry.name) are often portrayed as being obsessed with rules and regulations."
         ]
 
         // Inizializzazione delle variabili di stato

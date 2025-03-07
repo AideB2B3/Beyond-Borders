@@ -45,11 +45,26 @@ struct FoodView: View {
         self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
         
         self.foodquestions = [
-            "In \(selectedCountry.name), there is a traditional dish that is prepared during major holidays.",
-            "The cuisine of \(selectedCountry.name) is famous for using local and seasonal ingredients.",
-            "In \(selectedCountry.name), it is traditional to share a special meal at family events and celebrations.",
-            "One of the most commonly used ingredients in the cuisine of \(selectedCountry.name) is rice.",
-            "In \(selectedCountry.name), some traditional recipes have remained unchanged for centuries and are part of the cultural heritage."
+            "Food in \(selectedCountry.name) is known for being very spicy.",
+            "Rice and bread are staple foods in \(selectedCountry.name).",
+            "Street food is a significant part of the food culture in \(selectedCountry.name).",
+            "Meat is commonly used in traditional dishes in \(selectedCountry.name).",
+            "Vegetarian or vegan diets are widely accepted in \(selectedCountry.name).",
+            "There is one dish considered to be the national food in \(selectedCountry.name).",
+            "Seafood is a significant part of the cuisine in \(selectedCountry.name).",
+            "Breakfast is considered the most important meal of the day in \(selectedCountry.name).",
+            "Meals in \(selectedCountry.name) are often served with a variety of sauces or dips.",
+            "Fast food culture is very popular in \(selectedCountry.name).",
+            "People in \(selectedCountry.name) often eat together as a family or community.",
+            "Large feast or celebration meals are a common tradition in \(selectedCountry.name).",
+            "Food in \(selectedCountry.name) is typically served in large portions.",
+            "Desserts and sweet treats are unique to the cuisine of \(selectedCountry.name).",
+            "Herbs and spices are frequently used to enhance food in \(selectedCountry.name).",
+            "Local food in \(selectedCountry.name) is often prepared with fresh, locally-sourced ingredients.",
+            "Food in \(selectedCountry.name) is often cooked or served in a way that emphasizes grilling or roasting.",
+            "A particular type of fruit or vegetable is widely grown and consumed in \(selectedCountry.name).",
+            "The food culture in \(selectedCountry.name) has been influenced by other countries or regions.",
+            "Meals in \(selectedCountry.name) are often accompanied by alcoholic beverages like wine or beer."
         ]
         
         // Inizializzazione delle variabili di stato

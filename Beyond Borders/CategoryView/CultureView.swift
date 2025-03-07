@@ -50,12 +50,28 @@ struct CultureView: View {
         self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
         
         self.culturequestions = [
-            "In \(selectedCountry.name), one of the most important traditional holidays is linked to a significant historical event.",
-            "The traditional architecture of \(selectedCountry.name) is characterized by unique elements that set it apart from other neighboring countries.",
-            "In \(selectedCountry.name), there is a traditional dance that is still practiced during official celebrations and festivals.",
-            "One of the oldest art forms in \(selectedCountry.name) is still displayed in major museums around the world.",
-            "In \(selectedCountry.name), some cultural rituals have been handed down for generations and are recognized by UNESCO as intangible heritage of humanity."
-        ]
+                "Family remains the cornerstone of society in \(selectedCountry.name), shaping traditions and daily life.",
+                "In \(selectedCountry.name), great emphasis is placed on showing respect to elders in both speech and actions.",
+                "Traditional festivals and celebrations in \(selectedCountry.name) are deeply rooted in history and widely observed.",
+                "Gatherings and parties are an integral part of social life in \(selectedCountry.name), strengthening community bonds.",
+                "A deep sense of national pride influences cultural expressions and daily interactions in \(selectedCountry.name).",
+                "Traditional art, music, and dance in \(selectedCountry.name) continue to thrive as symbols of cultural identity.",
+                "Special occasions in \(selectedCountry.name) are marked by the wearing of traditional clothing and specific dress codes.",
+                "Hospitality is a defining cultural trait in \(selectedCountry.name), with guests warmly welcomed into homes.",
+                "Religious practices play a fundamental role in the daily lives of people in \(selectedCountry.name).",
+                "In \(selectedCountry.name), personal space is a key consideration in social interactions and public settings.",
+                "Older traditions and customs in \(selectedCountry.name) are highly respected and passed down through generations.",
+                "Punctuality is regarded as an essential social norm in \(selectedCountry.name), reflecting discipline and respect.",
+                "Greetings in \(selectedCountry.name) follow unique cultural customs that differ from those of other nations.",
+                "Public holidays in \(selectedCountry.name) are closely tied to cultural and religious traditions.",
+                "In \(selectedCountry.name), people switch between formal and informal speech depending on social context.",
+                "Maintaining strong family connections is a cultural priority in \(selectedCountry.name), influencing daily interactions.",
+                "The people of \(selectedCountry.name) are renowned for their openness and hospitality towards guests.",
+                "Younger generations in \(selectedCountry.name) actively engage in preserving traditional cultural practices.",
+                "National pride in \(selectedCountry.name) is reflected in public behavior and traditional dress.",
+                "A strong sense of community and collective responsibility defines social interactions in \(selectedCountry.name)."
+            ]
+
 
         // Inizializzazione delle variabili di stato
         _remainingTime = State(initialValue: turnDuration.wrappedValue)

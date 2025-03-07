@@ -45,11 +45,26 @@ struct LanguageView: View {
         self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
         
         self.languagequestions = [
-            "In \(selectedCountry.name), there are words or expressions that are untranslatable into other languages.",
-            "The official language of \(selectedCountry.name) has been influenced by multiple foreign languages throughout history.",
-            "In \(selectedCountry.name), there are regional dialects that vary significantly from the standard language.",
-            "The alphabet used in \(selectedCountry.name) is the same as in English.",
-            "Some traditional expressions in \(selectedCountry.name) are related to ancient proverbs."
+            "The official language is widely spoken by the entire population in \(selectedCountry.name).",
+            "English is commonly used as a second language in \(selectedCountry.name).",
+            "People in \(selectedCountry.name) have a distinct accent that is difficult to understand for outsiders.",
+            "Multiple languages are officially recognized in \(selectedCountry.name).",
+            "The local language in \(selectedCountry.name) is similar to that of neighbouring countries.",
+            "The writing system in \(selectedCountry.name) is different from the Latin alphabet.",
+            "Learning the local language in \(selectedCountry.name) is difficult for foreigners.",
+            "The pronunciation in \(selectedCountry.name) differs significantly from other countries that speak the same language.",
+            "There is a noticeable difference between spoken and written language in \(selectedCountry.name).",
+            "The native language in \(selectedCountry.name) is spoken widely outside the country.",
+            "Slang and informal speech are important parts of daily communication in \(selectedCountry.name).",
+            "Foreign languages are commonly mixed with the local language in \(selectedCountry.name).",
+            "The local language in \(selectedCountry.name) has a complex grammar system.",
+            "The official language in \(selectedCountry.name) is one of the oldest languages in the world.",
+            "The language spoken in \(selectedCountry.name) has many dialects depending on the region.",
+            "It is common for people in \(selectedCountry.name) to switch between languages when speaking.",
+            "People in \(selectedCountry.name) tend to have a high level of fluency in more than one language.",
+            "The local language in \(selectedCountry.name) has many borrowed words from other languages.",
+            "The local language in \(selectedCountry.name) has a unique set of phonetic rules.",
+            "The way people speak in \(selectedCountry.name) changes based on formality and the situation."
         ]
 
         // Inizializzazione delle variabili di stato
