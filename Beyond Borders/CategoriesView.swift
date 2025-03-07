@@ -11,6 +11,8 @@ struct CategoriesView: View {
     @State private var isFoodPresented = false
     @State private var isCulturePresented = false
     @State private var isOffensivePresented = false
+    
+    let selectedCountry: Country
 
     var body: some View {
 
@@ -110,7 +112,7 @@ struct CategoriesView: View {
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isCulturePresented){
-                        CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                        CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                     }
                     
                     .padding()
@@ -158,8 +160,10 @@ struct CategoriesView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),
             turnDuration: .constant(60),
-            onHome: {}
+            onHome: {},
+            selectedCountry: Country(name: "Italy", flagImage: "flags_italy")
         )
     }
 }
+
 

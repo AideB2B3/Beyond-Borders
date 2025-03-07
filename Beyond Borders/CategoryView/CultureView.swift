@@ -22,13 +22,10 @@ struct CultureView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let foodquestions: [String] = [
-        "In [COUNTRY], one of the most important traditional holidays is linked to a significant historical event.",
-        "The traditional architecture of [COUNTRY] is characterized by unique elements that distinguish it from other neighboring countries.",
-        "In [COUNTRY], there is a traditional dance that is still practiced during official celebrations and festivals.",
-        "One of the oldest art forms in [COUNTRY] is still displayed in major museums around the world.",
-        "In [COUNTRY], some cultural rituals have been passed down for generations and are recognized by UNESCO as intangible heritage of humanity. "
-    ]
+    let selectedCountry: Country
+    
+    
+    let foodquestions: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V"]
     
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start
@@ -40,16 +37,25 @@ struct CultureView: View {
         return foodquestions.randomElement() ?? "No questions available"
     }
     
-    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void) {
+    init(numParticipants: Binding<Int>,
+         participants: Binding<[String]>,
+         numRounds: Binding<Int>,
+         turnDuration: Binding<Int>,
+         onHome: @escaping () -> Void,
+         selectedCountry: Country) {
+        
         self._numParticipants = numParticipants
         self._participants = participants
         self._numRounds = numRounds
         self._turnDuration = turnDuration
         self.onHome = onHome
-        self._remainingTime = State(initialValue: turnDuration.wrappedValue)
-        let initialQuestion = foodquestions.randomElement() ?? "No questions available"
-        self._randomQuestion = State(initialValue: initialQuestion)
+        self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
+
+        // Inizializzazione delle variabili di stato
+        _remainingTime = State(initialValue: turnDuration.wrappedValue)
+        _randomQuestion = State(initialValue: foodquestions.randomElement() ?? "No questions available")
     }
+
     
     
     var body: some View {
@@ -74,7 +80,7 @@ struct CultureView: View {
                 } else {
                     
                     VStack {
-                        Text("Culture / China")
+                        Text("Culture - \(selectedCountry.name)")
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
@@ -90,7 +96,7 @@ struct CultureView: View {
                                         .stroke(Color(red: 0.176, green: 0.188, blue: 0.278), lineWidth: 4)
                                 )
                             
-                            Text(randomQuestion)
+                            Text(randomQuestion+" \(selectedCountry.name)")
                                 .font(.system(size: 25, weight: .bold))
                                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                                 .frame(width: 320)
@@ -369,7 +375,8 @@ struct CultureView_Previews: PreviewProvider {
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),
             turnDuration: .constant(60),
-            onHome: {}
+            onHome: {},
+            selectedCountry: Country(name: "Italy", flagImage: "flags_italy")
         )
     }
 }

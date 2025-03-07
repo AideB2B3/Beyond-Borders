@@ -2,6 +2,11 @@ import SwiftUI
 import Lottie
 import AVFoundation
 
+//struct Country : Equatable {
+//    let name: String
+//    let flagImage: String
+//}
+
 struct CountryView: View {
     
     @Binding var numParticipants: Int
@@ -18,11 +23,6 @@ struct CountryView: View {
     @State private var selectedCountry: Country = Country(name: "", flagImage: "")
     
     @State private var isCategoriesPresented = false
-    
-    struct Country {
-        let name: String
-        let flagImage: String
-    }
     
     let countries: [Country] = [
         Country(name: "Afghanistan", flagImage: "flags_afghanistan"),
@@ -144,7 +144,7 @@ struct CountryView: View {
                     .padding(.bottom, 30)
                     
                     .fullScreenCover(isPresented: $isCategoriesPresented){
-                        CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                        CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry: selectedCountry)
                     }
                     
                 }
