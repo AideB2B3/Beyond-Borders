@@ -22,7 +22,13 @@ struct CultureView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let foodquestions: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V"]
+    let foodquestions: [String] = [
+        "In [COUNTRY], one of the most important traditional holidays is linked to a significant historical event.",
+        "The traditional architecture of [COUNTRY] is characterized by unique elements that distinguish it from other neighboring countries.",
+        "In [COUNTRY], there is a traditional dance that is still practiced during official celebrations and festivals.",
+        "One of the oldest art forms in [COUNTRY] is still displayed in major museums around the world.",
+        "In [COUNTRY], some cultural rituals have been passed down for generations and are recognized by UNESCO as intangible heritage of humanity. "
+    ]
     
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start

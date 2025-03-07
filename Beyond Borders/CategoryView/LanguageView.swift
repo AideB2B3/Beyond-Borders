@@ -22,7 +22,13 @@ struct LanguageView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let foodquestions: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V"]
+    let foodquestions: [String] = [
+        "In [COUNTRY], there are words or expressions that are untranslatable into other languages.",
+        "The official language of [COUNTRY] has been influenced by multiple foreign languages throughout history.",
+        "In [COUNTRY], there are regional dialects that vary significantly from the standard language.",
+        "The alphabet used in [COUNTRY] is the same as in English.",
+        "Some traditional expressions in [COUNTRY] are related to ancient proverbs."
+    ]
     
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start

@@ -22,7 +22,13 @@ struct FoodView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let foodquestions: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V"]
+    let foodquestions: [String] = [
+        "In [COUNTRY], there is a traditional dish that is prepared during major holidays.",
+        "The cuisine of [COUNTRY] is famous for using local and seasonal ingredients.",
+        "In [COUNTRY], it is traditional to share a special meal at family events and celebrations.",
+        "One of the most commonly used ingredients in the cuisine of [COUNTRY] is rice.",
+        "In [COUNTRY], some traditional recipes have remained unchanged for centuries and are part of the cultural heritage."
+    ]
     
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start
