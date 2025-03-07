@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    " Is touching someone's head considered disrespectful in Romania?" : {
-
-    },
     "%@" : {
       "comment" : "%@ = participants "
     },
@@ -32,16 +29,13 @@
     "Coming Soon..." : {
 
     },
-    "currentQuestion" : {
+    "Culture" : {
 
     },
-    "E' vero o non è vero?" : {
+    "Culture - %@" : {
 
     },
-    "Festivals" : {
-
-    },
-    "Festivals / India" : {
+    "Do you agree?" : {
 
     },
     "Food" : {
@@ -75,13 +69,10 @@
     "Insert Name %lld" : {
       "comment" : "Insert Name : \"name of participant\""
     },
-    "Is TOUCHING the feet of elders during festivals common in India?" : {
-
-    },
     "Language" : {
 
     },
-    "Language / Turkey" : {
+    "Language / China" : {
 
     },
     "Match Settings" : {
@@ -93,13 +84,16 @@
     "Next turn: %@" : {
       "comment" : "Next turn: \"name of participant\""
     },
-    "Nome partecipante" : {
+    "No" : {
 
     },
-    "Offensive / Romania" : {
+    "Offensive / China" : {
 
     },
     "Offensive Rumors" : {
+
+    },
+    "Re open the app" : {
 
     },
     "Round" : {
@@ -112,9 +106,6 @@
 
     },
     "spin the globe \nland on a country \nprova prova " : {
-
-    },
-    "start" : {
 
     },
     "Start" : {
@@ -135,13 +126,7 @@
     "Turn Duration: %lld sec" : {
       "comment" : "%lld = number of participant"
     },
-    "V" : {
-
-    },
-    "Which is the most common language spoken in Turkey?" : {
-
-    },
-    "X" : {
+    "Yes" : {
 
     }
   },
