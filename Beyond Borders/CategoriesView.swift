@@ -6,6 +6,11 @@ struct CategoriesView: View {
     @Binding var numRounds: Int
     @Binding var turnDuration: Int
     var onHome: () -> Void
+    
+    @State private var isLanguagePresented = false
+    @State private var isFoodPresented = false
+    @State private var isCulturePresented = false
+    @State private var isOffensivePresented = false
 
     var body: some View {
 
@@ -23,7 +28,21 @@ struct CategoriesView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: LanguageView()) {
+//                    NavigationLink(destination: LanguageView()) {
+//                        Text("Language")
+//                            .font(.title2)
+//                            .bold()
+//                            .frame(width: 350, height: 60)
+//                            .background(Color(red: 0.364, green: 0.635, blue: 0.443))
+//                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+//                            .cornerRadius(50)
+//                    }
+                    
+                    Button(action: {
+                        print("Settings Button tapped")
+                        isLanguagePresented = true  // Mostra la schermata delle nazioni
+                        
+                    }) {
                         Text("Language")
                             .font(.title2)
                             .bold()
@@ -32,9 +51,27 @@ struct CategoriesView: View {
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .cornerRadius(50)
                     }
+                    .fullScreenCover(isPresented: $isLanguagePresented){
+                        LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                    }
+                    
                     .padding()
                     
-                    NavigationLink(destination: FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)) {
+//                    NavigationLink(destination: FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)) {
+//                        Text("Food")
+//                            .font(.title2)
+//                            .bold()
+//                            .frame(width: 350, height: 60)
+//                            .background(Color(red: 1, green: 0.647, blue: 0.274))
+//                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+//                            .cornerRadius(50)
+//                    }
+                    
+                    Button(action: {
+                        print("Settings Button tapped")
+                        isFoodPresented = true  // Mostra la schermata delle nazioni
+                        
+                    }) {
                         Text("Food")
                             .font(.title2)
                             .bold()
@@ -43,10 +80,28 @@ struct CategoriesView: View {
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .cornerRadius(50)
                     }
+                    .fullScreenCover(isPresented: $isFoodPresented){
+                        FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                    }
+                    
                     .padding()
                     
-                    NavigationLink(destination: FestivalsView()) {
-                        Text("Festivals")
+//                    NavigationLink(destination: FestivalsView()) {
+//                        Text("Festivals")
+//                            .font(.title2)
+//                            .bold()
+//                            .frame(width: 350, height: 60)
+//                            .background(Color(red: 0.286, green: 0.678, blue: 0.635))
+//                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+//                            .cornerRadius(50)
+//                    }
+                    
+                    Button(action: {
+                        print("Settings Button tapped")
+                        isCulturePresented = true  // Mostra la schermata delle nazioni
+                        
+                    }) {
+                        Text("Culture")
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
@@ -54,9 +109,27 @@ struct CategoriesView: View {
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .cornerRadius(50)
                     }
+                    .fullScreenCover(isPresented: $isCulturePresented){
+                        CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                    }
+                    
                     .padding()
                     
-                    NavigationLink(destination: OffensiveView()) {
+//                    NavigationLink(destination: OffensiveView()) {
+//                        Text("Offensive Rumors")
+//                            .font(.title2)
+//                            .bold()
+//                            .frame(width: 350, height: 60)
+//                            .background(Color(red: 0.588, green: 0.447, blue: 0.584))
+//                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+//                            .cornerRadius(50)
+//                    }
+                    
+                    Button(action: {
+                        print("Settings Button tapped")
+                        isOffensivePresented = true  // Mostra la schermata delle nazioni
+                        
+                    }) {
                         Text("Offensive Rumors")
                             .font(.title2)
                             .bold()
@@ -65,16 +138,19 @@ struct CategoriesView: View {
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .cornerRadius(50)
                     }
+                    .fullScreenCover(isPresented: $isOffensivePresented){
+                        OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                    }
+                    
                     .padding()
                     
                     Spacer()
                 }
             }
         }
-        .tint(Color(red: 0.176, green: 0.188, blue: 0.278)) //Per colorare tasto back
-        .navigationBarBackButtonHidden(true) // leva il tasto back
     }
 }
+
 struct CategoriesView_Previews: PreviewProvider {
     static var previews: some View {
         CategoriesView(
@@ -86,3 +162,4 @@ struct CategoriesView_Previews: PreviewProvider {
         )
     }
 }
+

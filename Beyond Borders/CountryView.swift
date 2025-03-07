@@ -17,6 +17,8 @@ struct CountryView: View {
     @State private var isPlaying = false
     @State private var selectedCountry: Country = Country(name: "", flagImage: "")
     
+    @State private var isCategoriesPresented = false
+    
     struct Country {
         let name: String
         let flagImage: String
@@ -114,22 +116,41 @@ struct CountryView: View {
                 Spacer()
 
                 if showStartButton {
-                    NavigationLink(destination: CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)) {
+//                    NavigationLink(destination: CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, totalRounds: totalRounds, timerDuration: timerDuration)) {
+//                        Text("Next")
+//                            .font(.title3)
+//                            .padding()
+//                            .bold()
+//                            .frame(maxWidth: 150)
+//                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+//                            .foregroundColor(.white)
+//                            .cornerRadius(30)
+//                    }
+                    
+                    Button(action: {
+                        print("Settings Button tapped")
+                        isCategoriesPresented = true  // Mostra la schermata delle nazioni
+                        
+                    }) {
                         Text("Next")
-                            .font(.title3)
+                            .font(.title)
                             .padding()
                             .bold()
-                            .frame(maxWidth: 150)
+                            .frame(width: 130, height: 70)
                             .background(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
                     .padding(.bottom, 30)
+                    
+                    .fullScreenCover(isPresented: $isCategoriesPresented){
+                        CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome)
+                    }
+                    
                 }
             } // end VStack
             .padding(.horizontal, 20)
         } // end ZStack
-        .navigationBarBackButtonHidden(true) // leva il tasto back
     } // End Body
     
     func playSound() {

@@ -2,7 +2,7 @@ import SwiftUI
 import AVFoundation
 import AudioToolbox
 
-struct OffensiveView: View {
+struct CultureView: View {
     
     @Binding var participants: [String]
     @Binding var numParticipants: Int
@@ -49,7 +49,7 @@ struct OffensiveView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(red: 0.588, green: 0.447, blue: 0.584)
+                Color(red: 0.286, green: 0.678, blue: 0.635)
                     .ignoresSafeArea()
                 
                 if showEndScreen {
@@ -62,13 +62,13 @@ struct OffensiveView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(red: 0.588, green: 0.447, blue: 0.584)  // Culture View's background color
+                            backgroundColor: Color(red: 0.286, green: 0.678, blue: 0.635)  // Culture View's background color
                         )
                     }
                 } else {
                     
                     VStack {
-                        Text("Offensive / China")
+                        Text("Culture / China")
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
@@ -229,7 +229,7 @@ struct OffensiveView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(red: 0.588, green: 0.447, blue: 0.584)  // Culture View's background color
+                                                backgroundColor: Color(red: 0.286, green: 0.678, blue: 0.635)  // Culture View's background color
                                             )
                                         }
                                         
@@ -260,105 +260,105 @@ struct OffensiveView: View {
         }// End Nav Stack
         
     }
-    
-    
-    func stopTimer() {
-        if let timer = timer {
-            timer.invalidate()
-            self.timer = nil
-        }
+     
+
+func stopTimer() {
+    if let timer = timer {
+        timer.invalidate()
+        self.timer = nil
     }
-    
-    func startTimer() {
-        timer?.invalidate()
-        remainingTime = turnDuration
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if remainingTime > 0 {
-                remainingTime -= 1
-            } else {
-                endTurn()
-            }
-        }
-    }
-    
-    func endTurn() {
-        timer?.invalidate()
-        playSound()
-        
-        if currentTurn + 1 < (extraRound ? participants.count : numRounds * participants.count) {
-            currentTurn += 1
-            showTransitionScreen = true
-            showTimer = false
+}
+
+func startTimer() {
+    timer?.invalidate()
+    remainingTime = turnDuration
+    timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+        if remainingTime > 0 {
+            remainingTime -= 1
         } else {
-            showEndScreen = true
+            endTurn()
         }
+    }
+}
+
+func endTurn() {
+    timer?.invalidate()
+    playSound()
+    
+    if currentTurn + 1 < (extraRound ? participants.count : numRounds * participants.count) {
+        currentTurn += 1
+        showTransitionScreen = true
+        showTimer = false
+    } else {
+        showEndScreen = true
+    }
+    
+}
+
+func playSound() {
+    AudioServicesPlaySystemSound(1005)
+}
+
+func currentTurnSafe() -> String? {
+    guard !turnOrder.isEmpty,
+          currentTurn / participants.count < turnOrder.count,
+          currentTurn % participants.count < turnOrder[currentTurn / participants.count].count else {
+        return nil
+    }
+    return turnOrder[currentTurn / participants.count][currentTurn % participants.count]
+}
+
+func formatTime(_ seconds: Int) -> String {
+    let minutes = seconds / 60
+    let secs = seconds % 60
+    return String(format: "%d:%02d", minutes, secs)
+}
+
+func generateTurnOrder() {
+    turnOrder = []
+    var lastParticipant = ""
+    for _ in 0..<(extraRound ? 1 : numRounds) {
+        var order: [String]
+        repeat {
+            order = participants.shuffled()
+        } while !turnOrder.isEmpty && order.first == lastParticipant
         
+        lastParticipant = order.last ?? ""
+        turnOrder.append(order)
     }
     
-    func playSound() {
-        AudioServicesPlaySystemSound(1005)
-    }
+    // Debug print to verify turn order generation
+    print("Generated Turn Order: \(turnOrder)")
+}
     
-    func currentTurnSafe() -> String? {
-        guard !turnOrder.isEmpty,
-              currentTurn / participants.count < turnOrder.count,
-              currentTurn % participants.count < turnOrder[currentTurn / participants.count].count else {
-            return nil
-        }
-        return turnOrder[currentTurn / participants.count][currentTurn % participants.count]
-    }
-    
-    func formatTime(_ seconds: Int) -> String {
-        let minutes = seconds / 60
-        let secs = seconds % 60
-        return String(format: "%d:%02d", minutes, secs)
-    }
-    
-    func generateTurnOrder() {
-        turnOrder = []
-        var lastParticipant = ""
-        for _ in 0..<(extraRound ? 1 : numRounds) {
-            var order: [String]
-            repeat {
-                order = participants.shuffled()
-            } while !turnOrder.isEmpty && order.first == lastParticipant
-            
-            lastParticipant = order.last ?? ""
-            turnOrder.append(order)
-        }
-        
-        // Debug print to verify turn order generation
-        print("Generated Turn Order: \(turnOrder)")
-    }
-    
-    func handleHome() {
+func handleHome() {
         stopTimer()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             onHome()
         }
     }
     
-    func restartGame() {
-        if extraRound {
-            completedRounds += 1
-        }else{
-            completedRounds = numRounds
-            extraRound = true
-        }
-        currentTurn = 0
-        showEndScreen = false
-        showTransitionScreen = false
+func restartGame() {
+    if extraRound {
+        completedRounds += 1
+    }else{
+        completedRounds = numRounds
         extraRound = true
-        generateTurnOrder()
-        startTimer()
     }
-    
-    
+    currentTurn = 0
+    showEndScreen = false
+    showTransitionScreen = false
+    extraRound = true
+    generateTurnOrder()
+    startTimer()
 }
 
-struct OffensiveView_Previews: PreviewProvider {
+
+}
+
+struct CultureView_Previews: PreviewProvider {
     static var previews: some View {
-        OffensiveView(
+        CultureView(
             numParticipants: .constant(3),
             participants: .constant(["Alice", "Bob", "Charlie"]),
             numRounds: .constant(3),

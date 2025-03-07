@@ -16,8 +16,12 @@ struct BBApp: App {
                 turnDuration: turnDuration,
                 onStart: {
                     print("Discussion Started with \(numParticipants) participants")
+                },
+                onHome: {
+                    print("Returning to Home")
                 }
             )
         }
     }
 }
+
