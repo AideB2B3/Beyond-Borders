@@ -102,15 +102,19 @@ struct FoodView: View {
                             .padding(.top, 50)
                         
                         ZStack {
-                            Rectangle()
-                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
-                                .frame(width: 350, height: 200)
-                                .cornerRadius(20)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color(red: 0.176, green: 0.188, blue: 0.278), lineWidth: 4)
-                                )
                             
+                            Image("rettangolo bb")
+                                .resizable()
+                                .scaledToFit( )
+//                            Rectangle()
+//                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
+//                                .frame(width: 350, height: 200)
+//                                .cornerRadius(20)
+//                                .overlay(
+//                                    RoundedRectangle(cornerRadius: 20)
+//                                        .stroke(Color(red: 0.176, green: 0.188, blue: 0.278), lineWidth: 4)
+//                                )
+//                            
                             Text(randomQuestion)
                                 .font(.system(size: 25, weight: .bold))
                                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
