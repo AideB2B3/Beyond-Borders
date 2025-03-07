@@ -56,10 +56,14 @@ struct CultureView: View {
                     EndScreen(onRestart: restartGame, onHome: handleHome)
                 } else if showTransitionScreen {
                     if let currentParticipant = currentTurnSafe() {
-                        TransitionScreen(nextParticipant: currentParticipant) {
-                            startTimer()
-                            showTransitionScreen = false
-                        }
+                        TransitionScreen(
+                            nextParticipant: currentParticipant,
+                            onTap: {
+                                startTimer()
+                                showTransitionScreen = false
+                            },
+                            backgroundColor: Color(red: 0.286, green: 0.678, blue: 0.635)  // Culture View's background color
+                        )
                     }
                 } else {
                     
@@ -222,7 +226,11 @@ struct CultureView: View {
                                         }
                                         .padding(.horizontal)
                                         .fullScreenCover(isPresented: $showTransitionScreen){
-                                            TransitionScreen(nextParticipant: participants[Int.random(in: 0..<participants.count)] , onTap: {})
+                                            TransitionScreen(
+                                                nextParticipant: participants[Int.random(in: 0..<participants.count)],
+                                                onTap: {},
+                                                backgroundColor: Color(red: 0.286, green: 0.678, blue: 0.635)  // Culture View's background color
+                                            )
                                         }
                                         
                                     }

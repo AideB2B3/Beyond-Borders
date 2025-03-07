@@ -56,10 +56,14 @@ struct FoodView: View {
                     EndScreen(onRestart: restartGame, onHome: handleHome)
                 } else if showTransitionScreen {
                     if let currentParticipant = currentTurnSafe() {
-                        TransitionScreen(nextParticipant: currentParticipant) {
-                            startTimer()
-                            showTransitionScreen = false
-                        }
+                        TransitionScreen(
+                            nextParticipant: currentParticipant,
+                            onTap: {
+                                startTimer()
+                                showTransitionScreen = false
+                            },
+                            backgroundColor: Color(red: 1.0, green: 0.647, blue: 0.274)  // Culture View's background color
+                        )
                     }
                 } else {
                     
@@ -222,9 +226,12 @@ struct FoodView: View {
                                         }
                                         .padding(.horizontal)
                                         .fullScreenCover(isPresented: $showTransitionScreen){
-                                            TransitionScreen(nextParticipant: participants[Int.random(in: 0..<participants.count)] , onTap: {})
+                                            TransitionScreen(
+                                                nextParticipant: participants[Int.random(in: 0..<participants.count)],
+                                                onTap: {},
+                                                backgroundColor: Color(red: 1.0, green: 0.647, blue: 0.274)  // Culture View's background color
+                                            )
                                         }
-                                        
                                     }
                                     .padding()
                                     .transition(.opacity) // Effetto di transizione

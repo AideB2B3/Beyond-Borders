@@ -4,14 +4,13 @@ struct TransitionScreen: View {
     
     var nextParticipant: String
     var onTap: () -> Void
+    var backgroundColor: Color  // New parameter to receive the background color
     
     var body: some View {
-        
         VStack {
-            
             Text("Next turn: \(nextParticipant)")
                 .font(.largeTitle)
-            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                 .bold()
                 .padding()
             
@@ -23,13 +22,11 @@ struct TransitionScreen: View {
                 .font(.system(size: 40))
                 .padding(.top, 10)
                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(red: 1.0, green: 0.647, blue: 0.274))
+        .background(backgroundColor)  // Use the passed background color
         .onTapGesture {
             onTap()
-            
         }
     }
 }
@@ -38,7 +35,8 @@ struct TransitionScreen_Previews: PreviewProvider {
     static var previews: some View {
         TransitionScreen(
             nextParticipant: "Alice",
-            onTap: {}
+            onTap: {},
+            backgroundColor: Color(red: 0.176, green: 0.188, blue: 0.278)
         )
     }
 }
