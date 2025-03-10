@@ -4,6 +4,9 @@
     "%@" : {
       "comment" : "%@ = participants "
     },
+    "Beyond Borders" : {
+
+    },
     "Choose The Category!" : {
       "localizations" : {
         "hi" : {
@@ -63,6 +66,9 @@
     "Food / %@" : {
 
     },
+    "Has been selected: \n\n%@" : {
+
+    },
     "Home" : {
 
     },
@@ -105,16 +111,13 @@
     "Skip" : {
 
     },
-    "spin the globe \nland on a country \nprova prova " : {
+    "Spin the globe \nChoose a category \nDiscuss the topic " : {
 
     },
     "Start" : {
 
     },
-    "Start Screen" : {
-
-    },
-    "Tap to choose a country" : {
+    "Tap the world to choose a country" : {
 
     },
     "Tap to Start the Turn" : {

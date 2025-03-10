@@ -24,7 +24,7 @@ struct TransitionScreen: View {
                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(backgroundColor)  // Use the passed background color
+        .background(backgroundColor)
         .onTapGesture {
             onTap()
         }

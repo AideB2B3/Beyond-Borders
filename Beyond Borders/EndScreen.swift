@@ -19,7 +19,7 @@ struct EndScreen: View {
                     .font(.largeTitle)
                     .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                     .bold()
-
+                
                 Spacer()
                 
                 HStack {

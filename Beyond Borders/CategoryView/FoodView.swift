@@ -2,6 +2,7 @@ import SwiftUI
 import AVFoundation
 import AudioToolbox
 
+
 struct FoodView: View {
     
     @Binding var participants: [String]
@@ -15,6 +16,7 @@ struct FoodView: View {
     @State private var currentTurn: Int = 0
     @State private var completedRounds: Int = 0
     @State private var timer: Timer?
+    @State private var audioPlayer: AVAudioPlayer?
     
     @State private var showEndScreen = false
     @State private var showTransitionScreen = false
@@ -27,7 +29,7 @@ struct FoodView: View {
     
     
     @State private var randomQuestion: String = ""
-    @State private var showStart = true // Controlla la visibilità del pulsante Start
+    @State private var showStart = true
     @State private var showNo = false
     @State private var showYes = false
     @State private var showTimer = false
@@ -42,9 +44,10 @@ struct FoodView: View {
         self._numRounds = numRounds
         self._turnDuration = turnDuration
         self.onHome = onHome
-        self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
+        self.selectedCountry = selectedCountry
         
         self.foodquestions = [
+            
             "Food in \(selectedCountry.name) is known for being very spicy.",
             "Rice and bread are staple foods in \(selectedCountry.name).",
             "Street food is a significant part of the food culture in \(selectedCountry.name).",
@@ -67,7 +70,6 @@ struct FoodView: View {
             "Meals in \(selectedCountry.name) are often accompanied by alcoholic beverages like wine or beer."
         ]
         
-        // Inizializzazione delle variabili di stato
         _remainingTime = State(initialValue: turnDuration.wrappedValue)
         _randomQuestion = State(initialValue: foodquestions.randomElement() ?? "No questions available")
     }
@@ -103,18 +105,18 @@ struct FoodView: View {
                         
                         ZStack {
                             
-                            Image("rettangolo bb")
-                                .resizable()
-                                .scaledToFit( )
-//                            Rectangle()
-//                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
-//                                .frame(width: 350, height: 200)
-//                                .cornerRadius(20)
-//                                .overlay(
-//                                    RoundedRectangle(cornerRadius: 20)
-//                                        .stroke(Color(red: 0.176, green: 0.188, blue: 0.278), lineWidth: 4)
-//                                )
-//                            
+                            //                            Image("rettangolo bb")
+                            //                                .resizable()
+                            //                                .scaledToFit( )
+                            Rectangle()
+                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
+                                .frame(width: 350, height: 200)
+                                .cornerRadius(20)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color(red: 0.176, green: 0.188, blue: 0.278), lineWidth: 4)
+                                )
+                            
                             Text(randomQuestion)
                                 .font(.system(size: 25, weight: .bold))
                                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
@@ -150,11 +152,6 @@ struct FoodView: View {
                                         .font(.title)
                                         .bold()
                                         .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                    
-                                    //                        Text("Round \(currentRound)")
-                                    //                            .font(.title3)
-                                    //                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                    //                            .bold()
                                 }
                                 else {
                                     Text("Re open the app")
@@ -326,7 +323,14 @@ struct FoodView: View {
     }
     
     func playSound() {
-        AudioServicesPlaySystemSound(1005)
+        if let path = Bundle.main.path(forResource: "TimerSound", ofType: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.play()
+            } catch {
+                print("Errore nel caricamento del suono: \(error.localizedDescription)")
+            }
+        }
     }
     
     func currentTurnSafe() -> String? {
@@ -382,7 +386,6 @@ struct FoodView: View {
         generateTurnOrder()
         startTimer()
     }
-    
     
 }
 

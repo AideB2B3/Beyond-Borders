@@ -7,8 +7,6 @@ struct ContentView: View {
     @State var numRounds: Int
     @State var turnDuration: Int
     var onStart: () -> Void
-//    var totalRounds: Int
-//    var timerDuration: Int
     var onHome: () -> Void
     
     @State private var isSettingsPresented = false
@@ -20,14 +18,13 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("Start Screen")
+                    Text("Beyond Borders")
                         .bold()
                         .font(.largeTitle)
                         .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                     
-                    
                     Spacer()
-
+                    
                     VStack (spacing: 70) {
                         
                         Image("app.icon.nobackground")
@@ -35,7 +32,7 @@ struct ContentView: View {
                             .frame(width: 300, height: 300)
                         
                         
-                        Text("spin the globe \nland on a country \nprova prova ")
+                        Text("Spin the globe \nChoose a category \nDiscuss the topic ")
                             .bold()
                             .font(.title)
                             .multilineTextAlignment(.center)
@@ -43,8 +40,8 @@ struct ContentView: View {
                         
                         
                         Button(action: {
-                            print("Settings Button tapped")
-                            isSettingsPresented = true  // Mostra la schermata delle impostazioni
+//                            print("Settings Button tapped")
+                            isSettingsPresented = true
                             
                         }) {
                             Text("Start")
@@ -60,17 +57,6 @@ struct ContentView: View {
                             SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, onHome: onHome)
                             
                         }
-//                        NavigationLink(destination: SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, totalRounds: totalRounds, timerDuration: timerDuration, onHome: onHome)) {
-//                            Text("Start")
-//                                .font(.title3)
-//                                .padding()
-//                                .bold()
-//                                .frame(maxWidth: 150)
-//                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-//                                .foregroundColor(.white)
-//                                .cornerRadius(30)
-//                        }
-                        
                         
                     } // End VStack(spacing)
                     .padding(.bottom, 50)
@@ -79,7 +65,6 @@ struct ContentView: View {
                 .padding()
             }
         }
-        
     }
 }
 

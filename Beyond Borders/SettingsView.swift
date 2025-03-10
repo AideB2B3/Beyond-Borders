@@ -53,28 +53,17 @@ struct SettingsView: View {
                                     .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
                             }
                             
-                            Stepper("Rounds: \(numRounds)", value: $numRounds, in: 1...10)
+                            Stepper("Rounds: \(numRounds)", value: $numRounds, in: 1...50, step: 1)
                                 .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
                                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             
-                            Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 5...600, step: 30)
+                            Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
                                 .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
                                 .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                         }
                         .scrollContentBackground(.hidden)
                         .background(Color(red: 1.0, green: 0.945, blue: 0.816))
                     }
-                    
-//                    NavigationLink(destination: CountryView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, totalRounds: totalRounds, timerDuration: timerDuration)) {
-//                        Text("Start")
-//                            .font(.title3)
-//                            .padding()
-//                            .bold()
-//                            .frame(maxWidth: 150)
-//                            .background(isStartEnabled ? Color(red: 0.176, green: 0.188, blue: 0.278) : Color.gray)
-//                            .foregroundColor(.white)
-//                            .cornerRadius(30)
-//                    }
                     
                     Button(action: {
                         print("Settings Button tapped")
@@ -91,7 +80,9 @@ struct SettingsView: View {
                             .cornerRadius(30)
                     }
                     .disabled(!isStartEnabled)
+                    .opacity(isStartEnabled ? 1 : 0.7) // Maggiore trasparenza quando disabilitato
                     .padding(.bottom, 30)
+                    .animation(.easeInOut(duration: 0.2), value: isStartEnabled)
                     .opacity(keyboardIsVisible ? 0 : 1)
                     
                     .fullScreenCover(isPresented: $isCountryPresented){
@@ -116,13 +107,12 @@ struct SettingsView: View {
     }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(
             numParticipants: 3,
             participants: ["Alice", "Bob", "Charlie"],
-            numRounds: 3,
+            numRounds: 1,
             turnDuration: 60,
             onStart: {},
             onHome: {}// Aggiunto

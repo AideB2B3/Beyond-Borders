@@ -15,6 +15,7 @@ struct OffensiveView: View {
     @State private var currentTurn: Int = 0
     @State private var completedRounds: Int = 0
     @State private var timer: Timer?
+    @State private var audioPlayer: AVAudioPlayer?
     
     @State private var showEndScreen = false
     @State private var showTransitionScreen = false
@@ -26,7 +27,7 @@ struct OffensiveView: View {
     private var offensivequestions: [String] = []
     
     @State private var randomQuestion: String = ""
-    @State private var showStart = true // Controlla la visibilità del pulsante Start
+    @State private var showStart = true
     @State private var showNo = false
     @State private var showYes = false
     @State private var showTimer = false
@@ -41,7 +42,7 @@ struct OffensiveView: View {
         self._numRounds = numRounds
         self._turnDuration = turnDuration
         self.onHome = onHome
-        self.selectedCountry = selectedCountry  // 🔹 Ora viene inizializzato correttamente!
+        self.selectedCountry = selectedCountry
         
         self.offensivequestions = [
             "People in \(selectedCountry.name) are often stereotyped as being rude or unfriendly.",
@@ -65,12 +66,11 @@ struct OffensiveView: View {
             "There are rumours that people in \(selectedCountry.name) are always suspicious of outsiders.",
             "People in \(selectedCountry.name) are often portrayed as being obsessed with rules and regulations."
         ]
-
+        
         // Inizializzazione delle variabili di stato
         _remainingTime = State(initialValue: turnDuration.wrappedValue)
         _randomQuestion = State(initialValue: offensivequestions.randomElement() ?? "No questions available")
     }
-    
     
     var body: some View {
         NavigationStack {
@@ -101,6 +101,10 @@ struct OffensiveView: View {
                             .padding(.top, 50)
                         
                         ZStack {
+                            
+                            //                            Image("rettangolo bb")
+                            //                                .resizable()
+                            //                                .scaledToFit( )
                             Rectangle()
                                 .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
                                 .frame(width: 350, height: 200)
@@ -145,16 +149,10 @@ struct OffensiveView: View {
                                         .font(.title)
                                         .bold()
                                         .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                    
-                                    //                        Text("Round \(currentRound)")
-                                    //                            .font(.title3)
-                                    //                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                    //                            .bold()
                                 }
                                 else {
                                     Text("Re open the app")
                                 }
-                                
                                 
                                 Spacer()
                                 
@@ -163,9 +161,6 @@ struct OffensiveView: View {
                                         .font(.title)
                                         .bold()
                                         .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                    
-                                    
-                                    
                                     
                                     HStack {
                                         
@@ -198,8 +193,6 @@ struct OffensiveView: View {
                                                 .background(Color(red: 0.176, green: 0.188, blue: 0.278))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
-                                            
-                                            
                                         }
                                         
                                         Spacer()
@@ -239,7 +232,7 @@ struct OffensiveView: View {
                                         .frame(width: 250, height: 50)
                                         Spacer()
                                         
-                                        Button(action: endTurn)
+                                        Button(action : endTurn)
                                         {
                                             Text("Skip")
                                                 .font(.title)
@@ -287,7 +280,6 @@ struct OffensiveView: View {
         
     }
     
-    
     func stopTimer() {
         if let timer = timer {
             timer.invalidate()
@@ -322,7 +314,14 @@ struct OffensiveView: View {
     }
     
     func playSound() {
-        AudioServicesPlaySystemSound(1005)
+        if let path = Bundle.main.path(forResource: "TimerSound", ofType: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.play()
+            } catch {
+                print("Errore nel caricamento del suono: \(error.localizedDescription)")
+            }
+        }
     }
     
     func currentTurnSafe() -> String? {
@@ -378,7 +377,6 @@ struct OffensiveView: View {
         generateTurnOrder()
         startTimer()
     }
-    
     
 }
 
