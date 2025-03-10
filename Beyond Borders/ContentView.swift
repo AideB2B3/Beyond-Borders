@@ -25,19 +25,19 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    VStack (spacing: 70) {
                         
                         Image("app.icon.nobackground")
                             .resizable()
                             .frame(width: 300, height: 300)
                         
                         
-                        Text("Spin the globe \nChoose a category \nDiscuss the topic ")
-                            .bold()
-                            .font(.title)
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+//                        Text("Spin the globe \nChoose a category \nDiscuss the topic ")
+//                            .bold()
+//                            .font(.title)
+//                            .multilineTextAlignment(.center)
+//                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                         
+                        Spacer()
                         
                         Button(action: {
 //                            print("Settings Button tapped")
@@ -55,16 +55,25 @@ struct ContentView: View {
                         }
                         .fullScreenCover(isPresented: $isSettingsPresented) {
                             SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, onHome: onHome)
-                            
                         }
-                        
-                    } // End VStack(spacing)
+                    
+                    NavigationLink(destination: InfoView()) {
+                        Text("Info")
+                            .font(.title)
+                            .padding()
+                            .bold()
+                            .frame(width: 100, height: 65)
+                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(.white)
+                            .cornerRadius(30)
+                    }
                     .padding(.bottom, 50)
                     
                 }// End VStack
                 .padding()
             }
         }
+        .tint(Color(red: 0.176, green: 0.188, blue: 0.278))
     }
 }
 
