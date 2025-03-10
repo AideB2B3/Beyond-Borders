@@ -104,6 +104,7 @@ struct SettingsView: View {
                 }
             }
         }
+        .preferredColorScheme(.light)
     }
 }
 
