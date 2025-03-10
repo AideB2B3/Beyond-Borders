@@ -5,6 +5,13 @@ struct EndScreen: View {
     var onRestart: () -> Void
     var onHome: () -> Void
     
+    @State private var isSettingsPresented = false
+    
+    @State private var numParticipants: Int = 2
+    @State private var participants: [String] = ["", ""]
+    @State private var numRounds: Int = 3
+    @State private var turnDuration: Int = 60
+    
     var body: some View {
         
         ZStack {
@@ -36,8 +43,10 @@ struct EndScreen: View {
                     }
                     .padding(.horizontal)
                     
-                    Button(action: onHome) {
-                        Label("Home", systemImage: "house.fill")
+                    Button(action: {
+                        isSettingsPresented = true
+                    }) {
+                        Text("Home")
                             .font(.title3)
                             .padding()
                             .bold()
@@ -50,6 +59,20 @@ struct EndScreen: View {
                 }
             }
             .padding(.bottom, 40)
+            .fullScreenCover(isPresented: $isSettingsPresented) {
+                ContentView(
+                    numParticipants: numParticipants,
+                    participants: participants,
+                    numRounds: numRounds,
+                    turnDuration: turnDuration,
+                    onStart: {
+                        
+                    },
+                    onHome: {
+                        onHome()
+                    }
+                )
+            }
         }
     }
 }
