@@ -4,7 +4,7 @@ import SwiftUI
 struct BBApp: App {
     @State private var numParticipants = 3
     @State private var participants = ["Alice", "Bob", "Charlie"]
-    @State private var numRounds = 3
+    @State private var numRounds = 1
     @State private var turnDuration = 60
 
     var body: some Scene {

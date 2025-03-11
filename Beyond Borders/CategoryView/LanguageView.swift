@@ -20,13 +20,16 @@ struct LanguageView: View {
     @State private var showEndScreen = false
     @State private var showTransitionScreen = false
     
+    
+    
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
     let selectedCountry: Country
     private var languagequestions: [String] = []
     
-    
+    @State private var responses: [(name: String, answer: String)] = []
+
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start
     @State private var showNo = false
@@ -37,13 +40,14 @@ struct LanguageView: View {
         return languagequestions.randomElement() ?? "No questions available"
     }
     
-    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void,selectedCountry: Country) {
+    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void,selectedCountry: Country, responses: [(name: String, answer: String)] = []) {
         self._numParticipants = numParticipants
         self._participants = participants
         self._numRounds = numRounds
         self._turnDuration = turnDuration
         self.onHome = onHome
         self.selectedCountry = selectedCountry
+        self.responses = responses 
         
         self.languagequestions = [
             
@@ -81,7 +85,7 @@ struct LanguageView: View {
                     .ignoresSafeArea()
                 
                 if showEndScreen {
-                    EndScreen(onRestart: restartGame, onHome: handleHome)
+                    EndScreen(onRestart: restartGame, onHome: handleHome, responses: responses)
                 } else if showTransitionScreen {
                     if let currentParticipant = currentTurnSafe() {
                         TransitionScreen(
@@ -170,9 +174,9 @@ struct LanguageView: View {
                                         Spacer()
                                         
                                         Button(action: {
-                                            showTimer = true // Nasconde il pulsante Start e mostra nuovi elementi
-                                        })
-                                        {
+                                            responses.append((name: currentTurnSafe() ?? "Unknown", answer: "Yes"))
+                                            showTimer = true
+                                        }) {
                                             Text("Yes")
                                                 .font(.title)
                                                 .padding()
@@ -182,12 +186,13 @@ struct LanguageView: View {
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
+                                        
                                         Spacer()
                                         
                                         Button(action: {
-                                            showTimer = true // Nasconde il pulsante Start e mostra nuovi elementi
-                                        })
-                                        {
+                                            responses.append((name: currentTurnSafe() ?? "Unknown", answer: "No"))
+                                            showTimer = true
+                                        }) {
                                             Text("No")
                                                 .font(.title)
                                                 .padding()
@@ -197,6 +202,7 @@ struct LanguageView: View {
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
+
                                         
                                         Spacer()
                                         

@@ -1,10 +1,3 @@
-//
-//  InfoView.swift
-//  Beyond Borders
-//
-//  Created by Michele Mariniello on 10/03/25.
-//
-
 import SwiftUI
 
 struct InfoView: View {
@@ -18,10 +11,12 @@ struct InfoView: View {
                 Text("Credits:")
                     .font(.largeTitle)
                     .bold()
+                    .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                 
                 Text("\nChristian Ciriello\nDavide BelloBuono\nFabrizio Vollaro\nIrem Nur Arslaner\nMichele Mariniello\nSupriya Palle")
                     .font(.title2)
                     .bold()
+                    .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
             }
 
         }

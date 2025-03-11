@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "\nChristian Ciriello\nDavide BelloBuono\nFabrizio Vollaro\nIrem Nur Arslaner\nMichele Mariniello\nSupriya Palle" : {
+
+    },
     "%@" : {
       "comment" : "%@ = participants "
     },
@@ -29,7 +32,7 @@
         }
       }
     },
-    "Coming Soon..." : {
+    "Credits:" : {
 
     },
     "Culture" : {
@@ -66,10 +69,13 @@
     "Food / %@" : {
 
     },
-    "Has been selected: \n\n%@" : {
+    "Has been selected %@" : {
 
     },
     "Home" : {
+
+    },
+    "Info" : {
 
     },
     "Insert Name %lld" : {
@@ -102,16 +108,13 @@
     "Re open the app" : {
 
     },
+    "Responses" : {
+
+    },
     "Round" : {
 
     },
-    "Rounds: %lld" : {
-      "comment" : "%lld = number of rounds"
-    },
     "Skip" : {
-
-    },
-    "Spin the globe \nChoose a category \nDiscuss the topic " : {
 
     },
     "Start" : {
