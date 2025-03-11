@@ -24,23 +24,14 @@ struct ContentView: View {
                         .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                     
                     Spacer()
-                    
-                        
+
                         Image("app.icon.nobackground")
                             .resizable()
                             .frame(width: 300, height: 300)
                         
-                        
-//                        Text("Spin the globe \nChoose a category \nDiscuss the topic ")
-//                            .bold()
-//                            .font(.title)
-//                            .multilineTextAlignment(.center)
-//                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                        
                         Spacer()
                         
                         Button(action: {
-//                            print("Settings Button tapped")
                             isSettingsPresented = true
                             
                         }) {
@@ -68,7 +59,6 @@ struct ContentView: View {
                             .cornerRadius(30)
                     }
                     .padding(.bottom, 50)
-                    
                 }// End VStack
                 .padding()
             }
@@ -81,10 +71,10 @@ struct ContentView: View {
     ContentView(
         numParticipants: 4,
         participants: ["Player 1", "Player 2", "Player 3", "Player 4"],
-        numRounds: 3,
+        numRounds: 1,
         turnDuration: 60,
         onStart: {},
-        onHome: {} // Aggiunto
+        onHome: {}
     )
 }
 

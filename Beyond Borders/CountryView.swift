@@ -62,34 +62,36 @@ struct CountryView: View {
             VStack(spacing: 20) {
  
                 if showText {
-//                    VStack(spacing: 10) {
-//                        Image("rettangolo bb")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 300, height: 180)
-//                            .overlay(
-                                Text("Tap the world to choose a country")
-                                    .font(.largeTitle)
-                                    .bold()
-                                    .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                    .multilineTextAlignment(.center)
-//                                    .frame(width: 260)
-                                    .padding(5)
-//                            )
-                        
-//                        HStack {
-//                            Image("yellowEnemy")
-//                                .resizable()
+                    VStack(spacing: 15) {
+                        ZStack {
+                            Image("rettangolo bb")
+                                .resizable()
 //                                .scaledToFit()
-//                                .frame(width: 120, height: 120)
-//                            Spacer()
-//                            
-//                        }
-//                    }
-                    .transition(.opacity)
-//                    .animation(.easeInOut, value: showText)
+//                                .frame(maxWidth: 300, maxHeight: 200)
+                            
+                            Text("Tap the world to choose a country")
+                                .font(.title2)
+                                .bold()
+                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .multilineTextAlignment(.center)
+                                .frame(width: 280)
+                                .minimumScaleFactor(0.7)
+                                .padding(.horizontal, 10)
+                        }
+                        
+                        HStack {
+                            Image("Mascotte")
+                                .resizable()
+//                                .scaledToFit()
+                                .frame(width: 170, height: 170)
+                                .offset(x: -90, y: -30)
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .transition(.opacity.combined(with: .scale))
+                    .animation(.easeInOut(duration: 0.5), value: showText)
                 }
-                
+
                 Spacer()
 
                 ZStack {
@@ -122,37 +124,39 @@ struct CountryView: View {
                             .transition(.opacity)
                     } else {
                         VStack(spacing: 20) {
-//                            Image("rettangolo bb")
-//                                .resizable()
-////                                .scaledToFit()
-//                                .frame(width: 350, height: 200)
-//                                .overlay(
-                            Spacer()
-                            
-                                    Text("Has been selected: \n\n\(selectedCountry.name)")
+                            Image("rettangolo bb")
+                                .resizable()
+//                                .scaledToFit()
+                                .frame(width: 350, height: 200)
+                                .overlay(
+                                    Text("Has been selected \(selectedCountry.name)")
                                         .font(.largeTitle)
                                         .bold()
                                         .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                                         .multilineTextAlignment(.center)
                                         .frame(width: 260)
                                         .padding()
-//                                )
+                                )
                             
-//                            HStack(spacing: 30) {
-//                                Spacer()
-//                                Image("yellowEnemy")
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width: 120, height: 120)
-//                                Spacer()
+                            HStack(spacing: 20) { // Aggiunto uno spacing fisso tra le immagini
+                                Spacer()
+                                
+                                Image("Mascotte")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 180, maxHeight: 180)
+                                    .layoutPriority(1)
+                                
                                 Image(selectedCountry.flagImage)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 250, height: 200)
-                                    .shadow(radius: 10)
+                                    .frame(maxWidth: 180, maxHeight: 150)
+                                    .shadow(radius: 5)
+                                
                                 Spacer()
-//                            }
-//                            .padding(.horizontal)
+                            }
+                            .padding(.horizontal, 10) // Ridotto il padding per non comprimere le immagini
+
                         }
                         .transition(.opacity)
                     }

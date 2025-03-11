@@ -53,9 +53,9 @@ struct SettingsView: View {
                                     .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
                             }
                             
-                            Stepper("Rounds: \(numRounds)", value: $numRounds, in: 1...50, step: 1)
-                                .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
-                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+//                            Stepper("Rounds: \(numRounds)", value: $numRounds, in: 1...50, step: 1)
+//                                .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
+//                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             
                             Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
                                 .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
@@ -108,7 +108,7 @@ struct SettingsView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(
             numParticipants: 3,

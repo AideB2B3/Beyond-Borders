@@ -26,6 +26,8 @@ struct OffensiveView: View {
     let selectedCountry: Country
     private var offensivequestions: [String] = []
     
+    @State private var responses: [(name: String, answer: String)] = []
+    
     @State private var randomQuestion: String = ""
     @State private var showStart = true
     @State private var showNo = false
@@ -36,13 +38,15 @@ struct OffensiveView: View {
         return offensivequestions.randomElement() ?? "No questions available"
     }
     
-    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void,selectedCountry: Country) {
+    init(numParticipants: Binding<Int>, participants: Binding<[String]>, numRounds: Binding<Int>, turnDuration: Binding<Int>,onHome: @escaping () -> Void,selectedCountry: Country,
+         responses: [(name: String, answer: String)] = []) {
         self._numParticipants = numParticipants
         self._participants = participants
         self._numRounds = numRounds
         self._turnDuration = turnDuration
         self.onHome = onHome
         self.selectedCountry = selectedCountry
+        self.responses = responses 
         
         self.offensivequestions = [
             "People in \(selectedCountry.name) are often stereotyped as being rude or unfriendly.",
@@ -79,7 +83,7 @@ struct OffensiveView: View {
                     .ignoresSafeArea()
                 
                 if showEndScreen {
-                    EndScreen(onRestart: restartGame, onHome: handleHome)
+                    EndScreen(onRestart: restartGame, onHome: handleHome, responses: responses)
                 } else if showTransitionScreen {
                     if let currentParticipant = currentTurnSafe() {
                         TransitionScreen(
@@ -167,9 +171,9 @@ struct OffensiveView: View {
                                         Spacer()
                                         
                                         Button(action: {
-                                            showTimer = true // Nasconde il pulsante Start e mostra nuovi elementi
-                                        })
-                                        {
+                                            responses.append((name: currentTurnSafe() ?? "Unknown", answer: "Yes"))
+                                            showTimer = true
+                                        }) {
                                             Text("Yes")
                                                 .font(.title)
                                                 .padding()
@@ -179,12 +183,13 @@ struct OffensiveView: View {
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
+                                        
                                         Spacer()
                                         
                                         Button(action: {
-                                            showTimer = true // Nasconde il pulsante Start e mostra nuovi elementi
-                                        })
-                                        {
+                                            responses.append((name: currentTurnSafe() ?? "Unknown", answer: "No"))
+                                            showTimer = true
+                                        }) {
                                             Text("No")
                                                 .font(.title)
                                                 .padding()
@@ -194,6 +199,7 @@ struct OffensiveView: View {
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
+
                                         
                                         Spacer()
                                         

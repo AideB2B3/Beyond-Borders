@@ -17,6 +17,8 @@ struct CultureView: View {
     @State private var timer: Timer?
     @State private var audioPlayer: AVAudioPlayer?
     
+    @State private var responses: [(name: String, answer: String)] = []
+    
     @State private var showEndScreen = false
     @State private var showTransitionScreen = false
     
@@ -41,7 +43,8 @@ struct CultureView: View {
          numRounds: Binding<Int>,
          turnDuration: Binding<Int>,
          onHome: @escaping () -> Void,
-         selectedCountry: Country) {
+         selectedCountry: Country,
+         responses: [(name: String, answer: String)] = []) {
         
         self._numParticipants = numParticipants
         self._participants = participants
@@ -49,6 +52,7 @@ struct CultureView: View {
         self._turnDuration = turnDuration
         self.onHome = onHome
         self.selectedCountry = selectedCountry
+        self.responses = responses 
         
         self.culturequestions = [
             
@@ -85,7 +89,7 @@ struct CultureView: View {
                     .ignoresSafeArea()
                 
                 if showEndScreen {
-                    EndScreen(onRestart: restartGame, onHome: handleHome)
+                    EndScreen(onRestart: restartGame, onHome: handleHome, responses: responses)
                 } else if showTransitionScreen {
                     if let currentParticipant = currentTurnSafe() {
                         TransitionScreen(
@@ -174,9 +178,9 @@ struct CultureView: View {
                                         Spacer()
                                         
                                         Button(action: {
-                                            showTimer = true // Nasconde il pulsante Start e mostra nuovi elementi
-                                        })
-                                        {
+                                            responses.append((name: currentTurnSafe() ?? "Unknown", answer: "Yes"))
+                                            showTimer = true
+                                        }) {
                                             Text("Yes")
                                                 .font(.title)
                                                 .padding()
@@ -189,9 +193,9 @@ struct CultureView: View {
                                         Spacer()
                                         
                                         Button(action: {
-                                            showTimer = true // Nasconde il pulsante Start e mostra nuovi elementi
-                                        })
-                                        {
+                                            responses.append((name: currentTurnSafe() ?? "Unknown", answer: "No"))
+                                            showTimer = true
+                                        }) {
                                             Text("No")
                                                 .font(.title)
                                                 .padding()
@@ -201,6 +205,7 @@ struct CultureView: View {
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
+
                                         
                                         Spacer()
                                         
