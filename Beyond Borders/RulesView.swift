@@ -9,9 +9,15 @@ import SwiftUI
 
 struct RulesView: View {
     var body: some View {
-        Image("rules")
-            .resizable()
-            .ignoresSafeArea()
+        ZStack{
+            
+            Color(.background)
+                .ignoresSafeArea()
+            
+            Image("rules")
+                .resizable()
+                .ignoresSafeArea()
+        }
     }
 }
 

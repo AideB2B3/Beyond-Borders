@@ -81,11 +81,15 @@ struct LanguageView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(red: 0.365, green: 0.635, blue: 0.443)
+                Color(.colorGreen)
                     .ignoresSafeArea()
                 
                 if showEndScreen {
-                    EndScreen(onRestart: restartGame, onHome: handleHome, responses: responses)
+                    EndScreen(onRestart: restartGame, onHome: handleHome,numParticipants: $numParticipants,
+                              participants: $participants,
+                              numRounds: $numRounds,
+                              turnDuration: $turnDuration,
+                              responses: responses)
                 } else if showTransitionScreen {
                     if let currentParticipant = currentTurnSafe() {
                         TransitionScreen(
@@ -94,7 +98,7 @@ struct LanguageView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(red: 0.365, green: 0.635, blue: 0.443)  // Culture View's background color
+                            backgroundColor: Color(.colorGreen)  // Culture View's background color
                         )
                     }
                 } else {
@@ -257,7 +261,7 @@ struct LanguageView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(red: 0.365, green: 0.635, blue: 0.443)  // Culture View's background color
+                                                backgroundColor: Color(.colorGreen)  // Culture View's background color
                                             )
                                         }
                                         

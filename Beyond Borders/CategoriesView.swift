@@ -18,7 +18,7 @@ struct CategoriesView: View {
         
         NavigationStack {
             ZStack {
-                Color(red: 1.0, green: 0.945, blue: 0.816)
+                Color(.background)
                     .ignoresSafeArea()
                 
                 VStack {
@@ -58,7 +58,7 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(red: 0.364, green: 0.635, blue: 0.443))
+                            .background(Color(.colorGreen))
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .cornerRadius(50)
                     }
@@ -77,7 +77,7 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(red: 1, green: 0.647, blue: 0.274))
+                            .background(Color(.colorYellow))
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .cornerRadius(50)
                     }
@@ -96,7 +96,7 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(red: 0.286, green: 0.678, blue: 0.635))
+                            .background(Color(.colorBlue))
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .cornerRadius(50)
                     }
@@ -115,7 +115,7 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(red: 0.588, green: 0.447, blue: 0.584))
+                            .background(Color(.colorRed))
                             .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .cornerRadius(50)
                     }

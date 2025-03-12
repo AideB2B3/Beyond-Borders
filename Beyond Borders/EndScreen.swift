@@ -5,20 +5,19 @@ struct EndScreen: View {
     var onRestart: () -> Void
     var onHome: () -> Void
     
-    @State private var isContentPresented = false
-    @State private var isCountryPresented = false
-    
-    @State private var numParticipants: Int = 2
-    @State private var participants: [String] = [" ", " "]
-    @State private var numRounds: Int = 1
-    @State private var turnDuration: Int = 60
+    @Binding var numParticipants: Int
+    @Binding var participants: [String]
+    @Binding var numRounds: Int
+    @Binding var turnDuration: Int
     
     var responses: [(name: String, answer: String)]
     
+    @State private var isContentPresented = false
+    @State private var isCountryPresented = false
+
     var body: some View {
-        
         ZStack {
-            Color(red: 1.0, green: 0.945, blue: 0.816)
+            Color(.background)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 20) {
                 
@@ -53,7 +52,6 @@ struct EndScreen: View {
                 HStack {
                     
                     Button(action: {
-                        resetGameToCountry()
                         isCountryPresented = true
                     }){
                         Label("Round", systemImage: "arrow.clockwise")
@@ -97,9 +95,7 @@ struct EndScreen: View {
                             participants: participants,
                             numRounds: numRounds,
                             turnDuration: turnDuration,
-                            onStart: {
-                                
-                            },
+                            onStart: {},
                             onHome: {
                                 onHome()
                             }
@@ -112,21 +108,14 @@ struct EndScreen: View {
         }
     }
     
-    private func resetGameToContent() {
+    func resetGameToContent() {
         numParticipants = 0
         participants = []
-//        numRounds = 1
+        numRounds = 1
         turnDuration = 60
     }
-    
-    private func resetGameToCountry() {
-        numParticipants = 2
-        participants = ["", ""]
-        numRounds = 3
-        turnDuration = 60
-    }
-
 }
+
 
 //struct EndScreen_Previews: PreviewProvider {
 //    static var previews: some View {

@@ -1,14 +1,11 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "\nChristian Ciriello\nDavide BelloBuono\nFabrizio Vollaro\nIrem Nur Arslaner\nMichele Mariniello\nSupriya Palle" : {
+    "" : {
 
     },
     "%@" : {
       "comment" : "%@ = participants "
-    },
-    "Beyond Borders" : {
-
     },
     "Choose The Category!" : {
       "localizations" : {
@@ -32,10 +29,7 @@
         }
       }
     },
-    "Credits:" : {
-
-    },
-    "Credits:" : {
+    "Credits" : {
 
     },
     "Culture" : {
@@ -78,7 +72,7 @@
     "Home" : {
 
     },
-    "Info" : {
+    "If you don't know how the app is structured or want to find out who developed it, you're in the right place" : {
 
     },
     "Insert Name %lld" : {
@@ -108,7 +102,16 @@
     "Offensive Rumors" : {
 
     },
+    "Our Story" : {
+
+    },
+    "Play" : {
+
+    },
     "Re open the app" : {
+
+    },
+    "Respin" : {
 
     },
     "Responses" : {
@@ -117,7 +120,13 @@
     "Round" : {
 
     },
+    "Rules" : {
+
+    },
     "Skip" : {
+
+    },
+    "Special thanks to those who created me:\n\nChristian Ciriello\nDavide BelloBuono\nFabrizio Vollaro\nIrem Nur Arslaner\nMichele Mariniello\nSupriya Palle\n" : {
 
     },
     "Start" : {
@@ -134,6 +143,9 @@
     },
     "Turn Duration: %lld sec" : {
       "comment" : "%lld = number of participant"
+    },
+    "Welcome in Beyond Borders" : {
+
     },
     "Yes" : {
 

@@ -82,11 +82,15 @@ struct FoodView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(red: 1.0, green: 0.647, blue: 0.274)
+                Color(.colorYellow)
                     .ignoresSafeArea()
                 
                 if showEndScreen {
-                    EndScreen(onRestart: restartGame, onHome: handleHome, responses: responses)
+                    EndScreen(onRestart: restartGame, onHome: handleHome, numParticipants: $numParticipants,
+                              participants: $participants,
+                              numRounds: $numRounds,
+                              turnDuration: $turnDuration,
+                              responses: responses)
                 } else if showTransitionScreen {
                     if let currentParticipant = currentTurnSafe() {
                         TransitionScreen(
@@ -95,7 +99,7 @@ struct FoodView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(red: 1.0, green: 0.647, blue: 0.274)  // Culture View's background color
+                            backgroundColor: Color(.colorYellow)  // Culture View's background color
                         )
                     }
                 } else {
@@ -260,7 +264,7 @@ struct FoodView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(red: 1.0, green: 0.647, blue: 0.274)  // Culture View's background color
+                                                backgroundColor: Color(.colorYellow)  // Culture View's background color
                                             )
                                         }
                                     }

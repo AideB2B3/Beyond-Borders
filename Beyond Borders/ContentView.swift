@@ -18,10 +18,26 @@ struct ContentView: View {
         NavigationStack {
             
             ZStack {
-                Color(red: 1.0, green: 0.945, blue: 0.816)
+                Color(.background)
                     .ignoresSafeArea()
                 
                 VStack {
+                    HStack{
+                        Spacer()
+                        
+                        NavigationLink(destination: RulesView()){
+                            Label("", systemImage: "info.circle")
+                                .font(.title)
+                                .padding()
+                                .bold()
+                                .frame(width: 200, height: 60)
+                                .background(.clear)
+                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .cornerRadius(30)
+                        }
+                    }
+                    .padding(.trailing, -50)
+                    
                     ZStack {
                         Image("rettangolo bb")
                             .resizable()
@@ -53,11 +69,11 @@ struct ContentView: View {
                             isSettingsPresented = true
                         }
                     }) {
-                        Text("Start")
+                        Text("Play")
                             .font(.title)
                             .padding()
                             .bold()
-                            .frame(width: 350, height: 60)
+                            .frame(width: 200, height: 60)
                             .background(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .foregroundColor(.white)
                             .cornerRadius(30)
@@ -73,11 +89,11 @@ struct ContentView: View {
                     }
                     
                     NavigationLink(destination: InfoView()) {
-                        Text("Info")
+                        Text("Our Story")
                             .font(.title)
                             .padding()
                             .bold()
-                            .frame(width: 350, height: 60)
+                            .frame(width: 200, height: 60)
                             .background(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .foregroundColor(.white)
                             .cornerRadius(30)

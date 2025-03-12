@@ -85,11 +85,15 @@ struct CultureView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(red: 0.286, green: 0.678, blue: 0.635)
+                Color(.colorBlue)
                     .ignoresSafeArea()
                 
                 if showEndScreen {
-                    EndScreen(onRestart: restartGame, onHome: handleHome, responses: responses)
+                    EndScreen(onRestart: restartGame, onHome: handleHome,numParticipants: $numParticipants,
+                              participants: $participants,
+                              numRounds: $numRounds,
+                              turnDuration: $turnDuration,
+                              responses: responses)
                 } else if showTransitionScreen {
                     if let currentParticipant = currentTurnSafe() {
                         TransitionScreen(
@@ -98,7 +102,7 @@ struct CultureView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(red: 0.286, green: 0.678, blue: 0.635)  // Culture View's background color
+                            backgroundColor: Color(.colorBlue)  // Culture View's background color
                         )
                     }
                 } else {
@@ -260,7 +264,7 @@ struct CultureView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(red: 0.286, green: 0.678, blue: 0.635)  // Culture View's background color
+                                                backgroundColor: Color(.colorBlue)  // Culture View's background color
                                             )
                                         }
                                         
