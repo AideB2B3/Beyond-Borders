@@ -17,7 +17,7 @@ struct InfoView: View {
                         Text("If you don't know how the app is structured or want to find out who developed it, you're in the right place")
                             .font(.title)
                             .bold()
-                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .multilineTextAlignment(.center)
                             .frame(width: 280)
                             .minimumScaleFactor(0.7)
@@ -39,7 +39,7 @@ struct InfoView: View {
                             .padding()
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .background(Color(.colorDarkBlue))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
@@ -50,7 +50,7 @@ struct InfoView: View {
                             .padding()
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .background(Color(.colorDarkBlue))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
@@ -60,7 +60,7 @@ struct InfoView: View {
                 
             }
         }
-        .tint(Color(red: 0.176, green: 0.188, blue: 0.278))
+        .tint(Color(.colorDarkBlue))
     }
 }
 

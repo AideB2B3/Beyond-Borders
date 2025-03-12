@@ -32,7 +32,7 @@ struct ContentView: View {
                                 .bold()
                                 .frame(width: 200, height: 60)
                                 .background(.clear)
-                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(Color(.colorDarkBlue))
                                 .cornerRadius(30)
                         }
                     }
@@ -45,7 +45,7 @@ struct ContentView: View {
                         Text("Welcome in Beyond Borders")
                             .font(.title)
                             .bold()
-                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .multilineTextAlignment(.center)
                             .frame(width: 280)
                             .minimumScaleFactor(0.7)
@@ -74,7 +74,7 @@ struct ContentView: View {
                             .padding()
                             .bold()
                             .frame(width: 200, height: 60)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .background(Color(.colorDarkBlue))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
@@ -94,7 +94,7 @@ struct ContentView: View {
                             .padding()
                             .bold()
                             .frame(width: 200, height: 60)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .background(Color(.colorDarkBlue))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
@@ -103,7 +103,7 @@ struct ContentView: View {
                 .padding()
             }
         }
-        .tint(Color(red: 0.176, green: 0.188, blue: 0.278))
+        .tint(Color(.colorDarkBlue))
     }
 }
 

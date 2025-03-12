@@ -11,7 +11,7 @@ struct CreditsView: View {
     var body: some View {
         
         ZStack {
-            Color(red: 1.0, green: 0.945, blue: 0.816)
+            Color(.background)
                 .ignoresSafeArea()
             
             VStack {
@@ -23,7 +23,7 @@ struct CreditsView: View {
                     Text("Special thanks to those who created me:\n\nChristian Ciriello\nDavide BelloBuono\nFabrizio Vollaro\nIrem Nur Arslaner\nMichele Mariniello\nSupriya Palle\n")
                         .font(.title)
                         .bold()
-                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                        .foregroundColor(Color(.colorDarkBlue))
                         .multilineTextAlignment(.center)
                         .frame(width: 280)
                         .minimumScaleFactor(0.7)

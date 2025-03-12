@@ -44,7 +44,7 @@ struct CategoriesView: View {
                     Text("Choose The Category!")
                         .font(.largeTitle)
                         .bold()
-                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                        .foregroundColor(Color(.colorDarkBlue))
                         .padding(.top, 50)
                     
                     Spacer()
@@ -59,7 +59,7 @@ struct CategoriesView: View {
                             .bold()
                             .frame(width: 350, height: 60)
                             .background(Color(.colorGreen))
-                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isLanguagePresented){
@@ -78,7 +78,7 @@ struct CategoriesView: View {
                             .bold()
                             .frame(width: 350, height: 60)
                             .background(Color(.colorYellow))
-                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isFoodPresented){
@@ -97,7 +97,7 @@ struct CategoriesView: View {
                             .bold()
                             .frame(width: 350, height: 60)
                             .background(Color(.colorBlue))
-                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isCulturePresented){
@@ -116,7 +116,7 @@ struct CategoriesView: View {
                             .bold()
                             .frame(width: 350, height: 60)
                             .background(Color(.colorRed))
-                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isOffensivePresented){

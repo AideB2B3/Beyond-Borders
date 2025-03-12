@@ -24,19 +24,19 @@ struct EndScreen: View {
                 VStack {
                     Text("Responses")
                         .font(.largeTitle)
-                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                        .foregroundColor(Color(.colorDarkBlue))
                         .bold()
                         .padding()
                     
                     List(responses, id: \.name) { response in
                         HStack {
                             Text(response.name)
-                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(Color(.colorDarkBlue))
                                 .font(.title2)
                                 .bold()
                             Spacer()
                             Text(response.answer)
-                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(Color(.colorDarkBlue))
                                 .font(.title3)
                                 .bold()
                         }
@@ -59,7 +59,7 @@ struct EndScreen: View {
                             .padding()
                             .bold()
                             .frame(maxWidth: 150)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .background(Color(.colorDarkBlue))
                             .foregroundColor(Color(red: 1.0, green: 0.945, blue: 0.816))
                             .cornerRadius(30)
                     }
@@ -85,7 +85,7 @@ struct EndScreen: View {
                             .padding()
                             .bold()
                             .frame(maxWidth: 150)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .background(Color(.colorDarkBlue))
                             .foregroundColor(Color(red: 1.0, green: 0.945, blue: 0.816))
                             .cornerRadius(30)
                     }

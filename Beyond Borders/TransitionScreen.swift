@@ -10,18 +10,18 @@ struct TransitionScreen: View {
         VStack {
             Text("Next turn: \(nextParticipant)")
                 .font(.largeTitle)
-                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                .foregroundColor(Color(.colorDarkBlue))
                 .bold()
                 .padding()
             
             Text("Tap to Start the Turn")
                 .font(.title2)
-                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                .foregroundColor(Color(.colorDarkBlue))
             
             Image(systemName: "hand.tap.fill")
                 .font(.system(size: 40))
                 .padding(.top, 10)
-                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                .foregroundColor(Color(.colorDarkBlue))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(backgroundColor)
@@ -36,7 +36,7 @@ struct TransitionScreen_Previews: PreviewProvider {
         TransitionScreen(
             nextParticipant: "Alice",
             onTap: {},
-            backgroundColor: Color(red: 0.176, green: 0.188, blue: 0.278)
+            backgroundColor: Color(.colorDarkBlue)
         )
     }
 }

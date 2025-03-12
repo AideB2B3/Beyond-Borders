@@ -30,7 +30,7 @@ struct SettingsView: View {
                         Text("Match Settings")
                             .font(.largeTitle)
                             .bold()
-                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(Color(.colorDarkBlue))
                         
                         Spacer()
                         
@@ -44,12 +44,12 @@ struct SettingsView: View {
                                     }
                                 }
                                 .listRowBackground(Color(.background))
-                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(Color(.colorDarkBlue))
                             
                             ForEach(participants.indices, id: \.self) { i in
                                 TextField("Insert Name \(i + 1)", text: $participants[i])
                                     .textFieldStyle(PlainTextFieldStyle())
-                                    .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                    .foregroundColor(Color(.colorDarkBlue))
                                     .listRowBackground(Color(.background))
                             }
                             
@@ -59,7 +59,7 @@ struct SettingsView: View {
                             
                             Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
                                 .listRowBackground(Color(.background))
-                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(Color(.colorDarkBlue))
                         }
                         .scrollContentBackground(.hidden)
                         .background(Color(.background))
@@ -75,7 +75,7 @@ struct SettingsView: View {
                             .padding()
                             .bold()
                             .frame(width: 130, height: 70)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .background(Color(.colorDarkBlue))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
