@@ -46,7 +46,7 @@ struct OffensiveView: View {
         self._turnDuration = turnDuration
         self.onHome = onHome
         self.selectedCountry = selectedCountry
-        self.responses = responses 
+        self.responses = responses
         
         self.offensivequestions = [
             "People in \(selectedCountry.name) are often stereotyped as being rude or unfriendly.",

@@ -66,8 +66,6 @@ struct CountryView: View {
                         ZStack {
                             Image("rettangolo bb")
                                 .resizable()
-//                                .scaledToFit()
-//                                .frame(maxWidth: 300, maxHeight: 200)
                             
                             Text("Tap the world to choose a country")
                                 .font(.title2)
@@ -165,23 +163,68 @@ struct CountryView: View {
                 Spacer()
                 
                 if showNextButton {
-                    Button(action: {
-                        isCategoriesPresented = true
-                    }) {
-                        Text("Next")
-                            .font(.title)
-                            .padding()
-                            .bold()
-                            .frame(width: 130, height: 70)
-                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                            .foregroundColor(.white)
-                            .cornerRadius(30)
+                    HStack(spacing: 20) {
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            guard !isSoundPlaying else { return }
+                            
+                            // Resetta lo stato della UI per ripetere l'animazione
+                            isPlaying = true
+                            showText = false
+                            isSoundPlaying = true
+                            showFlag = false
+                            showNextButton = false
+                            playSound()
+                            
+                            // Seleziona un nuovo paese casuale
+                            selectedCountry = countries.randomElement() ?? Country(name: "", flagImage: "")
+                            
+                            // Dopo il tempo dell'animazione, mostra la bandiera e il pulsante Next
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.85) {
+                                withAnimation {
+                                    showFlag = true
+                                }
+                                withAnimation(.easeIn(duration: 0.5)) {
+                                    showNextButton = true
+                                }
+                                isSoundPlaying = false
+                            }
+                        }) {
+                            Text("Respin")
+                                .font(.title)
+                                .padding()
+                                .bold()
+                                .frame(width: 130, height: 70)
+                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(.white)
+                                .cornerRadius(30)
+                        }
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            isCategoriesPresented = true
+                        }) {
+                            Text("Next")
+                                .font(.title)
+                                .padding()
+                                .bold()
+                                .frame(width: 130, height: 70)
+                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(.white)
+                                .cornerRadius(30)
+                        }
+                        .fullScreenCover(isPresented: $isCategoriesPresented) {
+                            CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry: selectedCountry)
+                        }
+                        
+                        Spacer()
+                        
                     }
                     .transition(.opacity)
                     .padding(.bottom, 30)
-                    .fullScreenCover(isPresented: $isCategoriesPresented){
-                        CategoriesView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry: selectedCountry)
-                    }
                 }
             }
             .padding()

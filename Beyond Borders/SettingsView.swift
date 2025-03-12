@@ -116,7 +116,7 @@ struct SettingsView_Previews: PreviewProvider {
             numRounds: 1,
             turnDuration: 60,
             onStart: {},
-            onHome: {}// Aggiunto
+            onHome: {}
         )
     }
 }

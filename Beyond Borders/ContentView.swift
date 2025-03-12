@@ -1,4 +1,5 @@
 import SwiftUI
+import AVKit
 
 struct ContentView: View {
     
@@ -10,56 +11,79 @@ struct ContentView: View {
     var onHome: () -> Void
     
     @State private var isSettingsPresented = false
+    @State private var showOnboarding = false
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
     
     var body: some View {
-        NavigationStack{
+        NavigationStack {
+            
             ZStack {
                 Color(red: 1.0, green: 0.945, blue: 0.816)
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("Beyond Borders")
-                        .bold()
-                        .font(.largeTitle)
-                        .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                    ZStack {
+                        Image("rettangolo bb")
+                            .resizable()
+                        
+                        Text("Welcome in Beyond Borders")
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .multilineTextAlignment(.center)
+                            .frame(width: 280)
+                            .minimumScaleFactor(0.7)
+                            .padding(.horizontal, 10)
+                    }
+                    
+                    HStack {
+                        Image("Mascotte")
+                            .resizable()
+                            .frame(width: 170, height: 170)
+                            .offset(x: -90, y: -30)
+                    }
                     
                     Spacer()
 
-                        Image("app.icon.nobackground")
-                            .resizable()
-                            .frame(width: 300, height: 300)
-                        
-                        Spacer()
-                        
-                        Button(action: {
+                    
+                    Button(action: {
+                        if !hasSeenOnboarding {
+                            showOnboarding = true
+                        } else {
                             isSettingsPresented = true
-                            
-                        }) {
-                            Text("Start")
-                                .font(.title)
-                                .padding()
-                                .bold()
-                                .frame(width: 130, height: 70)
-                                .background(Color(red: 0.176, green: 0.188, blue: 0.278))
-                                .foregroundColor(.white)
-                                .cornerRadius(30)
                         }
-                        .fullScreenCover(isPresented: $isSettingsPresented) {
-                            SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, onHome: onHome)
-                        }
+                    }) {
+                        Text("Start")
+                            .font(.title)
+                            .padding()
+                            .bold()
+                            .frame(width: 350, height: 60)
+                            .background(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            .foregroundColor(.white)
+                            .cornerRadius(30)
+                    }
+                    .padding()
+                    .fullScreenCover(isPresented: $showOnboarding, onDismiss: {
+                        hasSeenOnboarding = true
+                    }) {
+                        OnBoardingView(isPresented: $showOnboarding)
+                    }
+                    .fullScreenCover(isPresented: $isSettingsPresented) {
+                        SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, onHome: onHome)
+                    }
                     
                     NavigationLink(destination: InfoView()) {
                         Text("Info")
                             .font(.title)
                             .padding()
                             .bold()
-                            .frame(width: 100, height: 65)
+                            .frame(width: 350, height: 60)
                             .background(Color(red: 0.176, green: 0.188, blue: 0.278))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
-                    .padding(.bottom, 50)
-                }// End VStack
+//                    .padding(.bottom, 50)
+                }
                 .padding()
             }
         }

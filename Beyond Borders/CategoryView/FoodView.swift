@@ -48,7 +48,7 @@ struct FoodView: View {
         self._turnDuration = turnDuration
         self.onHome = onHome
         self.selectedCountry = selectedCountry
-        self.responses = responses 
+        self.responses = responses
         
         self.foodquestions = [
             
