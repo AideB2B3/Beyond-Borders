@@ -28,22 +28,6 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-//                    HStack{
-//                        Spacer()
-//                        
-//                        NavigationLink(destination: InfoView()){
-//                            Label("", systemImage: "info.circle")
-//                                .font(.largeTitle)
-//                                .padding()
-//                                .bold()
-//                                .frame(width: 200, height: 60)
-//                                .background(.clear)
-//                                .foregroundColor(Color(.colorDarkBlue))
-//                                .cornerRadius(30)
-//                        }
-//                    }
-//                    .padding(.trailing, -50)
-                    
                     ZStack {
                         Image("rettangolo bb")
                             .resizable()
@@ -94,8 +78,8 @@ struct ContentView: View {
                         SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, onHome: onHome)
                     }
                     
-                    NavigationLink(destination: StoryView()) {
-                        Text("Our Story")
+                    NavigationLink(destination: InfoView()) {
+                        Text("Info")
                             .font(.title)
                             .padding()
                             .bold()
@@ -110,15 +94,15 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: InfoView()) {
-                        Image(systemName: "info.circle")
+                    NavigationLink(destination: StoryView()) {
+                        Image(systemName: "book")
                             .font(.title)
                             .foregroundColor(Color(.colorDarkBlue))
                     }
                 }
             }
         }
-//        .tint(Color(.white))
+        //    .tint(Color(.white))
     }
 }
 

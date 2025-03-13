@@ -5,10 +5,6 @@
       "comment" : "%@ = participants "
     },
     "Choose the Category!" : {
-
-    },
-    "Choose The Category!" : {
-      "extractionState" : "stale",
       "localizations" : {
         "hi" : {
           "stringUnit" : {
