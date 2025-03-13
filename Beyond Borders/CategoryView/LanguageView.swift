@@ -25,7 +25,7 @@ struct LanguageView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let selectedCountry: Country
+    @State private var selectedCountry: Country
     private var languagequestions: [String] = []
     
     @State private var responses: [(name: String, answer: String)] = []

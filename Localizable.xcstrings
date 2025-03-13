@@ -7,7 +7,11 @@
     "%@" : {
       "comment" : "%@ = participants "
     },
+    "Choose the Category!" : {
+
+    },
     "Choose The Category!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "hi" : {
           "stringUnit" : {
@@ -28,9 +32,6 @@
           }
         }
       }
-    },
-    "Credits" : {
-
     },
     "Culture" : {
 
@@ -70,9 +71,6 @@
 
     },
     "Home" : {
-
-    },
-    "If you don't know how the app is structured or want to find out who developed it, you're in the right place" : {
 
     },
     "Insert Name %lld" : {
@@ -120,13 +118,7 @@
     "Round" : {
 
     },
-    "Rules" : {
-
-    },
     "Skip" : {
-
-    },
-    "Special thanks to those who created me:\n\nChristian Ciriello\nDavide BelloBuono\nFabrizio Vollaro\nIrem Nur Arslaner\nMichele Mariniello\nSupriya Palle\n" : {
 
     },
     "Start" : {

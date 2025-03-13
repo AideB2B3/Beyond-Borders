@@ -17,7 +17,8 @@ struct EndScreen: View {
 
     var body: some View {
         ZStack {
-            Color(.background)
+//            Color(.background)
+            Color(.colorAzz)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 20) {
                 
@@ -60,7 +61,7 @@ struct EndScreen: View {
                             .bold()
                             .frame(maxWidth: 150)
                             .background(Color(.colorDarkBlue))
-                            .foregroundColor(Color(red: 1.0, green: 0.945, blue: 0.816))
+                            .foregroundColor(Color(.white))
                             .cornerRadius(30)
                     }
                     .padding(.horizontal)
@@ -77,7 +78,6 @@ struct EndScreen: View {
                     }
                     
                     Button(action: {
-                        resetGameToContent()
                         isContentPresented = true
                     }) {
                         Label("Home", systemImage: "house")
@@ -86,7 +86,7 @@ struct EndScreen: View {
                             .bold()
                             .frame(maxWidth: 150)
                             .background(Color(.colorDarkBlue))
-                            .foregroundColor(Color(red: 1.0, green: 0.945, blue: 0.816))
+                            .foregroundColor(Color(.white))
                             .cornerRadius(30)
                     }
                     .fullScreenCover(isPresented: $isContentPresented) {
@@ -106,13 +106,6 @@ struct EndScreen: View {
             }
             .padding(.bottom, 40)
         }
-    }
-    
-    func resetGameToContent() {
-        numParticipants = 0
-        participants = []
-        numRounds = 1
-        turnDuration = 60
     }
 }
 

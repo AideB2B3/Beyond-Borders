@@ -18,30 +18,12 @@ struct CategoriesView: View {
         
         NavigationStack {
             ZStack {
-                Color(.background)
+//                Color(.background)
+                Color(.colorAzz)
                     .ignoresSafeArea()
                 
                 VStack {
-//                    Image("rettangolo bb")
-//                        .resizable()
-//                        .frame(width: 300, height: 140)
-//                        .overlay(
-//                            Text("Choose The Category!")
-//                                .font(.system(size: 20, weight: .bold))
-//                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-//                                .multilineTextAlignment(.center)
-//                                .frame(width: 260)
-//                                .padding(5)
-//                        )
-//                    HStack {
-//                        Image("yellowEnemy")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 120, height: 120)
-//                        Spacer()
-//                    }
-                    
-                    Text("Choose The Category!")
+                    Text("Choose the Category!")
                         .font(.largeTitle)
                         .bold()
                         .foregroundColor(Color(.colorDarkBlue))
@@ -50,7 +32,6 @@ struct CategoriesView: View {
                     Spacer()
                     
                     Button(action: {
-//                        print("Settings Button tapped")
                         isLanguagePresented = true
                         
                     }) {
@@ -59,7 +40,7 @@ struct CategoriesView: View {
                             .bold()
                             .frame(width: 350, height: 60)
                             .background(Color(.colorGreen))
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.white))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isLanguagePresented){
@@ -78,7 +59,7 @@ struct CategoriesView: View {
                             .bold()
                             .frame(width: 350, height: 60)
                             .background(Color(.colorYellow))
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.white))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isFoodPresented){
@@ -88,7 +69,6 @@ struct CategoriesView: View {
                     .padding()
                     
                     Button(action: {
-//                        print("Settings Button tapped")
                         isCulturePresented = true
                         
                     }) {
@@ -97,7 +77,7 @@ struct CategoriesView: View {
                             .bold()
                             .frame(width: 350, height: 60)
                             .background(Color(.colorBlue))
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.white))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isCulturePresented){
@@ -107,7 +87,6 @@ struct CategoriesView: View {
                     .padding()
                     
                     Button(action: {
-//                        print("Settings Button tapped")
                         isOffensivePresented = true
                         
                     }) {
@@ -116,15 +95,13 @@ struct CategoriesView: View {
                             .bold()
                             .frame(width: 350, height: 60)
                             .background(Color(.colorRed))
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.white))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isOffensivePresented){
                         OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                     }
-                    
                     .padding()
-                    
                     Spacer()
                 }
             }

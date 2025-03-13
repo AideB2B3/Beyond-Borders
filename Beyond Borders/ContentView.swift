@@ -18,16 +18,22 @@ struct ContentView: View {
         NavigationStack {
             
             ZStack {
-                Color(.background)
+//                Color(.background)
+                Color(red: 0.84, green: 0.89, blue: 0.95) // Azzurro chiaro polvere
+
+//                Color(red: 0.92, green: 0.92, blue: 0.92) // Grigio molto chiaro
+//                Color(red: 0.98, green: 0.95, blue: 0.90) // Beige chiaro
+
+
                     .ignoresSafeArea()
                 
                 VStack {
                     HStack{
                         Spacer()
                         
-                        NavigationLink(destination: RulesView()){
+                        NavigationLink(destination: InfoView()){
                             Label("", systemImage: "info.circle")
-                                .font(.title)
+                                .font(.largeTitle)
                                 .padding()
                                 .bold()
                                 .frame(width: 200, height: 60)
@@ -88,12 +94,12 @@ struct ContentView: View {
                         SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, onHome: onHome)
                     }
                     
-                    NavigationLink(destination: InfoView()) {
+                    NavigationLink(destination: StoryView()) {
                         Text("Our Story")
                             .font(.title)
                             .padding()
                             .bold()
-                            .frame(width: 200, height: 60)
+                            .frame(width: 160, height: 50)
                             .background(Color(.colorDarkBlue))
                             .foregroundColor(.white)
                             .cornerRadius(30)
@@ -103,7 +109,7 @@ struct ContentView: View {
                 .padding()
             }
         }
-        .tint(Color(.colorDarkBlue))
+//        .tint(Color(.white))
     }
 }
 

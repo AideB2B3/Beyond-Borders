@@ -56,7 +56,8 @@ struct CountryView: View {
     var body: some View {
         ZStack {
 
-            Color(.background)
+//            Color(.background)
+            Color(.colorAzz)
                 .ignoresSafeArea()
             
             VStack(spacing: 20) {

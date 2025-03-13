@@ -23,7 +23,8 @@ struct OffensiveView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let selectedCountry: Country
+//    let selectedCountry: Country
+    @State private var selectedCountry: Country
     private var offensivequestions: [String] = []
     
     @State private var responses: [(name: String, answer: String)] = []

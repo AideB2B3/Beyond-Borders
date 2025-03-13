@@ -24,13 +24,14 @@ struct FoodView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    let selectedCountry: Country
+    @State private var selectedCountry: Country
+
     private var foodquestions: [String] = []
     
     @State private var responses: [(name: String, answer: String)] = []
 
-    
     @State private var randomQuestion: String = ""
+
     @State private var showStart = true
     @State private var showNo = false
     @State private var showYes = false
@@ -99,7 +100,7 @@ struct FoodView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(.colorYellow)  // Culture View's background color
+                            backgroundColor: Color(.colorYellow)
                         )
                     }
                 } else {
@@ -137,7 +138,7 @@ struct FoodView: View {
                         
                         if showStart {
                             Button(action: {
-                                showStart = false // Nasconde il pulsante Start e mostra nuovi elementi
+                                showStart = false
                             }) {
                                 Text("Start")
                                     .font(.title)
@@ -150,7 +151,6 @@ struct FoodView: View {
                             }
                             .padding()
                         } else {
-                            // Qui puoi aggiungere il nuovo contenuto che comparirà dopo aver premuto Start
                             VStack(spacing: 20) {
                                 
                                 Spacer()
@@ -165,7 +165,6 @@ struct FoodView: View {
                                     Text("Re open the app")
                                 }
                                 
-                                
                                 Spacer()
                                 
                                 if !showTimer{
@@ -173,9 +172,6 @@ struct FoodView: View {
                                         .font(.title)
                                         .bold()
                                         .foregroundColor(Color(.colorDarkBlue))
-                                    
-                                    
-                                    
                                     
                                     HStack {
                                         
@@ -209,7 +205,7 @@ struct FoodView: View {
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
-
+                                        
                                         
                                         Spacer()
                                         
@@ -221,17 +217,15 @@ struct FoodView: View {
                                     
                                     VStack{
                                         ZStack {
-                                            // Rettangolo grigio di sfondo
                                             Rectangle()
                                                 .fill(Color.gray.opacity(0.3))
                                                 .frame(width: 320, height: 70)
                                                 .cornerRadius(30)
                                             
-                                            // Rettangolo blu che si svuota da destra a sinistra
                                             HStack(spacing: 0) {
                                                 Rectangle()
                                                     .fill(Color(.colorDarkBlue))
-                                                    .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 70) // La larghezza diminuisce nel tempo
+                                                    .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 70)
                                                 
                                                 Spacer(minLength: 0)
                                             }
@@ -264,12 +258,12 @@ struct FoodView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(.colorYellow)  // Culture View's background color
+                                                backgroundColor: Color(.colorYellow)
                                             )
                                         }
                                     }
                                     .padding()
-                                    .transition(.opacity) // Effetto di transizione
+                                    .transition(.opacity)
                                     .onAppear {
                                         startTimer()
                                     }
@@ -279,14 +273,12 @@ struct FoodView: View {
                                     
                                 }
                             }
-                            //                        .transition(.opacity) // Effetto di transizione
-                            
+                            .transition(.opacity)
                         }
                     }
                 }
             }
             .onAppear {
-                // Ensure turn order is generated when view appears
                 if turnOrder.isEmpty {
                     generateTurnOrder()
                 }
@@ -294,7 +286,6 @@ struct FoodView: View {
         }// End Nav Stack
         
     }
-    
     
     func stopTimer() {
         if let timer = timer {
@@ -396,18 +387,15 @@ struct FoodView: View {
     
 }
 
-
 struct FoodView_Previews: PreviewProvider {
     static var previews: some View {
         FoodView(
             numParticipants: .constant(3),
             participants: .constant(["Alice", "Bob", "Charlie"]),
-            numRounds: .constant(3),
+            numRounds: .constant(1),
             turnDuration: .constant(60),
             onHome: {},
             selectedCountry: Country(name: "Italy", flagImage: "flags_italy")
         )
     }
 }
-
-
