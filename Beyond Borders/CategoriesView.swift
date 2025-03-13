@@ -58,7 +58,7 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(.colorGreen))
+                            .background(Color(.colorLanguage))
                             .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
@@ -77,7 +77,7 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(.colorYellow))
+                            .background(Color(.colorFood))
                             .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
@@ -96,7 +96,7 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(.colorBlue))
+                            .background(Color(.colorCulture))
                             .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
@@ -115,7 +115,7 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(.colorRed))
+                            .background(Color(.colorOffensive))
                             .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
