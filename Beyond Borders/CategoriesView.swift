@@ -14,12 +14,19 @@ struct CategoriesView: View {
     
     let selectedCountry: Country
     
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
+    let corners : CGFloat = 10
+    
     var body: some View {
         
         NavigationStack {
             ZStack {
 //                Color(.background)
-                Color(.colorAzz)
+                Color(.beigeBack)
                     .ignoresSafeArea()
                 
                 VStack {
@@ -31,81 +38,100 @@ struct CategoriesView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-//                        print("Settings Button tapped")
-                        isLanguagePresented = true
+                    LazyVGrid(columns: columns, spacing: 20) {
                         
-                    }) {
-                        Text("Language")
-                            .font(.title2)
-                            .bold()
-                            .frame(width: 350, height: 60)
-                            .background(Color(.colorLanguage))
-                            .foregroundColor(Color(.colorDarkBlue))
-                            .cornerRadius(50)
-                    }
-                    .fullScreenCover(isPresented: $isLanguagePresented){
-                        LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
-                    }
-                    
-                    .padding()
-                    
-                    Button(action: {
-//                        print("Settings Button tapped")
-                        isFoodPresented = true
+                        Button(action: {
+                            //                        print("Settings Button tapped")
+                            isLanguagePresented = true
+                            
+                        }) {
+                            Text("Language")
+                                .font(.title2)
+                                .bold()
+                                .frame(width: 170, height: 140)
+                                .background(Color(.white.opacity(0.5)))
+                                .foregroundColor(Color(.colorDarkBlue))
+                                .cornerRadius(corners)
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: corners)
+                                .stroke(Color(.colorLanguage), lineWidth: 2)
+                        )
+                        .fullScreenCover(isPresented: $isLanguagePresented){
+                            LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
+                        }
                         
-                    }) {
-                        Text("Food")
-                            .font(.title2)
-                            .bold()
-                            .frame(width: 350, height: 60)
-                            .background(Color(.colorFood))
-                            .foregroundColor(Color(.colorDarkBlue))
-                            .cornerRadius(50)
-                    }
-                    .fullScreenCover(isPresented: $isFoodPresented){
-                        FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
-                    }
-                    
-                    .padding()
-                    
-                    Button(action: {
-//                        print("Settings Button tapped")
-                        isCulturePresented = true
+                        .padding()
                         
-                    }) {
-                        Text("Culture")
-                            .font(.title2)
-                            .bold()
-                            .frame(width: 350, height: 60)
-                            .background(Color(.colorCulture))
-                            .foregroundColor(Color(.colorDarkBlue))
-                            .cornerRadius(50)
-                    }
-                    .fullScreenCover(isPresented: $isCulturePresented){
-                        CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
-                    }
-                    
-                    .padding()
-                    
-                    Button(action: {
-//                        print("Settings Button tapped")
-                        isOffensivePresented = true
+                        Button(action: {
+                            //                        print("Settings Button tapped")
+                            isFoodPresented = true
+                            
+                        }) {
+                            Text("Food")
+                                .font(.title2)
+                                .bold()
+                                .frame(width: 170, height: 140)
+                                .background(Color(.white.opacity(0.5)))
+                                .foregroundColor(Color(.colorDarkBlue))
+                                .cornerRadius(corners)
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: corners)
+                                .stroke(Color(.colorFood), lineWidth: 2)
+                        )
+                        .fullScreenCover(isPresented: $isFoodPresented){
+                            FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
+                        }
                         
-                    }) {
-                        Text("Offensive Rumors")
-                            .font(.title2)
-                            .bold()
-                            .frame(width: 350, height: 60)
-                            .background(Color(.colorOffensive))
-                            .foregroundColor(Color(.colorDarkBlue))
-                            .cornerRadius(50)
+                        .padding()
+                        
+                        Button(action: {
+                            //                        print("Settings Button tapped")
+                            isCulturePresented = true
+                            
+                        }) {
+                            Text("Culture")
+                                .font(.title2)
+                                .bold()
+                                .frame(width: 170, height: 140)
+                                .background(Color(.white.opacity(0.5)))
+                                .foregroundColor(Color(.colorDarkBlue))
+                                .cornerRadius(corners)
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: corners)
+                                .stroke(Color(.colorCulture), lineWidth: 2)
+                        )
+                        .fullScreenCover(isPresented: $isCulturePresented){
+                            CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
+                        }
+                        
+                        .padding()
+                        
+                        Button(action: {
+                            //                        print("Settings Button tapped")
+                            isOffensivePresented = true
+                            
+                        }) {
+                            Text("Offensive Rumors")
+                                .font(.title2)
+                                .bold()
+                                .frame(width: 170, height: 140)
+                                .background(Color(.white.opacity(0.5)))
+                                .foregroundColor(Color(.colorDarkBlue))
+                                .cornerRadius(corners)
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: corners)
+                                .stroke(Color(.colorOffensive), lineWidth: 2)
+                        )
+                        .fullScreenCover(isPresented: $isOffensivePresented){
+                            OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
+                        }
+                        .padding()
+                        Spacer()
                     }
-                    .fullScreenCover(isPresented: $isOffensivePresented){
-                        OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
-                    }
-                    .padding()
-                    Spacer()
                 }
             }
         }
