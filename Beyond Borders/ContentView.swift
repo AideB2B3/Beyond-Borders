@@ -18,31 +18,31 @@ struct ContentView: View {
         NavigationStack {
             
             ZStack {
-//                Color(.background)
+                //                Color(.background)
                 Color(red: 0.84, green: 0.89, blue: 0.95) // Azzurro chiaro polvere
-
-//                Color(red: 0.92, green: 0.92, blue: 0.92) // Grigio molto chiaro
-//                Color(red: 0.98, green: 0.95, blue: 0.90) // Beige chiaro
-
-
+                
+                //                Color(red: 0.92, green: 0.92, blue: 0.92) // Grigio molto chiaro
+                //                Color(red: 0.98, green: 0.95, blue: 0.90) // Beige chiaro
+                
+                
                     .ignoresSafeArea()
                 
                 VStack {
-                    HStack{
-                        Spacer()
-                        
-                        NavigationLink(destination: InfoView()){
-                            Label("", systemImage: "info.circle")
-                                .font(.largeTitle)
-                                .padding()
-                                .bold()
-                                .frame(width: 200, height: 60)
-                                .background(.clear)
-                                .foregroundColor(Color(.colorDarkBlue))
-                                .cornerRadius(30)
-                        }
-                    }
-                    .padding(.trailing, -50)
+//                    HStack{
+//                        Spacer()
+//                        
+//                        NavigationLink(destination: InfoView()){
+//                            Label("", systemImage: "info.circle")
+//                                .font(.largeTitle)
+//                                .padding()
+//                                .bold()
+//                                .frame(width: 200, height: 60)
+//                                .background(.clear)
+//                                .foregroundColor(Color(.colorDarkBlue))
+//                                .cornerRadius(30)
+//                        }
+//                    }
+//                    .padding(.trailing, -50)
                     
                     ZStack {
                         Image("rettangolo bb")
@@ -66,7 +66,7 @@ struct ContentView: View {
                     }
                     
                     Spacer()
-
+                    
                     
                     Button(action: {
                         if !hasSeenOnboarding {
@@ -104,9 +104,18 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
-//                    .padding(.bottom, 50)
+                    //                    .padding(.bottom, 50)
                 }
                 .padding()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: InfoView()) {
+                        Image(systemName: "info.circle")
+                            .font(.title)
+                            .foregroundColor(Color(.colorDarkBlue))
+                    }
+                }
             }
         }
 //        .tint(Color(.white))
