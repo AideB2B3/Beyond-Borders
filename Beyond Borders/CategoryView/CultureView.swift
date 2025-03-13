@@ -85,7 +85,7 @@ struct CultureView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.colorBlue)
+                Color(.colorCulture)
                     .ignoresSafeArea()
                 
                 if showEndScreen {
@@ -102,7 +102,7 @@ struct CultureView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(.colorBlue)  // Culture View's background color
+                            backgroundColor: Color(.colorCulture)  // Culture View's background color
                         )
                     }
                 } else {
@@ -264,7 +264,7 @@ struct CultureView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(.colorBlue)  // Culture View's background color
+                                                backgroundColor: Color(.colorCulture)  // Culture View's background color
                                             )
                                         }
                                         

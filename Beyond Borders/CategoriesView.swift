@@ -32,6 +32,7 @@ struct CategoriesView: View {
                     Spacer()
                     
                     Button(action: {
+//                        print("Settings Button tapped")
                         isLanguagePresented = true
                         
                     }) {
@@ -39,8 +40,8 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(.colorGreen))
-                            .foregroundColor(Color(.white))
+                            .background(Color(.colorLanguage))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isLanguagePresented){
@@ -58,8 +59,8 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(.colorYellow))
-                            .foregroundColor(Color(.white))
+                            .background(Color(.colorFood))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isFoodPresented){
@@ -69,6 +70,7 @@ struct CategoriesView: View {
                     .padding()
                     
                     Button(action: {
+//                        print("Settings Button tapped")
                         isCulturePresented = true
                         
                     }) {
@@ -76,8 +78,8 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(.colorBlue))
-                            .foregroundColor(Color(.white))
+                            .background(Color(.colorCulture))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isCulturePresented){
@@ -87,6 +89,7 @@ struct CategoriesView: View {
                     .padding()
                     
                     Button(action: {
+//                        print("Settings Button tapped")
                         isOffensivePresented = true
                         
                     }) {
@@ -94,8 +97,8 @@ struct CategoriesView: View {
                             .font(.title2)
                             .bold()
                             .frame(width: 350, height: 60)
-                            .background(Color(.colorRed))
-                            .foregroundColor(Color(.white))
+                            .background(Color(.colorOffensive))
+                            .foregroundColor(Color(.colorDarkBlue))
                             .cornerRadius(50)
                     }
                     .fullScreenCover(isPresented: $isOffensivePresented){

@@ -80,7 +80,7 @@ struct OffensiveView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.colorRed)
+                Color(.colorOffensive)
                     .ignoresSafeArea()
                 
                 if showEndScreen {
@@ -97,7 +97,7 @@ struct OffensiveView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(.colorRed)  // Culture View's background color
+                            backgroundColor: Color(.colorOffensive)  // Culture View's background color
                         )
                     }
                 } else {
@@ -259,7 +259,7 @@ struct OffensiveView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(.colorRed)  // Culture View's background color
+                                                backgroundColor: Color(.colorOffensive)  // Culture View's background color
                                             )
                                         }
                                         

@@ -83,7 +83,7 @@ struct FoodView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.colorYellow)
+                Color(.colorFood)
                     .ignoresSafeArea()
                 
                 if showEndScreen {
@@ -100,7 +100,7 @@ struct FoodView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(.colorYellow)
+                            backgroundColor: Color(.colorFood)  // Culture View's background color
                         )
                     }
                 } else {
@@ -258,7 +258,7 @@ struct FoodView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(.colorYellow)
+                                                backgroundColor: Color(.colorFood)  // Culture View's background color
                                             )
                                         }
                                     }
