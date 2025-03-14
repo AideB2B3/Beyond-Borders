@@ -131,11 +131,11 @@ struct OffensiveView: View {
                                 .padding()
                         }
                         
-                        Image("Mascotte")
+                        Image("Alien")
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: 150, height: 150)
-                            .offset(x: -110, y: -30)
+                            .scaledToFill()
+                            .frame(width: 170, height: 170)
+                            .offset(x: -130, y: -20)
                         
                         Spacer()
                         

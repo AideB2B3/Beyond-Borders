@@ -32,28 +32,12 @@ struct ContentView: View {
                     
                         .bold()
                     Spacer()
-                    ZStack {
-                        
-                        Image("rettangolo bb")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .offset(x: 20, y: 30)
-                        
-                        Text("Hi!")
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(Color(.colorWritten))
-                            .multilineTextAlignment(.center)
-                            .frame(width: 280)
-                            .minimumScaleFactor(0.7)
-                            .offset(x: 20, y: 30)
-                    }
-                    
+
                     HStack {
-                        Image("Mascotte")
+                        Image("Alien_hi")
                             .resizable()
-                            .frame(width: 170, height: 170)
-                            .offset(x: -30, y: -20)
+                            .scaledToFill()
+                            .frame(width: 250, height: 250)
                     }
                     
                     Spacer()
@@ -95,7 +79,6 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
-                    //                    .padding(.bottom, 50)
                 }
                 .padding()
             }
