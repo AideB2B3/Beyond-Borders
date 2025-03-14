@@ -18,35 +18,41 @@ struct ContentView: View {
         NavigationStack {
             
             ZStack {
-                //                Color(.background)
-                Color(red: 0.84, green: 0.89, blue: 0.95) // Azzurro chiaro polvere
                 
+                        Color(.beigeBack)
+                //                Color(red: 0.84, green: 0.89, blue: 0.95) // Azzurro chiaro polvere
                 //                Color(red: 0.92, green: 0.92, blue: 0.92) // Grigio molto chiaro
                 //                Color(red: 0.98, green: 0.95, blue: 0.90) // Beige chiaro
-                
-                
                     .ignoresSafeArea()
                 
                 VStack {
+                    Text("\nWelcome in Beyond Borders")
+                        .font(.largeTitle)
+                        .multilineTextAlignment(.center)
+                        .bold()
+                    Spacer()
                     ZStack {
+                        
                         Image("rettangolo bb")
                             .resizable()
+                            .frame(width: 100, height: 100)
+                            .offset(x: 20, y: 30)
                         
-                        Text("Welcome in Beyond Borders")
+                        Text("Hi!")
                             .font(.title)
                             .bold()
                             .foregroundColor(Color(.colorDarkBlue))
                             .multilineTextAlignment(.center)
                             .frame(width: 280)
                             .minimumScaleFactor(0.7)
-                            .padding(.horizontal, 10)
+                            .offset(x: 20, y: 30)
                     }
                     
                     HStack {
                         Image("Mascotte")
                             .resizable()
                             .frame(width: 170, height: 170)
-                            .offset(x: -90, y: -30)
+                            .offset(x: -30, y: -20)
                     }
                     
                     Spacer()
@@ -63,7 +69,7 @@ struct ContentView: View {
                             .font(.title)
                             .padding()
                             .bold()
-                            .frame(width: 200, height: 60)
+                            .frame(width: 150, height: 70)
                             .background(Color(.colorDarkBlue))
                             .foregroundColor(.white)
                             .cornerRadius(30)
@@ -83,7 +89,7 @@ struct ContentView: View {
                             .font(.title)
                             .padding()
                             .bold()
-                            .frame(width: 160, height: 50)
+                            .frame(width: 150, height: 70)
                             .background(Color(.colorDarkBlue))
                             .foregroundColor(.white)
                             .cornerRadius(30)

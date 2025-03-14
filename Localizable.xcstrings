@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "\n\nTap the world to choose a country" : {
+
+    },
+    "\nWelcome in Beyond Borders" : {
+
+    },
     "%@" : {
       "comment" : "%@ = participants "
     },
@@ -60,10 +66,16 @@
     "Food / %@" : {
 
     },
-    "Has been selected %@" : {
+    "Has been selected\n\n %@" : {
+
+    },
+    "Hi!" : {
 
     },
     "Home" : {
+
+    },
+    "Info" : {
 
     },
     "Insert Name %lld" : {
@@ -90,12 +102,6 @@
     "Offensive / %@" : {
 
     },
-    "Offensive Rumors" : {
-
-    },
-    "Our Story" : {
-
-    },
     "Play" : {
 
     },
@@ -111,13 +117,13 @@
     "Round" : {
 
     },
+    "Rumors" : {
+
+    },
     "Skip" : {
 
     },
     "Start" : {
-
-    },
-    "Tap the world to choose a country" : {
 
     },
     "Tap to Start the Turn" : {
@@ -128,9 +134,6 @@
     },
     "Turn Duration: %lld sec" : {
       "comment" : "%lld = number of participant"
-    },
-    "Welcome in Beyond Borders" : {
-
     },
     "Yes" : {
 

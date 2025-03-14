@@ -112,17 +112,17 @@ struct LanguageView: View {
                         
                         ZStack {
                             
-                            //                            Image("rettangolo bb")
-                            //                                .resizable()
-                            //                                .scaledToFit( )
-                            Rectangle()
-                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
-                                .frame(width: 350, height: 200)
-                                .cornerRadius(20)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color(.colorDarkBlue), lineWidth: 4)
-                                )
+                            Image("rettangolo bb")
+                                .resizable()
+                                .scaledToFit( )
+//                            Rectangle()
+//                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
+//                                .frame(width: 350, height: 200)
+//                                .cornerRadius(20)
+//                                .overlay(
+//                                    RoundedRectangle(cornerRadius: 20)
+//                                        .stroke(Color(.colorDarkBlue), lineWidth: 4)
+//                                )
                             
                             Text(randomQuestion)
                                 .font(.system(size: 25, weight: .bold))
@@ -131,6 +131,12 @@ struct LanguageView: View {
                                 .multilineTextAlignment(.center)
                                 .padding()
                         }
+                        
+                        Image("Mascotte")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                            .offset(x: -110, y: -30)
                         
                         Spacer()
                         
@@ -152,7 +158,7 @@ struct LanguageView: View {
                             // Qui puoi aggiungere il nuovo contenuto che comparirà dopo aver premuto Start
                             VStack(spacing: 20) {
                                 
-                                Spacer()
+//                                Spacer()
                                 
                                 if let currentParticipant = currentTurnSafe() {
                                     Text("\(currentParticipant)")
@@ -211,7 +217,7 @@ struct LanguageView: View {
                                         Spacer()
                                         
                                     }
-                                    .padding()
+//                                    .padding()
                                     
                                 } //End IF
                                 else{
@@ -221,18 +227,18 @@ struct LanguageView: View {
                                             // Rettangolo grigio di sfondo
                                             Rectangle()
                                                 .fill(Color.gray.opacity(0.3))
-                                                .frame(width: 320, height: 70)
+                                                .frame(width: 320, height: 65)
                                                 .cornerRadius(30)
                                             
                                             // Rettangolo blu che si svuota da destra a sinistra
                                             HStack(spacing: 0) {
                                                 Rectangle()
                                                     .fill(Color(.colorDarkBlue))
-                                                    .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 70) // La larghezza diminuisce nel tempo
+                                                    .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 65) // La larghezza diminuisce nel tempo
                                                 
                                                 Spacer(minLength: 0)
                                             }
-                                            .frame(width: 320, height: 70)
+                                            .frame(width: 320, height: 65)
                                             .cornerRadius(30)
                                             .animation(.linear(duration: 1), value: remainingTime)
                                             
@@ -241,7 +247,7 @@ struct LanguageView: View {
                                                 .foregroundColor(.white)
                                                 .bold()
                                         }
-                                        .padding(.top, 160)
+                                        .padding(.bottom, 80)
                                         .frame(width: 250, height: 50)
                                         Spacer()
                                         
@@ -277,7 +283,7 @@ struct LanguageView: View {
                                     
                                 }
                             }
-                            //                        .transition(.opacity) // Effetto di transizione
+                            .transition(.opacity) // Effetto di transizione
                             
                         }
                     }
@@ -399,8 +405,8 @@ struct LanguageView_Previews: PreviewProvider {
         LanguageView(
             numParticipants: .constant(3),
             participants: .constant(["Alice", "Bob", "Charlie"]),
-            numRounds: .constant(3),
-            turnDuration: .constant(60),
+            numRounds: .constant(1),
+            turnDuration: .constant(5),
             onHome: {},
             selectedCountry: Country(name: "Italy", flagImage: "flags_italy")
         )

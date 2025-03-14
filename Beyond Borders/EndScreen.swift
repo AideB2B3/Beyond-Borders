@@ -18,7 +18,7 @@ struct EndScreen: View {
     var body: some View {
         ZStack {
 //            Color(.background)
-            Color(.colorAzz)
+            Color(.beigeBack)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 20) {
                 
