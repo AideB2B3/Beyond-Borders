@@ -29,7 +29,7 @@ struct ContentView: View {
                     Text("\nWelcome in Beyond Borders")
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
-                    
+                        .foregroundColor(Color(.colorWritten))
                         .bold()
                     Spacer()
                     ZStack {

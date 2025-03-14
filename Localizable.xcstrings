@@ -266,16 +266,6 @@
         }
       }
     },
-    "Welcome in Beyond Borders" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Benvenuto in Beyond Borders"
-          }
-        }
-      }
-    },
     "Yes" : {
       "localizations" : {
         "it" : {
