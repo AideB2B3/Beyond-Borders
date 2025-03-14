@@ -33,9 +33,9 @@ struct CategoriesView: View {
                     Text("Choose the Category!")
                         .font(.largeTitle)
                         .bold()
-                        .foregroundColor(Color(.colorDarkBlue))
+                        .foregroundColor(Color(.colorWritten))
                         .padding(.top, 50)
-                    
+                
                     Image("Mascotte")
                         .resizable()
                         .scaledToFit()
@@ -54,7 +54,7 @@ struct CategoriesView: View {
                                 .bold()
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
                         }
                         .overlay(
@@ -76,7 +76,7 @@ struct CategoriesView: View {
                                 .bold()
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
                         }
                         .overlay(
@@ -98,7 +98,7 @@ struct CategoriesView: View {
                                 .bold()
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
                         }
                         .overlay(
@@ -120,7 +120,7 @@ struct CategoriesView: View {
                                 .bold()
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
                         }
                         .overlay(

@@ -25,19 +25,19 @@ struct EndScreen: View {
                 VStack {
                     Text("Responses")
                         .font(.largeTitle)
-                        .foregroundColor(Color(.colorDarkBlue))
+                        .foregroundColor(Color(.colorWritten))
                         .bold()
                         .padding()
                     
                     List(responses, id: \.name) { response in
                         HStack {
                             Text(response.name)
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .font(.title2)
                                 .bold()
                             Spacer()
                             Text(response.answer)
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .font(.title3)
                                 .bold()
                         }
@@ -60,7 +60,7 @@ struct EndScreen: View {
                             .padding()
                             .bold()
                             .frame(maxWidth: 150)
-                            .background(Color(.colorDarkBlue))
+                            .background(Color(.colorWritten))
                             .foregroundColor(Color(.white))
                             .cornerRadius(30)
                     }
@@ -85,7 +85,7 @@ struct EndScreen: View {
                             .padding()
                             .bold()
                             .frame(maxWidth: 150)
-                            .background(Color(.colorDarkBlue))
+                            .background(Color(.colorWritten))
                             .foregroundColor(Color(.white))
                             .cornerRadius(30)
                     }

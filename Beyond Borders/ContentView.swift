@@ -42,7 +42,7 @@ struct ContentView: View {
                         Text("Hi!")
                             .font(.title)
                             .bold()
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.colorWritten))
                             .multilineTextAlignment(.center)
                             .frame(width: 280)
                             .minimumScaleFactor(0.7)
@@ -71,7 +71,7 @@ struct ContentView: View {
                             .padding()
                             .bold()
                             .frame(width: 150, height: 70)
-                            .background(Color(.colorDarkBlue))
+                            .background(Color(.colorWritten))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
@@ -90,8 +90,8 @@ struct ContentView: View {
                             .font(.title)
                             .padding()
                             .bold()
-                            .frame(width: 150, height: 70)
-                            .background(Color(.colorDarkBlue))
+                            .frame(width: 150, height: 65)
+                            .background(Color(.colorWritten))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
@@ -104,12 +104,12 @@ struct ContentView: View {
                     NavigationLink(destination: StoryView()) {
                         Image(systemName: "book")
                             .font(.title)
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.colorWritten))
                     }
                 }
             }
         }
-        //    .tint(Color(.white))
+        //    .tint(Color(.colorWritten))
     }
 }
 
