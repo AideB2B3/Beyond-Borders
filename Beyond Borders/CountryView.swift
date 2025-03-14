@@ -205,7 +205,7 @@ struct CountryView: View {
                                 isSoundPlaying = false
                             }
                         }) {
-                            Text("Respin")
+                            Text("Re-tap")
                                 .font(.title)
                                 .padding()
                                 .bold()

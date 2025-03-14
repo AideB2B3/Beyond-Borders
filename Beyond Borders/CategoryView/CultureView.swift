@@ -150,7 +150,7 @@ struct CultureView: View {
                             Button(action: {
                                 showStart = false // Nasconde il pulsante Start e mostra nuovi elementi
                             }) {
-                                Text("Start")
+                                Text("Play")
                                     .font(.title)
                                     .padding()
                                     .bold()

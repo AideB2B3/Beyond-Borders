@@ -146,7 +146,7 @@ struct FoodView: View {
                             Button(action: {
                                 showStart = false
                             }) {
-                                Text("Start")
+                                Text("Play")
                                     .font(.title)
                                     .padding()
                                     .bold()

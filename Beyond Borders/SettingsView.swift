@@ -70,7 +70,7 @@ struct SettingsView: View {
                         isCountryPresented = true  // Mostra la schermata delle nazioni
                         
                     }) {
-                        Text("Start")
+                        Text("Next")
                             .font(.title)
                             .padding()
                             .bold()

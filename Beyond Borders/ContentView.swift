@@ -26,7 +26,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("\nWelcome in Beyond Borders")
+                    Text("\nBeyond Borders")
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
                     
@@ -50,7 +50,7 @@ struct ContentView: View {
                             isSettingsPresented = true
                         }
                     }) {
-                        Text("Play")
+                        Text("Start")
                             .font(.title)
                             .padding()
                             .bold()
@@ -69,23 +69,23 @@ struct ContentView: View {
                         SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, onHome: onHome)
                     }
                     
-                    NavigationLink(destination: InfoView()) {
-                        Text("Info")
-                            .font(.title)
-                            .padding()
-                            .bold()
-                            .frame(width: 150, height: 65)
-                            .background(Color(.colorWritten))
-                            .foregroundColor(.white)
-                            .cornerRadius(30)
-                    }
+//                    NavigationLink(destination: InfoView()) {
+//                        Text("Info")
+//                            .font(.title)
+//                            .padding()
+//                            .bold()
+//                            .frame(width: 150, height: 65)
+//                            .background(Color(.colorWritten))
+//                            .foregroundColor(.white)
+//                            .cornerRadius(30)
+//                    }
                 }
                 .padding()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: StoryView()) {
-                        Image(systemName: "book")
+                    NavigationLink(destination: InfoView()) {
+                        Image(systemName: "info.circle")
                             .font(.title)
                             .foregroundColor(Color(.colorWritten))
                     }

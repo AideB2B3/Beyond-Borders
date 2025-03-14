@@ -4,34 +4,11 @@
     "\n\nTap the world to extract a random country" : {
 
     },
-    "\nWelcome in Beyond Borders" : {
+    "\nBeyond Borders" : {
 
     },
     "%@" : {
       "comment" : "%@ = country"
-    },
-    "Choose the Category!" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "श्रेणी चुनें!"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scegli la Categoria!"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kategori Seçin! "
-          }
-        }
-      }
     },
     "Choose the Category!\n" : {
 
@@ -99,9 +76,6 @@
       }
     },
     "Home" : {
-
-    },
-    "Info" : {
 
     },
     "Insert Name %lld" : {
@@ -200,7 +174,11 @@
         }
       }
     },
+    "Re-tap" : {
+
+    },
     "Respin" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -223,9 +201,6 @@
     "Round" : {
 
     },
-    "Rumors" : {
-
-    },
     "Skip" : {
       "localizations" : {
         "it" : {
@@ -237,6 +212,9 @@
       }
     },
     "Start" : {
+
+    },
+    "Stereotypes" : {
 
     },
     "Tap to Start the Turn" : {
@@ -260,17 +238,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Durata Turno: %lld sec "
-          }
-        }
-      }
-    },
-    "Welcome in Beyond Borders" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Benvenuto in Beyond Borders"
           }
         }
       }

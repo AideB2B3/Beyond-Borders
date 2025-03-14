@@ -31,8 +31,8 @@ struct CategoriesView: View {
                 
                 VStack {
                     Text("Choose the Category!\n")
-                        .font(.largeTitle)
-                        .bold()
+                        .font(.custom("Atma", size: 35))
+//                        .bold()
                         .foregroundColor(Color(.colorWritten))
                         .padding(.top, 50)
                 
@@ -43,15 +43,14 @@ struct CategoriesView: View {
                     
                     Spacer()
                     
-                    LazyVGrid(columns: columns, spacing: 25) {
+                    LazyVGrid(columns: columns, spacing: 15) {
                         
                         Button(action: {
                             isLanguagePresented = true
                             
                         }) {
                             Text("Language")
-                                .font(.title2)
-                                .bold()
+                                .font(.custom("Atma", size: 25))
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
                                 .foregroundColor(Color(.colorWritten))
@@ -59,7 +58,7 @@ struct CategoriesView: View {
                         }
                         .overlay(
                             RoundedRectangle(cornerRadius: corners)
-                                .stroke(Color(.colorLanguage), lineWidth: 2)
+                                .stroke(Color(.colorLanguage), lineWidth: 4)
                         )
                         .fullScreenCover(isPresented: $isLanguagePresented){
                             LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
@@ -81,7 +80,7 @@ struct CategoriesView: View {
                         }
                         .overlay(
                             RoundedRectangle(cornerRadius: corners)
-                                .stroke(Color(.colorFood), lineWidth: 2)
+                                .stroke(Color(.colorFood), lineWidth: 4)
                         )
                         .fullScreenCover(isPresented: $isFoodPresented){
                             FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
@@ -103,7 +102,7 @@ struct CategoriesView: View {
                         }
                         .overlay(
                             RoundedRectangle(cornerRadius: corners)
-                                .stroke(Color(.colorCulture), lineWidth: 2)
+                                .stroke(Color(.colorCulture), lineWidth: 4)
                         )
                         .fullScreenCover(isPresented: $isCulturePresented){
                             CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
@@ -115,7 +114,7 @@ struct CategoriesView: View {
                             isOffensivePresented = true
                             
                         }) {
-                            Text("Rumors")
+                            Text("Stereotypes")
                                 .font(.title2)
                                 .bold()
                                 .frame(width: 160, height: 160)
@@ -125,7 +124,7 @@ struct CategoriesView: View {
                         }
                         .overlay(
                             RoundedRectangle(cornerRadius: corners)
-                                .stroke(Color(.colorOffensive), lineWidth: 2)
+                                .stroke(Color(.colorOffensive), lineWidth: 4)
                         )
                         .fullScreenCover(isPresented: $isOffensivePresented){
                             OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)

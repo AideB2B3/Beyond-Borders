@@ -9,7 +9,7 @@ struct OnBoardingView: View {
     
     var body: some View {
         ZStack {
-            Color(.white)
+            Color(.beigeBack)
                 .ignoresSafeArea()
             
             Image(images[currentImageIndex])
