@@ -19,8 +19,8 @@ struct ContentView: View {
             
             ZStack {
                 
-                        Color(.beigeBack)
-                //                Color(red: 0.84, green: 0.89, blue: 0.95) // Azzurro chiaro polvere
+                Color(.beigeBack)
+//                                Color(red: 0.968, green: 1, blue: 0.96) // Azzurro chiaro polvere
                 //                Color(red: 0.92, green: 0.92, blue: 0.92) // Grigio molto chiaro
                 //                Color(red: 0.98, green: 0.95, blue: 0.90) // Beige chiaro
                     .ignoresSafeArea()
@@ -29,6 +29,7 @@ struct ContentView: View {
                     Text("\nWelcome in Beyond Borders")
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
+                    
                         .bold()
                     Spacer()
                     ZStack {

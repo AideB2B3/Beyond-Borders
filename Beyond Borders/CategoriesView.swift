@@ -25,7 +25,8 @@ struct CategoriesView: View {
         
         NavigationStack {
             ZStack {
-                Color(.beigeBack)
+               Color(.beigeBack)
+//                Color(red: 0.968, green: 1, blue: 0.96) 
                     .ignoresSafeArea()
                 
                 VStack {
