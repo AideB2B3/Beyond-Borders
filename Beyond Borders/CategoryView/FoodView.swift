@@ -114,25 +114,31 @@ struct FoodView: View {
                         
                         ZStack {
                             
-                            //                            Image("rettangolo bb")
-                            //                                .resizable()
-                            //                                .scaledToFit( )
-                            Rectangle()
-                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
-                                .frame(width: 350, height: 200)
-                                .cornerRadius(20)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color(.colorWritten), lineWidth: 4)
-                                )
+                            Image("rettangolo bb")
+                                .resizable()
+                                .scaledToFit( )
+//                            Rectangle()
+//                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
+//                                .frame(width: 350, height: 200)
+//                                .cornerRadius(20)
+//                                .overlay(
+//                                    RoundedRectangle(cornerRadius: 20)
+//                                        .stroke(Color(.colorDarkBlue), lineWidth: 4)
+//                                )
                             
                             Text(randomQuestion)
                                 .font(.system(size: 25, weight: .bold))
-                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                                .foregroundColor(Color(.colorDarkBlue))
                                 .frame(width: 320)
                                 .multilineTextAlignment(.center)
                                 .padding()
                         }
+                        
+                        Image("Mascotte")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                            .offset(x: -110, y: -30)
                         
                         Spacer()
                         
@@ -153,7 +159,7 @@ struct FoodView: View {
                         } else {
                             VStack(spacing: 20) {
                                 
-                                Spacer()
+//                                Spacer()
                                 
                                 if let currentParticipant = currentTurnSafe() {
                                     Text("\(currentParticipant)")
@@ -168,6 +174,8 @@ struct FoodView: View {
                                 Spacer()
                                 
                                 if !showTimer{
+                                    
+                                    
                                     Text("Do you agree?")
                                         .font(.title)
                                         .bold()
@@ -210,7 +218,7 @@ struct FoodView: View {
                                         Spacer()
                                         
                                     }
-                                    .padding()
+//                                    .padding()
                                     
                                 } //End IF
                                 else{
@@ -219,17 +227,17 @@ struct FoodView: View {
                                         ZStack {
                                             Rectangle()
                                                 .fill(Color.gray.opacity(0.3))
-                                                .frame(width: 320, height: 70)
+                                                .frame(width: 320, height: 65)
                                                 .cornerRadius(30)
                                             
                                             HStack(spacing: 0) {
                                                 Rectangle()
                                                     .fill(Color(.colorWritten))
-                                                    .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 70)
+                                                    .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 65)
                                                 
                                                 Spacer(minLength: 0)
                                             }
-                                            .frame(width: 320, height: 70)
+                                            .frame(width: 320, height: 65)
                                             .cornerRadius(30)
                                             .animation(.linear(duration: 1), value: remainingTime)
                                             
@@ -238,7 +246,7 @@ struct FoodView: View {
                                                 .foregroundColor(.white)
                                                 .bold()
                                         }
-                                        .padding(.top, 160)
+                                        .padding(.bottom,80)
                                         .frame(width: 250, height: 50)
                                         Spacer()
                                         

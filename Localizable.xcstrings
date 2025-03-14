@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "\n\nTap the world to choose a country" : {
+
+    },
+    "\nWelcome in Beyond Borders" : {
+
+    },
     "%@" : {
       "comment" : "%@ = country"
     },
@@ -88,28 +94,17 @@
         }
       }
     },
-    "Has been selected %@" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "É stato selezionato %@"
-          }
-        }
-      }
+    "Has been selected\n\n %@" : {
+
+    },
+    "Hi!" : {
+
     },
     "Home" : {
 
     },
     "Info" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Info"
-          }
-        }
-      }
+
     },
     "Insert Name %lld" : {
       "localizations" : {
@@ -230,6 +225,9 @@
     "Round" : {
 
     },
+    "Rumors" : {
+
+    },
     "Skip" : {
       "localizations" : {
         "it" : {
@@ -241,9 +239,6 @@
       }
     },
     "Start" : {
-
-    },
-    "Tap the world to choose a country" : {
 
     },
     "Tap to Start the Turn" : {

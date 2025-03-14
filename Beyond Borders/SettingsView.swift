@@ -21,7 +21,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.colorAzz)
+                Color(.beigeBack)
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {
@@ -43,14 +43,14 @@ struct SettingsView: View {
                                         participants = Array(participants.prefix(numParticipants))
                                     }
                                 }
-                                .listRowBackground(Color(.colorAzz))
+                                .listRowBackground(Color(.beigeBack))
                                 .foregroundColor(Color(.colorWritten))
                             
                             ForEach(participants.indices, id: \.self) { i in
                                 TextField("Insert Name \(i + 1)", text: $participants[i])
                                     .textFieldStyle(PlainTextFieldStyle())
                                     .foregroundColor(Color(.colorWritten))
-                                    .listRowBackground(Color(.colorAzz))
+                                    .listRowBackground(Color(.beigeBack))
                             }
                             
 //                            Stepper("Rounds: \(numRounds)", value: $numRounds, in: 1...50, step: 1)
@@ -58,11 +58,11 @@ struct SettingsView: View {
 //                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             
                             Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
-                                .listRowBackground(Color(.colorAzz))
+                                .listRowBackground(Color(.beigeBack))
                                 .foregroundColor(Color(.colorWritten))
                         }
                         .scrollContentBackground(.hidden)
-                        .background(Color(.colorAzz))
+                        .background(Color(.beigeBack))
                     }
                     
                     Button(action: {

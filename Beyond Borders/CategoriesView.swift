@@ -19,13 +19,12 @@ struct CategoriesView: View {
         GridItem(.flexible())
     ]
     
-    let corners : CGFloat = 10
+    let corners : CGFloat = 25
     
     var body: some View {
         
         NavigationStack {
             ZStack {
-//                Color(.background)
                 Color(.beigeBack)
                     .ignoresSafeArea()
                 
@@ -35,19 +34,24 @@ struct CategoriesView: View {
                         .bold()
                         .foregroundColor(Color(.colorWritten))
                         .padding(.top, -150)
+                
+                    Image("Mascotte")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 180, height: 180)
                     
+                    Spacer()
                     
-                    LazyVGrid(columns: columns, spacing: 5) {
+                    LazyVGrid(columns: columns, spacing: 25) {
                         
                         Button(action: {
-                            //                        print("Settings Button tapped")
                             isLanguagePresented = true
                             
                         }) {
                             Text("Language")
                                 .font(.title2)
                                 .bold()
-                                .frame(width: 170, height: 140)
+                                .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
                                 .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
@@ -60,17 +64,16 @@ struct CategoriesView: View {
                             LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                         }
                         
-                        .padding()
+//                        .padding()
                         
                         Button(action: {
-                            //                        print("Settings Button tapped")
                             isFoodPresented = true
                             
                         }) {
                             Text("Food")
                                 .font(.title2)
                                 .bold()
-                                .frame(width: 170, height: 140)
+                                .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
                                 .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
@@ -83,17 +86,16 @@ struct CategoriesView: View {
                             FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                         }
                         
-                        .padding()
+//                        .padding()
                         
                         Button(action: {
-                            //                        print("Settings Button tapped")
                             isCulturePresented = true
                             
                         }) {
                             Text("Culture")
                                 .font(.title2)
                                 .bold()
-                                .frame(width: 170, height: 140)
+                                .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
                                 .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
@@ -106,17 +108,16 @@ struct CategoriesView: View {
                             CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                         }
                         
-                        .padding()
+//                        .padding()
                         
                         Button(action: {
-                            //                        print("Settings Button tapped")
                             isOffensivePresented = true
                             
                         }) {
-                            Text("Offensive Rumors")
+                            Text("Rumors")
                                 .font(.title2)
                                 .bold()
-                                .frame(width: 170, height: 140)
+                                .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
                                 .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
@@ -129,8 +130,9 @@ struct CategoriesView: View {
                             OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                         }
                         .padding()
-                        Spacer()
-                    }
+
+                    }//EndLazy
+                    .padding(.bottom, 50)
                 }
             }
         }

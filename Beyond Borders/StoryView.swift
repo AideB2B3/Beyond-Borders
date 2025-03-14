@@ -4,7 +4,8 @@ struct StoryView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.colorWritten)
+//                Color(Color(red: 0.74, green: 0.78, blue: 0.69))
+                Color(.colorAzz)
                     .ignoresSafeArea()
                 
                 TabView {
@@ -19,7 +20,7 @@ struct StoryView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 .tabViewStyle(PageTabViewStyle())
-//                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//              .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 
             }
         }

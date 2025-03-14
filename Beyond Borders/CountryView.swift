@@ -57,34 +57,34 @@ struct CountryView: View {
         ZStack {
 
 //            Color(.background)
-            Color(.colorAzz)
+            Color(.beigeBack)
                 .ignoresSafeArea()
             
             VStack(spacing: 20) {
  
                 if showText {
                     VStack(spacing: 15) {
-                        ZStack {
-                            Image("rettangolo bb")
-                                .resizable()
+//                        ZStack {
+//                            Image("rettangolo bb")
+//                                .resizable()
                             
-                            Text("Tap the world to choose a country")
-                                .font(.title2)
+                            Text("\n\nTap the world to choose a country")
+                            .font(.largeTitle)
                                 .bold()
                                 .foregroundColor(Color(.colorWritten))
                                 .multilineTextAlignment(.center)
                                 .frame(width: 280)
                                 .minimumScaleFactor(0.7)
                                 .padding(.horizontal, 10)
-                        }
+//                        }
                         
-                        HStack {
-                            Image("Mascotte")
-                                .resizable()
+//                        HStack {
+//                            Image("Mascotte")
+//                                .resizable()
 //                                .scaledToFit()
-                                .frame(width: 170, height: 170)
-                                .offset(x: -90, y: -30)
-                        }
+//                                .frame(width: 170, height: 170)
+//                                .offset(x: -90, y: -30)
+//                        }
                     }
                     .padding(.horizontal, 20)
                     .transition(.opacity.combined(with: .scale))
@@ -122,22 +122,22 @@ struct CountryView: View {
                             }
                             .transition(.opacity)
                     } else {
-                        VStack(spacing: 20) {
-                            Image("rettangolo bb")
-                                .resizable()
+                        VStack() {
+//                            Image("rettangolo bb")
+//                                .resizable()
 //                                .scaledToFit()
-                                .frame(width: 350, height: 200)
-                                .overlay(
-                                    Text("Has been selected \(selectedCountry.name)")
+//                                .frame(width: 350, height: 200)
+//                                .overlay(
+                                    Text("Has been selected\n\n \(selectedCountry.name)")
                                         .font(.largeTitle)
                                         .bold()
                                         .foregroundColor(Color(.colorWritten))
                                         .multilineTextAlignment(.center)
-                                        .frame(width: 260)
+//                                        .frame(width: 260)
                                         .padding()
-                                )
+//                                )
                             
-                            HStack(spacing: 20) { // Aggiunto uno spacing fisso tra le immagini
+                            HStack(spacing: 20) {
                                 Spacer()
                                 
                                 Image("Mascotte")
@@ -154,7 +154,7 @@ struct CountryView: View {
                                 
                                 Spacer()
                             }
-                            .padding(.horizontal, 10) // Ridotto il padding per non comprimere le immagini
+//                            .padding(.horizontal, 10)
 
                         }
                         .transition(.opacity)
