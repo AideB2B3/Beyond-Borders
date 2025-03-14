@@ -109,7 +109,7 @@ struct FoodView: View {
                         Text("Food / \(selectedCountry.name)")
                             .font(.largeTitle)
                             .bold()
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.colorWritten))
                             .padding(.top, 50)
                         
                         ZStack {
@@ -123,7 +123,7 @@ struct FoodView: View {
                                 .cornerRadius(20)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color(.colorDarkBlue), lineWidth: 4)
+                                        .stroke(Color(.colorWritten), lineWidth: 4)
                                 )
                             
                             Text(randomQuestion)
@@ -145,7 +145,7 @@ struct FoodView: View {
                                     .padding()
                                     .bold()
                                     .frame(width: 130, height: 70)
-                                    .background(Color(.colorDarkBlue))
+                                    .background(Color(.colorWritten))
                                     .foregroundColor(.white)
                                     .cornerRadius(30)
                             }
@@ -159,7 +159,7 @@ struct FoodView: View {
                                     Text("\(currentParticipant)")
                                         .font(.title)
                                         .bold()
-                                        .foregroundColor(Color(.colorDarkBlue))
+                                        .foregroundColor(Color(.colorWritten))
                                 }
                                 else {
                                     Text("Re open the app")
@@ -171,7 +171,7 @@ struct FoodView: View {
                                     Text("Do you agree?")
                                         .font(.title)
                                         .bold()
-                                        .foregroundColor(Color(.colorDarkBlue))
+                                        .foregroundColor(Color(.colorWritten))
                                     
                                     HStack {
                                         
@@ -186,7 +186,7 @@ struct FoodView: View {
                                                 .padding()
                                                 .bold()
                                                 .frame(width: 130, height: 70)
-                                                .background(Color(.colorDarkBlue))
+                                                .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
@@ -201,7 +201,7 @@ struct FoodView: View {
                                                 .padding()
                                                 .bold()
                                                 .frame(width: 130, height: 70)
-                                                .background(Color(.colorDarkBlue))
+                                                .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
@@ -224,7 +224,7 @@ struct FoodView: View {
                                             
                                             HStack(spacing: 0) {
                                                 Rectangle()
-                                                    .fill(Color(.colorDarkBlue))
+                                                    .fill(Color(.colorWritten))
                                                     .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 70)
                                                 
                                                 Spacer(minLength: 0)
@@ -249,7 +249,7 @@ struct FoodView: View {
                                                 .padding()
                                                 .bold()
                                                 .frame(width: 130, height: 70)
-                                                .background(Color(.colorDarkBlue))
+                                                .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }

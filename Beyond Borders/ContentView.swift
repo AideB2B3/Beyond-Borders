@@ -35,7 +35,7 @@ struct ContentView: View {
                         Text("Welcome in Beyond Borders")
                             .font(.title)
                             .bold()
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.colorWritten))
                             .multilineTextAlignment(.center)
                             .frame(width: 280)
                             .minimumScaleFactor(0.7)
@@ -64,7 +64,7 @@ struct ContentView: View {
                             .padding()
                             .bold()
                             .frame(width: 200, height: 60)
-                            .background(Color(.colorDarkBlue))
+                            .background(Color(.colorWritten))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
@@ -84,7 +84,7 @@ struct ContentView: View {
                             .padding()
                             .bold()
                             .frame(width: 160, height: 50)
-                            .background(Color(.colorDarkBlue))
+                            .background(Color(.colorWritten))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }
@@ -97,12 +97,12 @@ struct ContentView: View {
                     NavigationLink(destination: StoryView()) {
                         Image(systemName: "book")
                             .font(.title)
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.colorWritten))
                     }
                 }
             }
         }
-        //    .tint(Color(.white))
+        //    .tint(Color(.colorWritten))
     }
 }
 

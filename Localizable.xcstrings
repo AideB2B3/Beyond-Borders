@@ -2,7 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%@" : {
-      "comment" : "%@ = participants "
+      "comment" : "%@ = country"
     },
     "Choose the Category!" : {
       "localizations" : {
@@ -27,13 +27,34 @@
       }
     },
     "Culture" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cultura"
+          }
+        }
+      }
     },
     "Culture - %@" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cultura - %@"
+          }
+        }
+      }
     },
     "Do you agree?" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sei d’accordo?"
+          }
+        }
+      }
     },
     "Food" : {
       "localizations" : {
@@ -58,34 +79,107 @@
       }
     },
     "Food / %@" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cibo / %@"
+          }
+        }
+      }
     },
     "Has been selected %@" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "É stato selezionato %@"
+          }
+        }
+      }
     },
     "Home" : {
 
     },
+    "Info" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info"
+          }
+        }
+      }
+    },
     "Insert Name %lld" : {
-      "comment" : "Insert Name : \"name of participant\""
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci nome %lld"
+          }
+        }
+      }
     },
     "Language" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Linguaggio "
+          }
+        }
+      }
     },
     "Language / %@" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Linguaggio / %@"
+          }
+        }
+      }
     },
     "Match Settings" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impostazioni partita"
+          }
+        }
+      }
     },
     "Next" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avanti"
+          }
+        }
+      }
     },
     "Next turn: %@" : {
-      "comment" : "Next turn: \"name of participant\""
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prossimo turno: %@"
+          }
+        }
+      }
     },
     "No" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
+          }
+        }
+      }
     },
     "Offensive / %@" : {
 
@@ -93,26 +187,58 @@
     "Offensive Rumors" : {
 
     },
-    "Our Story" : {
-
-    },
     "Play" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gioca"
+          }
+        }
+      }
     },
     "Re open the app" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riapri l’app"
+          }
+        }
+      }
     },
     "Respin" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rigira "
+          }
+        }
+      }
     },
     "Responses" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Risposte"
+          }
+        }
+      }
     },
     "Round" : {
 
     },
     "Skip" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salta"
+          }
+        }
+      }
     },
     "Start" : {
 
@@ -124,16 +250,46 @@
 
     },
     "Total People: %lld" : {
-      "comment" : "%lld = number of participant"
+      "comment" : "%lld = number of participant",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Totale persone: %lld"
+          }
+        }
+      }
     },
     "Turn Duration: %lld sec" : {
-      "comment" : "%lld = number of participant"
+      "comment" : "%lld = number of participant",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durata Turno: %lld sec "
+          }
+        }
+      }
     },
     "Welcome in Beyond Borders" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benvenuto in Beyond Borders"
+          }
+        }
+      }
     },
     "Yes" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

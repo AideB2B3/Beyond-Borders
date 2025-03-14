@@ -30,7 +30,7 @@ struct SettingsView: View {
                         Text("Match Settings")
                             .font(.largeTitle)
                             .bold()
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.colorWritten))
                         
                         Spacer()
                         
@@ -44,12 +44,12 @@ struct SettingsView: View {
                                     }
                                 }
                                 .listRowBackground(Color(.colorAzz))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                             
                             ForEach(participants.indices, id: \.self) { i in
                                 TextField("Insert Name \(i + 1)", text: $participants[i])
                                     .textFieldStyle(PlainTextFieldStyle())
-                                    .foregroundColor(Color(.colorDarkBlue))
+                                    .foregroundColor(Color(.colorWritten))
                                     .listRowBackground(Color(.colorAzz))
                             }
                             
@@ -59,7 +59,7 @@ struct SettingsView: View {
                             
                             Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
                                 .listRowBackground(Color(.colorAzz))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                         }
                         .scrollContentBackground(.hidden)
                         .background(Color(.colorAzz))
@@ -75,7 +75,7 @@ struct SettingsView: View {
                             .padding()
                             .bold()
                             .frame(width: 130, height: 70)
-                            .background(Color(.colorDarkBlue))
+                            .background(Color(.colorWritten))
                             .foregroundColor(.white)
                             .cornerRadius(30)
                     }

@@ -4,7 +4,7 @@ struct StoryView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.colorDarkBlue)
+                Color(.colorWritten)
                     .ignoresSafeArea()
                 
                 TabView {

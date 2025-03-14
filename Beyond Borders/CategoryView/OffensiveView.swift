@@ -106,7 +106,7 @@ struct OffensiveView: View {
                         Text("Offensive / \(selectedCountry.name)")
                             .font(.largeTitle)
                             .bold()
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.colorWritten))
                             .padding(.top, 50)
                         
                         ZStack {
@@ -120,7 +120,7 @@ struct OffensiveView: View {
                                 .cornerRadius(20)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color(.colorDarkBlue), lineWidth: 4)
+                                        .stroke(Color(.colorWritten), lineWidth: 4)
                                 )
                             
                             Text(randomQuestion)
@@ -142,7 +142,7 @@ struct OffensiveView: View {
                                     .padding()
                                     .bold()
                                     .frame(width: 130, height: 70)
-                                    .background(Color(.colorDarkBlue))
+                                    .background(Color(.colorWritten))
                                     .foregroundColor(.white)
                                     .cornerRadius(30)
                             }
@@ -157,7 +157,7 @@ struct OffensiveView: View {
                                     Text("\(currentParticipant)")
                                         .font(.title)
                                         .bold()
-                                        .foregroundColor(Color(.colorDarkBlue))
+                                        .foregroundColor(Color(.colorWritten))
                                 }
                                 else {
                                     Text("Re open the app")
@@ -169,7 +169,7 @@ struct OffensiveView: View {
                                     Text("Do you agree?")
                                         .font(.title)
                                         .bold()
-                                        .foregroundColor(Color(.colorDarkBlue))
+                                        .foregroundColor(Color(.colorWritten))
                                     
                                     HStack {
                                         
@@ -184,7 +184,7 @@ struct OffensiveView: View {
                                                 .padding()
                                                 .bold()
                                                 .frame(width: 130, height: 70)
-                                                .background(Color(.colorDarkBlue))
+                                                .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
@@ -200,7 +200,7 @@ struct OffensiveView: View {
                                                 .padding()
                                                 .bold()
                                                 .frame(width: 130, height: 70)
-                                                .background(Color(.colorDarkBlue))
+                                                .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
@@ -225,7 +225,7 @@ struct OffensiveView: View {
                                             // Rettangolo blu che si svuota da destra a sinistra
                                             HStack(spacing: 0) {
                                                 Rectangle()
-                                                    .fill(Color(.colorDarkBlue))
+                                                    .fill(Color(.colorWritten))
                                                     .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 70) // La larghezza diminuisce nel tempo
                                                 
                                                 Spacer(minLength: 0)
@@ -250,7 +250,7 @@ struct OffensiveView: View {
                                                 .padding()
                                                 .bold()
                                                 .frame(width: 130, height: 70)
-                                                .background(Color(.colorDarkBlue))
+                                                .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }

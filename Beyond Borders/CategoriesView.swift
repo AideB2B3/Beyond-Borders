@@ -33,12 +33,11 @@ struct CategoriesView: View {
                     Text("Choose the Category!")
                         .font(.largeTitle)
                         .bold()
-                        .foregroundColor(Color(.colorDarkBlue))
-                        .padding(.top, 50)
+                        .foregroundColor(Color(.colorWritten))
+                        .padding(.top, -150)
                     
-                    Spacer()
                     
-                    LazyVGrid(columns: columns, spacing: 20) {
+                    LazyVGrid(columns: columns, spacing: 5) {
                         
                         Button(action: {
                             //                        print("Settings Button tapped")
@@ -50,7 +49,7 @@ struct CategoriesView: View {
                                 .bold()
                                 .frame(width: 170, height: 140)
                                 .background(Color(.white.opacity(0.5)))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
                         }
                         .overlay(
@@ -73,7 +72,7 @@ struct CategoriesView: View {
                                 .bold()
                                 .frame(width: 170, height: 140)
                                 .background(Color(.white.opacity(0.5)))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
                         }
                         .overlay(
@@ -96,7 +95,7 @@ struct CategoriesView: View {
                                 .bold()
                                 .frame(width: 170, height: 140)
                                 .background(Color(.white.opacity(0.5)))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
                         }
                         .overlay(
@@ -119,7 +118,7 @@ struct CategoriesView: View {
                                 .bold()
                                 .frame(width: 170, height: 140)
                                 .background(Color(.white.opacity(0.5)))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .cornerRadius(corners)
                         }
                         .overlay(

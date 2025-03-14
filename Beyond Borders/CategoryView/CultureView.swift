@@ -111,7 +111,7 @@ struct CultureView: View {
                         Text("Culture - \(selectedCountry.name)")
                             .font(.largeTitle)
                             .bold()
-                            .foregroundColor(Color(.colorDarkBlue))
+                            .foregroundColor(Color(.colorWritten))
                             .padding(.top, 50)
                         
                         ZStack {
@@ -125,12 +125,12 @@ struct CultureView: View {
                                 .cornerRadius(20)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color(.colorDarkBlue), lineWidth: 4)
+                                        .stroke(Color(.colorWritten), lineWidth: 4)
                                 )
                             
                             Text(randomQuestion)
                                 .font(.system(size: 25, weight: .bold))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .frame(width: 320)
                                 .multilineTextAlignment(.center)
                                 .padding()
@@ -147,7 +147,7 @@ struct CultureView: View {
                                     .padding()
                                     .bold()
                                     .frame(width: 130, height: 70)
-                                    .background(Color(.colorDarkBlue))
+                                    .background(Color(.colorWritten))
                                     .foregroundColor(.white)
                                     .cornerRadius(30)
                             }
@@ -162,7 +162,7 @@ struct CultureView: View {
                                     Text("\(currentParticipant)")
                                         .font(.title)
                                         .bold()
-                                        .foregroundColor(Color(.colorDarkBlue))
+                                        .foregroundColor(Color(.colorWritten))
                                 }
                                 else {
                                     Text("Re open the app")
@@ -175,7 +175,7 @@ struct CultureView: View {
                                     Text("Do you agree?")
                                         .font(.title)
                                         .bold()
-                                        .foregroundColor(Color(.colorDarkBlue))
+                                        .foregroundColor(Color(.colorWritten))
                                     
                                     HStack {
                                         
@@ -190,7 +190,7 @@ struct CultureView: View {
                                                 .padding()
                                                 .bold()
                                                 .frame(width: 130, height: 70)
-                                                .background(Color(.colorDarkBlue))
+                                                .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
@@ -205,7 +205,7 @@ struct CultureView: View {
                                                 .padding()
                                                 .bold()
                                                 .frame(width: 130, height: 70)
-                                                .background(Color(.colorDarkBlue))
+                                                .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
@@ -230,7 +230,7 @@ struct CultureView: View {
                                             // Rettangolo blu che si svuota da destra a sinistra
                                             HStack(spacing: 0) {
                                                 Rectangle()
-                                                    .fill(Color(.colorDarkBlue))
+                                                    .fill(Color(.colorWritten))
                                                     .frame(width: CGFloat(remainingTime) / CGFloat(turnDuration) * 320, height: 70) // La larghezza diminuisce nel tempo
                                                 
                                                 Spacer(minLength: 0)
@@ -255,7 +255,7 @@ struct CultureView: View {
                                                 .padding()
                                                 .bold()
                                                 .frame(width: 130, height: 70)
-                                                .background(Color(.colorDarkBlue))
+                                                .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
