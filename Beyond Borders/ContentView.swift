@@ -29,7 +29,7 @@ struct ContentView: View {
                     Text("\nBeyond Borders")
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
-                    
+                        .foregroundColor(Color(.colorWritten))
                         .bold()
                     Spacer()
 
