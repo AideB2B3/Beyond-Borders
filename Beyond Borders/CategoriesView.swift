@@ -33,7 +33,7 @@ struct CategoriesView: View {
                         .font(.largeTitle)
                         .bold()
                         .foregroundColor(Color(.colorWritten))
-                        .padding(.top, -150)
+                        .padding(.top, 50)
                 
                     Image("Mascotte")
                         .resizable()

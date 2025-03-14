@@ -89,7 +89,7 @@ struct ContentView: View {
                             .font(.title)
                             .padding()
                             .bold()
-                            .frame(width: 150, height: 70)
+                            .frame(width: 150, height: 65)
                             .background(Color(.colorWritten))
                             .foregroundColor(.white)
                             .cornerRadius(30)
