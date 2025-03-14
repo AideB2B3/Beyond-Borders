@@ -55,47 +55,47 @@ struct CountryView: View {
     
     var body: some View {
         ZStack {
-
-//            Color(.background)
+            
+            //            Color(.background)
             Color(.beigeBack)
                 .ignoresSafeArea()
             
             VStack(spacing: 20) {
- 
+                
                 if showText {
                     VStack(spacing: 15) {
-//                        ZStack {
-//                            Image("rettangolo bb")
-//                                .resizable()
-                            
-                            Text("\n\nTap the world to choose a country")
-                            .font(.largeTitle)
-                                .bold()
-                                .foregroundColor(Color(.colorWritten))
-                                .multilineTextAlignment(.center)
-                                .frame(width: 280)
-                                .minimumScaleFactor(0.7)
-                                .padding(.horizontal, 10)
-//                        }
+                        //                        ZStack {
+                        //                            Image("rettangolo bb")
+                        //                                .resizable()
                         
-//                        HStack {
-//                            Image("Mascotte")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 170, height: 170)
-//                                .offset(x: -90, y: -30)
-//                        }
+                        Text("\n\nTap the world to extract a random country")
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(Color(.colorWritten))
+                            .multilineTextAlignment(.center)
+                            .frame(width: 280)
+                            .minimumScaleFactor(0.7)
+                            .padding(.horizontal, 10)
+                        //                        }
+                        
+                        //                        HStack {
+                        //                            Image("Mascotte")
+                        //                                .resizable()
+                        //                                .scaledToFit()
+                        //                                .frame(width: 170, height: 170)
+                        //                                .offset(x: -90, y: -30)
+                        //                        }
                     }
                     .padding(.horizontal, 20)
                     .transition(.opacity.combined(with: .scale))
                     .animation(.easeInOut(duration: 0.5), value: showText)
                 }
-
+                
                 Spacer()
-
+                
                 ZStack {
                     if !showFlag {
-                    
+                        
                         LottieView(animation: .named("world_pin"))
                             .playbackMode(isPlaying ? .playing(.toProgress(1, loopMode: .loop)) : .paused)
                             .animationSpeed(1.5)
@@ -123,39 +123,51 @@ struct CountryView: View {
                             .transition(.opacity)
                     } else {
                         VStack() {
-//                            Image("rettangolo bb")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 350, height: 200)
-//                                .overlay(
-                                    Text("Has been selected\n\n \(selectedCountry.name)")
-                                        .font(.largeTitle)
-                                        .bold()
-                                        .foregroundColor(Color(.colorWritten))
-                                        .multilineTextAlignment(.center)
-//                                        .frame(width: 260)
-                                        .padding()
-//                                )
+                            //                            Image("rettangolo bb")
+                            //                                .resizable()
+                            //                                .scaledToFit()
+                            //                                .frame(width: 350, height: 200)
+                            //                                .overlay(
                             
-                            HStack(spacing: 20) {
-                                Spacer()
-                                
-                                Image("Mascotte")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 180, maxHeight: 180)
-                                    .layoutPriority(1)
-                                
-                                Image(selectedCountry.flagImage)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 180, maxHeight: 150)
-                                    .shadow(radius: 5)
-                                
-                                Spacer()
-                            }
-//                            .padding(.horizontal, 10)
+                            Spacer()
+                            
+                            Text("\(selectedCountry.name)")
+                                .font(.largeTitle)
+                                .bold()
+                                .foregroundColor(Color(.colorWritten))
+                                .multilineTextAlignment(.center)
+                            //                                        .frame(width: 260)
+//                                .padding()
+                            //                                )
+                            
+                            //                            HStack(spacing: 20) {
+                                                            
+                            
+                            Image(selectedCountry.flagImage)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 180, maxHeight: 150)
+                                .shadow(radius: 5)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 0)
+                                        .stroke(Color(.colorWritten), lineWidth: 2)
+                                        .frame(width: 152, height: 103) // Personalizza larghezza e altezza
+                                )
 
+
+
+                            
+                            Image("Alien_Bar")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: 180, maxHeight: 180)
+                                .layoutPriority(1)
+                                .offset(x:-125 , y: -38)
+                            
+                            
+                            //                            }
+                            //                            .padding(.horizontal, 10)
+                            
                         }
                         .transition(.opacity)
                     }

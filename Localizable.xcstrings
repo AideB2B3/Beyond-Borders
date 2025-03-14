@@ -1,7 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "\n\nTap the world to choose a country" : {
+    "\n\nTap the world to extract a random country" : {
 
     },
     "\nWelcome in Beyond Borders" : {
@@ -11,6 +11,7 @@
       "comment" : "%@ = country"
     },
     "Choose the Category!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "hi" : {
           "stringUnit" : {
@@ -31,6 +32,9 @@
           }
         }
       }
+    },
+    "Choose the Category!\n" : {
+
     },
     "Culture" : {
       "localizations" : {
@@ -93,12 +97,6 @@
           }
         }
       }
-    },
-    "Has been selected\n\n %@" : {
-
-    },
-    "Hi!" : {
-
     },
     "Home" : {
 
@@ -262,6 +260,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Durata Turno: %lld sec "
+          }
+        }
+      }
+    },
+    "Welcome in Beyond Borders" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benvenuto in Beyond Borders"
           }
         }
       }

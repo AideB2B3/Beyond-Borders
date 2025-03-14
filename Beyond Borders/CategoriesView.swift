@@ -30,15 +30,15 @@ struct CategoriesView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("Choose the Category!")
+                    Text("Choose the Category!\n")
                         .font(.largeTitle)
                         .bold()
                         .foregroundColor(Color(.colorWritten))
                         .padding(.top, 50)
                 
-                    Image("Mascotte")
+                    Image("Alien")
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                         .frame(width: 180, height: 180)
                     
                     Spacer()
