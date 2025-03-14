@@ -125,7 +125,7 @@ struct OffensiveView: View {
                             
                             Text(randomQuestion)
                                 .font(.system(size: 25, weight: .bold))
-                                .foregroundColor(Color(.colorDarkBlue))
+                                .foregroundColor(Color(.colorWritten))
                                 .frame(width: 320)
                                 .multilineTextAlignment(.center)
                                 .padding()
