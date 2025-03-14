@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Mascotte.png",
+      "filename" : "Alien_hi.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Alien_hi 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Alien_hi 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
