@@ -5,7 +5,7 @@ struct StoryView: View {
         NavigationStack {
             ZStack {
 //                Color(Color(red: 0.74, green: 0.78, blue: 0.69))
-                Color(.colorAzz)
+                Color(.colorDarkBlue)
                     .ignoresSafeArea()
                 
                 TabView {

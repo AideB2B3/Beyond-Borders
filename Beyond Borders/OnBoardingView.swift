@@ -9,6 +9,9 @@ struct OnBoardingView: View {
     
     var body: some View {
         ZStack {
+            Color(.white)
+                .ignoresSafeArea()
+            
             Image(images[currentImageIndex])
                 .resizable()
                 .scaledToFill()
@@ -42,6 +45,7 @@ struct OnBoardingView: View {
         timer?.invalidate()
         timer = nil
     }
+
     
     private func dismissOnboarding() {
         stopTimer()
@@ -49,7 +53,21 @@ struct OnBoardingView: View {
     }
 }
 
+struct OnBoardingView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnBoardingPreviewWrapper()
+    }
+}
 
-//#Preview {
-//    OnBoardingView(isPresented: isPresented)
-//}
+// Wrapper per fornire un @State alla Preview
+struct OnBoardingPreviewWrapper: View {
+    @State private var isPresented = true
+    
+    var body: some View {
+        if isPresented {
+            OnBoardingView(isPresented: $isPresented)
+        } else {
+            Text("Onboarding completato!")
+        }
+    }
+}
