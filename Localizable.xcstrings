@@ -4,11 +4,11 @@
     "\n\nTap the world to extract a random country" : {
 
     },
-    "\nBeyond Borders" : {
-
-    },
     "%@" : {
       "comment" : "%@ = country"
+    },
+    "Beyond Borders" : {
+
     },
     "Choose the Category!\n" : {
 
@@ -65,7 +65,11 @@
         }
       }
     },
+    "Food - %@" : {
+
+    },
     "Food / %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -98,7 +102,11 @@
         }
       }
     },
+    "Language - %@" : {
+
+    },
     "Language / %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -148,7 +156,7 @@
         }
       }
     },
-    "Offensive / %@" : {
+    "Offensive - %@" : {
 
     },
     "Onboarding completato!" : {

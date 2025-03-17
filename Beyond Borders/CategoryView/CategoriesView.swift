@@ -30,7 +30,7 @@ struct CategoriesView: View {
                 
                 VStack {
                     Text("Choose the Category!\n")
-                        .font(.largeTitle)
+                        .font(.custom("Atma", fixedSize: 35))
                         .bold()
                         .foregroundColor(Color(.colorWritten))
                         .padding(.top, 50)
@@ -49,7 +49,7 @@ struct CategoriesView: View {
                             
                         }) {
                             Text("Language")
-                                .font(.title2)
+                                .font(.custom("Atma", fixedSize: 25))
                                 .bold()
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
@@ -69,7 +69,7 @@ struct CategoriesView: View {
                             
                         }) {
                             Text("Food")
-                                .font(.title2)
+                                .font(.custom("Atma", fixedSize: 25))
                                 .bold()
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
@@ -89,7 +89,7 @@ struct CategoriesView: View {
                             
                         }) {
                             Text("Culture")
-                                .font(.title2)
+                                .font(.custom("Atma", fixedSize: 25))
                                 .bold()
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
@@ -109,7 +109,7 @@ struct CategoriesView: View {
                             
                         }) {
                             Text("Stereotypes")
-                                .font(.title2)
+                                .font(.custom("Atma", fixedSize: 25))
                                 .bold()
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))

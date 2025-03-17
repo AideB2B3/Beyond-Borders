@@ -68,8 +68,7 @@ struct CountryView: View {
                 if showText {
                     VStack(spacing: 15) {
                         Text("\n\nTap the world to extract a random country")
-                            .font(.largeTitle)
-                            .bold()
+                            .font(.custom("Atma-Bold", fixedSize: 35))
                             .foregroundColor(Color(.colorWritten))
                             .multilineTextAlignment(.center)
                             .frame(width: 280)
@@ -117,8 +116,7 @@ struct CountryView: View {
                             Spacer()
                             
                             Text(displayedText)
-                                .font(.largeTitle)
-                                .bold()
+                                .font(.custom("Atma-Bold", fixedSize: 35))
                                 .padding()
                                 .foregroundColor(.colorWritten)
                                 .cornerRadius(10)
@@ -194,9 +192,8 @@ struct CountryView: View {
                             }
                         }) {
                             Text("Re-tap")
-                                .font(.title)
+                                .font(.custom("Atma-Bold", fixedSize: 25))
                                 .padding()
-                                .bold()
                                 .frame(width: 130, height: 70)
                                 .background(Color(.colorWritten))
                                 .foregroundColor(.white)
@@ -209,9 +206,8 @@ struct CountryView: View {
                             isCategoriesPresented = true
                         }) {
                             Text("Next")
-                                .font(.title)
+                                .font(.custom("Atma-Bold", fixedSize: 25))
                                 .padding()
-                                .bold()
                                 .frame(width: 130, height: 70)
                                 .background(Color(.colorWritten))
                                 .foregroundColor(.white)

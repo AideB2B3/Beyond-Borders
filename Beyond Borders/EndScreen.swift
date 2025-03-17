@@ -26,22 +26,19 @@ struct EndScreen: View {
                 
                 VStack {
                     Text("Responses")
-                        .font(.largeTitle)
+                        .font(.custom("Atma-Bold", fixedSize: 25))
                         .foregroundColor(Color(.colorWritten))
-                        .bold()
                         .padding()
                     
                     List(responses, id: \.name) { response in
                         HStack {
                             Text(response.name)
                                 .foregroundColor(Color(.colorWritten))
-                                .font(.title2)
-                                .bold()
+                                .font(.custom("Atma-Bold", fixedSize: 25))
                             Spacer()
                             Text(response.answer)
                                 .foregroundColor(Color(.colorWritten))
-                                .font(.title3)
-                                .bold()
+                                .font(.custom("Atma-Bold", fixedSize: 20))
                         }
                         .background(Color.clear)
                         .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 50))
@@ -58,9 +55,8 @@ struct EndScreen: View {
                         isCountryPresented = true
                     }){
                         Label("Round", systemImage: "arrow.clockwise")
-                            .font(.title3)
+                            .font(.custom("Atma-Bold", fixedSize: 20))
                             .padding()
-                            .bold()
                             .frame(maxWidth: 150)
                             .background(Color(.colorWritten))
                             .foregroundColor(Color(.white))
@@ -85,7 +81,7 @@ struct EndScreen: View {
                         navigateToRoot = true
                     }) {
                         Label("Home", systemImage: "house")
-                            .font(.title3)
+                            .font(.custom("Atma-Bold", fixedSize: 25))
                             .padding()
                             .bold()
                             .frame(maxWidth: 150)
