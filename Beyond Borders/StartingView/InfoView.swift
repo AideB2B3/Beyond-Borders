@@ -6,7 +6,7 @@ struct InfoView: View {
             Color(.beigeBack)
                 .ignoresSafeArea()
             
-            Image("Info")
+            Image("rules")
                 .resizable()
                 .ignoresSafeArea()
         }

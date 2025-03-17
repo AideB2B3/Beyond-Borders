@@ -67,7 +67,7 @@ struct CountryView: View {
                 
                 if showText {
                     VStack(spacing: 15) {
-                        Text("\n\nTap the world to extract a random country")
+                        Text("Tap the world to extract a random country")
                             .font(.custom("Atma-Bold", fixedSize: 35))
                             .foregroundColor(Color(.colorWritten))
                             .multilineTextAlignment(.center)
@@ -115,6 +115,23 @@ struct CountryView: View {
                             
                             Spacer()
                             
+                            
+                            Image("Spaceship_Alien")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 200, height: 200)
+                                .rotationEffect(.degrees(flagSwing), anchor: .leading)
+                                .onAppear {
+                                    withAnimation(Animation.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) {
+                                        flagSwing = 2
+                                    }
+                                }
+                            Image(selectedCountry.flagImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 150, height: 100)
+                                .shadow(radius: 5)
+                            
                             Text(displayedText)
                                 .font(.custom("Atma-Bold", fixedSize: 35))
                                 .padding()
@@ -132,27 +149,6 @@ struct CountryView: View {
                                         }
                                     }
                                 }
-                            
-                            Image(selectedCountry.flagImage)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 120, height: 80)
-                                .shadow(color: .colorWritten, radius: 10)
-                                .rotationEffect(.degrees(flagSwing), anchor: .leading)
-                                .onAppear {
-                                    withAnimation(Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true)) {
-                                        flagSwing = 2
-                                    }
-                                }
-                            
-                            HStack {
-                                Image("Alien")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 150, height: 150)
-                                Spacer()
-                            }
-                            
                             
                         }
                         .transition(.opacity)
