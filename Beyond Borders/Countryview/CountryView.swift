@@ -20,8 +20,7 @@ struct CountryView: View {
     @State private var floatEffect: CGFloat = -5
     @State private var displayedText = ""
     @State private var index = 0
-    @State private var flagSwing: Double = -5
-    
+    @State private var isJump = false
     @State private var isCategoriesPresented = false
     
     let countries: [Country] = [
@@ -116,16 +115,18 @@ struct CountryView: View {
                             Spacer()
                             
                             
-                            Image("Spaceship_Alien")
+                            Image("Alien_Spaceship")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 200, height: 200)
-                                .rotationEffect(.degrees(flagSwing), anchor: .leading)
+                                .offset(y: isJump ? -8 : 8)
+                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
                                 .onAppear {
-                                    withAnimation(Animation.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) {
-                                        flagSwing = 2
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                        isJump = true
                                     }
                                 }
+
                             Image(selectedCountry.flagImage)
                                 .resizable()
                                 .scaledToFill()
@@ -171,7 +172,6 @@ struct CountryView: View {
                             isSoundPlaying = true
                             showFlag = false
                             showNextButton = false
-                            flagSwing = 0
                             playSound()
                             
                             selectedCountry = countries.randomElement() ?? Country(name: "", flagImage: "")

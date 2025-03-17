@@ -37,7 +37,7 @@ struct CategoriesView: View {
                         .foregroundColor(Color(.colorWritten))
                         .padding(.top, 50)
                     
-                    Image("Alien_Spaceship")
+                    Image("Spaceship_Alien")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 220, height: 220)
