@@ -29,7 +29,7 @@ struct LanguageView: View {
     private var languagequestions: [String] = []
     
     @State private var responses: [(name: String, answer: String)] = []
-
+    
     @State private var randomQuestion: String = ""
     @State private var showStart = true // Controlla la visibilità del pulsante Start
     @State private var showNo = false
@@ -104,28 +104,19 @@ struct LanguageView: View {
                 } else {
                     
                     VStack {
-                        Text("Language / \(selectedCountry.name)")
-                            .font(.largeTitle)
-                            .bold()
+                        Text("Language - \(selectedCountry.name)")
+                            .font(.custom("Atma-Bold", fixedSize: 30))
                             .foregroundColor(Color(.colorWritten))
-                            .padding(.top, 50)
+                            .padding(.top, 10)
                         
                         ZStack {
                             
                             Image("rettangolo bb")
                                 .resizable()
                                 .scaledToFit( )
-//                            Rectangle()
-//                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
-//                                .frame(width: 350, height: 200)
-//                                .cornerRadius(20)
-//                                .overlay(
-//                                    RoundedRectangle(cornerRadius: 20)
-//                                        .stroke(Color(.colorDarkBlue), lineWidth: 4)
-//                                )
                             
                             Text(randomQuestion)
-                                .font(.system(size: 25, weight: .bold))
+                                .font(.custom("Atma-SemiBold", fixedSize: 20))
                                 .foregroundColor(Color(.colorWritten))
                                 .frame(width: 320)
                                 .multilineTextAlignment(.center)
@@ -144,7 +135,7 @@ struct LanguageView: View {
                                 showStart = false // Nasconde il pulsante Start e mostra nuovi elementi
                             }) {
                                 Text("Play")
-                                    .font(.title)
+                                    .font(.custom("Atma", fixedSize: 30))
                                     .padding()
                                     .bold()
                                     .frame(width: 130, height: 70)
@@ -157,16 +148,17 @@ struct LanguageView: View {
                             // Qui puoi aggiungere il nuovo contenuto che comparirà dopo aver premuto Start
                             VStack(spacing: 20) {
                                 
-//                                Spacer()
+                                //                                Spacer()
                                 
                                 if let currentParticipant = currentTurnSafe() {
                                     Text("\(currentParticipant)")
-                                        .font(.title)
-                                        .bold()
+                                        .font(.custom("Atma-Bold", fixedSize: 25))
                                         .foregroundColor(Color(.colorWritten))
                                 }
                                 else {
                                     Text("Re open the app")
+                                        .font(.custom("Atma", fixedSize: 25))
+                                        .foregroundColor(Color(.colorWritten))
                                 }
                                 
                                 
@@ -174,8 +166,7 @@ struct LanguageView: View {
                                 
                                 if !showTimer{
                                     Text("Do you agree?")
-                                        .font(.title)
-                                        .bold()
+                                        .font(.custom("Atma-Bold", fixedSize: 30))
                                         .foregroundColor(Color(.colorWritten))
                                     
                                     HStack {
@@ -187,9 +178,8 @@ struct LanguageView: View {
                                             showTimer = true
                                         }) {
                                             Text("Yes")
-                                                .font(.title)
+                                                .font(.custom("Atma-Bold", fixedSize: 25))
                                                 .padding()
-                                                .bold()
                                                 .frame(width: 130, height: 70)
                                                 .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
@@ -203,20 +193,19 @@ struct LanguageView: View {
                                             showTimer = true
                                         }) {
                                             Text("No")
-                                                .font(.title)
+                                                .font(.custom("Atma-Bold", fixedSize: 25))
                                                 .padding()
-                                                .bold()
                                                 .frame(width: 130, height: 70)
                                                 .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
-
+                                        
                                         
                                         Spacer()
                                         
                                     }
-//                                    .padding()
+                                    //                                    .padding()
                                     
                                 } //End IF
                                 else{
@@ -242,7 +231,7 @@ struct LanguageView: View {
                                             .animation(.linear(duration: 1), value: remainingTime)
                                             
                                             Text(formatTime(remainingTime))
-                                                .font(.largeTitle)
+                                                .font(.custom("Atma", fixedSize: 25))
                                                 .foregroundColor(.white)
                                                 .bold()
                                         }
@@ -253,9 +242,8 @@ struct LanguageView: View {
                                         Button(action: endTurn)
                                         {
                                             Text("Skip")
-                                                .font(.title)
+                                                .font(.custom("Atma-Bold", fixedSize: 25))
                                                 .padding()
-                                                .bold()
                                                 .frame(width: 130, height: 70)
                                                 .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
@@ -324,7 +312,7 @@ struct LanguageView: View {
             }
         }
     }
-
+    
     
     func stopTimer() {
         if let timer = timer {

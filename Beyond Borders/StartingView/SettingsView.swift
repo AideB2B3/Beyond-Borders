@@ -10,7 +10,6 @@ struct SettingsView: View {
     var onHome: () -> Void
     
     @State private var keyboardIsVisible = false
-    
     @State private var isCountryPresented = false
     
     var isStartEnabled: Bool {
@@ -28,7 +27,7 @@ struct SettingsView: View {
                     
                     VStack(spacing: 35) {
                         Text("Match Settings")
-                            .font(.largeTitle)
+                            .font(.custom("Atma-SemiBold", fixedSize: 40))
                             .bold()
                             .foregroundColor(Color(.colorWritten))
                         
@@ -43,21 +42,20 @@ struct SettingsView: View {
                                         participants = Array(participants.prefix(numParticipants))
                                     }
                                 }
+                                .font(.custom("Atma", fixedSize: 20))
                                 .listRowBackground(Color(.beigeBack))
                                 .foregroundColor(Color(.colorWritten))
                             
                             ForEach(participants.indices, id: \.self) { i in
                                 TextField("Insert Name \(i + 1)", text: $participants[i])
+                                    .font(.custom("Atma", fixedSize: 20))
                                     .textFieldStyle(PlainTextFieldStyle())
                                     .foregroundColor(Color(.colorWritten))
                                     .listRowBackground(Color(.beigeBack))
                             }
                             
-                            //                            Stepper("Rounds: \(numRounds)", value: $numRounds, in: 1...50, step: 1)
-                            //                                .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
-                            //                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
-                            
                             Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
+                                .font(.custom("Atma", fixedSize: 20))
                                 .listRowBackground(Color(.beigeBack))
                                 .foregroundColor(Color(.colorWritten))
                         }
@@ -71,7 +69,7 @@ struct SettingsView: View {
                         
                     }) {
                         Text("Next")
-                            .font(.title)
+                            .font(.custom("Atma-SemiBold", fixedSize: 30))
                             .padding()
                             .bold()
                             .frame(width: 130, height: 70)

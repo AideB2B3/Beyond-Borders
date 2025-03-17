@@ -109,10 +109,10 @@ struct CultureView: View {
                     
                     VStack {
                         Text("Culture - \(selectedCountry.name)")
-                            .font(.largeTitle)
-                            .bold()
+                            .font(.custom("Atma-Bold", fixedSize: 40))
+                            
                             .foregroundColor(Color(.colorWritten))
-                            .padding(.top, 50)
+                            .padding(.top, 10)
                         
                         ZStack {
                             
@@ -121,7 +121,7 @@ struct CultureView: View {
                                 .scaledToFit( )
 
                             Text(randomQuestion)
-                                .font(.system(size: 25, weight: .bold))
+                                .font(.custom("Atma-SemiBold", fixedSize: 20))
                                 .foregroundColor(Color(.colorWritten))
                                 .frame(width: 320)
                                 .multilineTextAlignment(.center)
@@ -140,7 +140,7 @@ struct CultureView: View {
                                 showStart = false
                             }) {
                                 Text("Play")
-                                    .font(.title)
+                                    .font(.custom("Atma", fixedSize: 30))
                                     .padding()
                                     .bold()
                                     .frame(width: 130, height: 70)
@@ -154,12 +154,13 @@ struct CultureView: View {
 
                                 if let currentParticipant = currentTurnSafe() {
                                     Text("\(currentParticipant)")
-                                        .font(.title)
-                                        .bold()
+                                        .font(.custom("Atma-Bold", fixedSize: 25))
                                         .foregroundColor(Color(.colorWritten))
                                 }
                                 else {
                                     Text("Re open the app")
+                                        .font(.custom("Atma", fixedSize: 25))
+                                        .foregroundColor(Color(.colorWritten))
                                 }
                                 
                                 
@@ -167,8 +168,7 @@ struct CultureView: View {
                                 
                                 if !showTimer{
                                     Text("Do you agree?")
-                                        .font(.title)
-                                        .bold()
+                                        .font(.custom("Atma-Bold", fixedSize: 30))
                                         .foregroundColor(Color(.colorWritten))
                                     
                                     HStack {
@@ -180,9 +180,8 @@ struct CultureView: View {
                                             showTimer = true
                                         }) {
                                             Text("Yes")
-                                                .font(.title)
+                                                .font(.custom("Atma-Bold", fixedSize: 25))
                                                 .padding()
-                                                .bold()
                                                 .frame(width: 130, height: 70)
                                                 .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
@@ -195,23 +194,20 @@ struct CultureView: View {
                                             showTimer = true
                                         }) {
                                             Text("No")
-                                                .font(.title)
+                                                .font(.custom("Atma-Bold", fixedSize: 25))
                                                 .padding()
-                                                .bold()
                                                 .frame(width: 130, height: 70)
                                                 .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
                                         }
 
-                                        
                                         Spacer()
                                         
                                     }
                                     
                                 } //End IF
                                 else{
-                                    
                                     VStack{
                                         ZStack {
                                             // Rettangolo grigio di sfondo
@@ -244,9 +240,8 @@ struct CultureView: View {
                                         Button(action: endTurn)
                                         {
                                             Text("Skip")
-                                                .font(.title)
+                                                .font(.custom("Atma-Bold", fixedSize: 25))
                                                 .padding()
-                                                .bold()
                                                 .frame(width: 130, height: 70)
                                                 .background(Color(.colorWritten))
                                                 .foregroundColor(.white)

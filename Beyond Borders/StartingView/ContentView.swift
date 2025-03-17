@@ -25,8 +25,8 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("\nBeyond Borders")
-                        .font(.largeTitle)
+                    Text("Beyond Borders")
+                        .font(.custom("Atma", fixedSize: 45))
                         .multilineTextAlignment(.center)
                         .foregroundColor(Color(.colorWritten))
                         .bold()
@@ -64,7 +64,7 @@ struct ContentView: View {
                         }
                     }) {
                         Text("Start")
-                            .font(.title)
+                            .font(.custom("Atma", fixedSize: 35))
                             .padding()
                             .bold()
                             .frame(width: 150, height: 70)
