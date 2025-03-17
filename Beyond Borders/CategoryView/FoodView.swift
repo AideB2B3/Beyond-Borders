@@ -134,9 +134,8 @@ struct FoodView: View {
                                 .padding()
                         }
                         
-                        Image("Alien")
-                            .resizable()
-                            .scaledToFill()
+                        // Alien con animazione di parlato
+                        AlienSpeakingView()
                             .frame(width: 170, height: 170)
                             .offset(x: -130, y: -20)
                         
@@ -294,6 +293,34 @@ struct FoodView: View {
         }// End Nav Stack
         
     }
+    
+    struct AlienSpeakingView: View {
+        // Stato per tracciare quale immagine mostrare
+        @State private var showFirstImage = true
+        
+        // Timer per l'animazione
+        let timer = Timer.publish(every: 0.6, on: .main, in: .common).autoconnect()
+        
+        var body: some View {
+            // Mostra solo un'immagine alla volta
+            Group {
+                if showFirstImage {
+                    Image("Alien")
+                        .resizable()
+                        .scaledToFill()
+                } else {
+                    Image("Alien_Bar")
+                        .resizable()
+                        .scaledToFill()
+                }
+            }
+            // Ogni volta che il timer "scatta", inverti l'immagine da mostrare
+            .onReceive(timer) { _ in
+                showFirstImage.toggle()
+            }
+        }
+    }
+
     
     func stopTimer() {
         if let timer = timer {

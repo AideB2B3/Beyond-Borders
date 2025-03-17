@@ -53,9 +53,9 @@ struct SettingsView: View {
                                     .listRowBackground(Color(.beigeBack))
                             }
                             
-//                            Stepper("Rounds: \(numRounds)", value: $numRounds, in: 1...50, step: 1)
-//                                .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
-//                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
+                            //                            Stepper("Rounds: \(numRounds)", value: $numRounds, in: 1...50, step: 1)
+                            //                                .listRowBackground(Color(red: 1.0, green: 0.945, blue: 0.816))
+                            //                                .foregroundColor(Color(red: 0.176, green: 0.188, blue: 0.278))
                             
                             Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
                                 .listRowBackground(Color(.beigeBack))
@@ -67,7 +67,7 @@ struct SettingsView: View {
                     
                     Button(action: {
                         print("Settings Button tapped")
-                        isCountryPresented = true  // Mostra la schermata delle nazioni
+                        isCountryPresented = true
                         
                     }) {
                         Text("Next")
@@ -80,7 +80,7 @@ struct SettingsView: View {
                             .cornerRadius(30)
                     }
                     .disabled(!isStartEnabled)
-                    .opacity(isStartEnabled ? 1 : 0.7) // Maggiore trasparenza quando disabilitato
+                    .opacity(isStartEnabled ? 1 : 0.7)
                     .padding(.bottom, 30)
                     .animation(.easeInOut(duration: 0.2), value: isStartEnabled)
                     .opacity(keyboardIsVisible ? 0 : 1)

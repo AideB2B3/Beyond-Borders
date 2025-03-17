@@ -102,7 +102,7 @@ struct CultureView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(.colorCulture)  // Culture View's background color
+                            backgroundColor: Color(.colorCulture)
                         )
                     }
                 } else {
@@ -119,15 +119,7 @@ struct CultureView: View {
                             Image("rettangolo bb")
                                 .resizable()
                                 .scaledToFit( )
-//                            Rectangle()
-//                                .fill(Color(red: 1.0, green: 0.945, blue: 0.816))
-//                                .frame(width: 350, height: 200)
-//                                .cornerRadius(20)
-//                                .overlay(
-//                                    RoundedRectangle(cornerRadius: 20)
-//                                        .stroke(Color(.colorDarkBlue), lineWidth: 4)
-//                                )
-                            
+
                             Text(randomQuestion)
                                 .font(.system(size: 25, weight: .bold))
                                 .foregroundColor(Color(.colorWritten))
@@ -136,19 +128,16 @@ struct CultureView: View {
                                 .padding()
                         }
                         
-                        Image("Alien")
-                            .resizable()
-                            .scaledToFill()
+                        // Alien con animazione di parlato
+                        AlienSpeakingView()
                             .frame(width: 170, height: 170)
                             .offset(x: -130, y: -20)
                             
-                            
-                        
                         Spacer()
                         
                         if showStart {
                             Button(action: {
-                                showStart = false // Nasconde il pulsante Start e mostra nuovi elementi
+                                showStart = false
                             }) {
                                 Text("Play")
                                     .font(.title)
@@ -161,11 +150,8 @@ struct CultureView: View {
                             }
                             .padding()
                         } else {
-                            // Qui puoi aggiungere il nuovo contenuto che comparirà dopo aver premuto Start
                             VStack(spacing: 20) {
-                                
-//                                Spacer()
-                                
+
                                 if let currentParticipant = currentTurnSafe() {
                                     Text("\(currentParticipant)")
                                         .font(.title)
@@ -222,7 +208,6 @@ struct CultureView: View {
                                         Spacer()
                                         
                                     }
-//                                    .padding()
                                     
                                 } //End IF
                                 else{
@@ -301,7 +286,33 @@ struct CultureView: View {
                 }
             }
         }// End Nav Stack
+    }
+
+    struct AlienSpeakingView: View {
+        // Stato per tracciare quale immagine mostrare
+        @State private var showFirstImage = true
         
+        // Timer per l'animazione
+        let timer = Timer.publish(every: 0.6, on: .main, in: .common).autoconnect()
+        
+        var body: some View {
+            // Mostra solo un'immagine alla volta
+            Group {
+                if showFirstImage {
+                    Image("Alien")
+                        .resizable()
+                        .scaledToFill()
+                } else {
+                    Image("Alien_Bar")
+                        .resizable()
+                        .scaledToFill()
+                }
+            }
+            // Ogni volta che il timer "scatta", inverti l'immagine da mostrare
+            .onReceive(timer) { _ in
+                showFirstImage.toggle()
+            }
+        }
     }
     
     func stopTimer() {

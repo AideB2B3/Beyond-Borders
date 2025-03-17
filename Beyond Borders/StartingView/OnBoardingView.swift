@@ -16,7 +16,7 @@ struct OnBoardingView: View {
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-
+            
             Color.black.opacity(0.001)
                 .ignoresSafeArea()
                 .onTapGesture {
@@ -45,7 +45,7 @@ struct OnBoardingView: View {
         timer?.invalidate()
         timer = nil
     }
-
+    
     
     private func dismissOnboarding() {
         stopTimer()
@@ -59,7 +59,6 @@ struct OnBoardingView_Previews: PreviewProvider {
     }
 }
 
-// Wrapper per fornire un @State alla Preview
 struct OnBoardingPreviewWrapper: View {
     @State private var isPresented = true
     

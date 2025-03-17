@@ -4,7 +4,7 @@ struct TransitionScreen: View {
     
     var nextParticipant: String
     var onTap: () -> Void
-    var backgroundColor: Color  // New parameter to receive the background color
+    var backgroundColor: Color
     
     var body: some View {
         VStack {

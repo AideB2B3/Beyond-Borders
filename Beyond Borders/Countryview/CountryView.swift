@@ -17,6 +17,10 @@ struct CountryView: View {
     @State private var isPlaying = false
     @State private var isSoundPlaying = false
     @State private var selectedCountry: Country = Country(name: "", flagImage: "")
+    @State private var floatEffect: CGFloat = -5
+    @State private var displayedText = ""
+    @State private var index = 0
+    @State private var flagSwing: Double = -5
     
     @State private var isCategoriesPresented = false
     
@@ -56,7 +60,6 @@ struct CountryView: View {
     var body: some View {
         ZStack {
             
-            //            Color(.background)
             Color(.beigeBack)
                 .ignoresSafeArea()
             
@@ -64,10 +67,6 @@ struct CountryView: View {
                 
                 if showText {
                     VStack(spacing: 15) {
-                        //                        ZStack {
-                        //                            Image("rettangolo bb")
-                        //                                .resizable()
-                        
                         Text("\n\nTap the world to extract a random country")
                             .font(.largeTitle)
                             .bold()
@@ -76,15 +75,6 @@ struct CountryView: View {
                             .frame(width: 280)
                             .minimumScaleFactor(0.7)
                             .padding(.horizontal, 10)
-                        //                        }
-                        
-                        //                        HStack {
-                        //                            Image("Mascotte")
-                        //                                .resizable()
-                        //                                .scaledToFit()
-                        //                                .frame(width: 170, height: 170)
-                        //                                .offset(x: -90, y: -30)
-                        //                        }
                     }
                     .padding(.horizontal, 20)
                     .transition(.opacity.combined(with: .scale))
@@ -123,53 +113,52 @@ struct CountryView: View {
                             .transition(.opacity)
                     } else {
                         VStack() {
-                            //                            Image("rettangolo bb")
-                            //                                .resizable()
-                            //                                .scaledToFit()
-                            //                                .frame(width: 350, height: 200)
-                            //                                .overlay(
                             
                             Spacer()
                             
-                            Text("\(selectedCountry.name)")
+                            Text(displayedText)
                                 .font(.largeTitle)
                                 .bold()
-                                .foregroundColor(Color(.colorWritten))
-                                .multilineTextAlignment(.center)
-                            //                                        .frame(width: 260)
-//                                .padding()
-                            //                                )
-                            
-                            //                            HStack(spacing: 20) {
-                                                            
+                                .padding()
+                                .foregroundColor(.colorWritten)
+                                .cornerRadius(10)
+                                .onAppear {
+                                    displayedText = ""
+                                    index = 0
+                                    Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+                                        if index < selectedCountry.name.count {
+                                            displayedText.append(selectedCountry.name[selectedCountry.name.index(selectedCountry.name.startIndex, offsetBy: index)])
+                                            index += 1
+                                        } else {
+                                            timer.invalidate()
+                                        }
+                                    }
+                                }
                             
                             Image(selectedCountry.flagImage)
                                 .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: 180, maxHeight: 150)
-                                .shadow(radius: 5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 0)
-                                        .stroke(Color(.colorWritten), lineWidth: 2)
-                                        .frame(width: 152, height: 103) // Personalizza larghezza e altezza
-                                )
-
-
-
-                            
-                            Image("Alien_Bar")
-                                .resizable()
                                 .scaledToFill()
-                                .frame(maxWidth: 180, maxHeight: 180)
-                                .layoutPriority(1)
-                                .offset(x:-125 , y: -38)
+                                .frame(width: 120, height: 80)
+                                .shadow(color: .colorWritten, radius: 10)
+                                .rotationEffect(.degrees(flagSwing), anchor: .leading)
+                                .onAppear {
+                                    withAnimation(Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true)) {
+                                        flagSwing = 2
+                                    }
+                                }
                             
+                            HStack {
+                                Image("Alien")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 150, height: 150)
+                                Spacer()
+                            }
                             
-                            //                            }
-                            //                            .padding(.horizontal, 10)
                             
                         }
                         .transition(.opacity)
+                        .padding(.bottom, 70)
                     }
                 }
                 
@@ -183,15 +172,14 @@ struct CountryView: View {
                         Button(action: {
                             guard !isSoundPlaying else { return }
                             
-                            // Resetta lo stato della UI per ripetere l'animazione
                             isPlaying = true
                             showText = false
                             isSoundPlaying = true
                             showFlag = false
                             showNextButton = false
+                            flagSwing = 0
                             playSound()
                             
-                            // Seleziona un nuovo paese casuale
                             selectedCountry = countries.randomElement() ?? Country(name: "", flagImage: "")
                             
                             // Dopo il tempo dell'animazione, mostra la bandiera e il pulsante Next
@@ -261,8 +249,8 @@ struct CountryView_Previews: PreviewProvider {
         CountryView(
             numParticipants: .constant(3),
             participants: .constant(["Alice", "Bob", "Charlie"]),
-            numRounds: .constant(5),
-            turnDuration: .constant(60),
+            numRounds: .constant(1),
+            turnDuration: .constant(5),
             onHome: {}
         )
     }

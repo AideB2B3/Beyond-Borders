@@ -25,17 +25,16 @@ struct CategoriesView: View {
         
         NavigationStack {
             ZStack {
-               Color(.beigeBack)
-//                Color(red: 0.968, green: 1, blue: 0.96) 
+                Color(.beigeBack)
                     .ignoresSafeArea()
                 
                 VStack {
                     Text("Choose the Category!\n")
-                        .font(.custom("Atma", size: 35))
-//                        .bold()
+                        .font(.largeTitle)
+                        .bold()
                         .foregroundColor(Color(.colorWritten))
                         .padding(.top, 50)
-                
+                    
                     Image("Alien")
                         .resizable()
                         .scaledToFill()
@@ -50,7 +49,8 @@ struct CategoriesView: View {
                             
                         }) {
                             Text("Language")
-                                .font(.custom("Atma", size: 25))
+                                .font(.title2)
+                                .bold()
                                 .frame(width: 160, height: 160)
                                 .background(Color(.white.opacity(0.5)))
                                 .foregroundColor(Color(.colorWritten))
@@ -63,8 +63,6 @@ struct CategoriesView: View {
                         .fullScreenCover(isPresented: $isLanguagePresented){
                             LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                         }
-                        
-//                        .padding()
                         
                         Button(action: {
                             isFoodPresented = true
@@ -86,8 +84,6 @@ struct CategoriesView: View {
                             FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                         }
                         
-//                        .padding()
-                        
                         Button(action: {
                             isCulturePresented = true
                             
@@ -107,8 +103,6 @@ struct CategoriesView: View {
                         .fullScreenCover(isPresented: $isCulturePresented){
                             CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                         }
-                        
-//                        .padding()
                         
                         Button(action: {
                             isOffensivePresented = true
@@ -130,7 +124,7 @@ struct CategoriesView: View {
                             OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
                         }
                         .padding()
-
+                        
                     }//EndLazy
                     .padding(.bottom, 50)
                 }

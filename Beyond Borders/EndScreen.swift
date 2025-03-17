@@ -12,12 +12,14 @@ struct EndScreen: View {
     
     var responses: [(name: String, answer: String)]
     
-    @State private var isContentPresented = false
+    @Environment(\.presentationMode) var presentationMode
     @State private var isCountryPresented = false
-
+    @State private var navigateToRoot = false
+    
     var body: some View {
+        
         ZStack {
-//            Color(.background)
+            
             Color(.beigeBack)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 20) {
@@ -78,7 +80,9 @@ struct EndScreen: View {
                     }
                     
                     Button(action: {
-                        isContentPresented = true
+                        // Dismissiamo tutte le presentazioni modali
+                        // e torniamo alla ContentView iniziale
+                        navigateToRoot = true
                     }) {
                         Label("Home", systemImage: "house")
                             .font(.title3)
@@ -89,45 +93,38 @@ struct EndScreen: View {
                             .foregroundColor(Color(.white))
                             .cornerRadius(30)
                     }
-                    .fullScreenCover(isPresented: $isContentPresented) {
-                        ContentView(
-                            numParticipants: numParticipants,
-                            participants: participants,
-                            numRounds: numRounds,
-                            turnDuration: turnDuration,
-                            onStart: {},
-                            onHome: {
-                                onHome()
-                            }
-                        )
-                    }
                     .padding(.horizontal)
                 }
             }
             .padding(.bottom, 40)
         }
+        .background(
+            NavigationLink(
+                destination: RootResetView(),
+                isActive: $navigateToRoot,
+                label: { EmptyView() }
+            )
+        )
     }
 }
 
+// Nuova view che serve solo per resettare la navigazione
+struct RootResetView: View {
+    @Environment(\.presentationMode) var presentation
+    @EnvironmentObject var navigationState: NavigationState
+    
+    var body: some View {
+        Color.clear
+            .onAppear {
+                // Segnaliamo che vogliamo tornare alla radice
+                navigationState.resetToRoot = true
+                // Dismetti questa view immediatamente
+                self.presentation.wrappedValue.dismiss()
+            }
+    }
+}
 
-//struct EndScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EndScreen(
-//            onRestart: {},
-//            onHome: {},
-//            responses: [
-//                (name: "Alice", answer: "Yes"),
-//                (name: "Bob", answer: "No"),
-//                (name: "Charlie", answer: "Yes")
-////                (name: "Fratm", answer: "Yes"),
-////                (name: "Brodm", answer: "No"),
-////                (name: "Atm", answer: "No"),
-////                (name: "Friariè", answer: "Yes"),
-////                (name: "Fratè", answer: "Yes"),
-////                (name: "Fratimo", answer: "No"),
-////                (name: "Ciro", answer: "Yes")
-//            ]
-//        )
-//    }
-//}
-
+// Classe ObservableObject per gestire lo stato di navigazione globale
+class NavigationState: ObservableObject {
+    @Published var resetToRoot = false
+}

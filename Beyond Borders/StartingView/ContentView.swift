@@ -7,6 +7,7 @@ struct ContentView: View {
     @State var participants: [String]
     @State var numRounds: Int
     @State var turnDuration: Int
+    @State private var isJumping = false
     var onStart: () -> Void
     var onHome: () -> Void
     
@@ -20,9 +21,6 @@ struct ContentView: View {
             ZStack {
                 
                 Color(.beigeBack)
-//                                Color(red: 0.968, green: 1, blue: 0.96) // Azzurro chiaro polvere
-                //                Color(red: 0.92, green: 0.92, blue: 0.92) // Grigio molto chiaro
-                //                Color(red: 0.98, green: 0.95, blue: 0.90) // Beige chiaro
                     .ignoresSafeArea()
                 
                 VStack {
@@ -38,11 +36,17 @@ struct ContentView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 250, height: 250)
+                            .offset(y: isJumping ? -8 : 8)
+                            .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJumping)
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    isJumping = true
+                                }
+                            }
                     }
                     
                     Spacer()
-                    
-                    
+
                     Button(action: {
                         if !hasSeenOnboarding {
                             showOnboarding = true
@@ -68,17 +72,6 @@ struct ContentView: View {
                     .fullScreenCover(isPresented: $isSettingsPresented) {
                         SettingsView(numParticipants: numParticipants, participants: participants, numRounds: numRounds, turnDuration: turnDuration, onStart: onStart, onHome: onHome)
                     }
-                    
-//                    NavigationLink(destination: InfoView()) {
-//                        Text("Info")
-//                            .font(.title)
-//                            .padding()
-//                            .bold()
-//                            .frame(width: 150, height: 65)
-//                            .background(Color(.colorWritten))
-//                            .foregroundColor(.white)
-//                            .cornerRadius(30)
-//                    }
                 }
                 .padding()
             }
@@ -92,7 +85,6 @@ struct ContentView: View {
                 }
             }
         }
-        //    .tint(Color(.colorWritten))
     }
 }
 
@@ -106,4 +98,3 @@ struct ContentView: View {
         onHome: {}
     )
 }
-
