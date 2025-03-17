@@ -11,6 +11,8 @@ struct CategoriesView: View {
     @State private var isFoodPresented = false
     @State private var isCulturePresented = false
     @State private var isOffensivePresented = false
+
+    @State private var isJump = false
     
     let selectedCountry: Country
     
@@ -35,14 +37,20 @@ struct CategoriesView: View {
                         .foregroundColor(Color(.colorWritten))
                         .padding(.top, 50)
                     
-                    Image("Alien")
+                    Image("Alien_Spaceship")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 180, height: 180)
-                    
+                        .frame(width: 220, height: 220)
+                        .offset(y: isJump ? -8 : 8)
+                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                isJump = true
+                            }
+                        }
                     Spacer()
                     
-                    LazyVGrid(columns: columns, spacing: 15) {
+                    LazyVGrid(columns: columns) {
                         
                         Button(action: {
                             isLanguagePresented = true
@@ -58,7 +66,7 @@ struct CategoriesView: View {
                         }
                         .overlay(
                             RoundedRectangle(cornerRadius: corners)
-                                .stroke(Color(.colorLanguage), lineWidth: 4)
+                                .stroke(Color(.colorLanguage), lineWidth: 5)
                         )
                         .fullScreenCover(isPresented: $isLanguagePresented){
                             LanguageView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
@@ -78,7 +86,7 @@ struct CategoriesView: View {
                         }
                         .overlay(
                             RoundedRectangle(cornerRadius: corners)
-                                .stroke(Color(.colorFood), lineWidth: 4)
+                                .stroke(Color(.colorFood), lineWidth: 5)
                         )
                         .fullScreenCover(isPresented: $isFoodPresented){
                             FoodView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
@@ -98,7 +106,7 @@ struct CategoriesView: View {
                         }
                         .overlay(
                             RoundedRectangle(cornerRadius: corners)
-                                .stroke(Color(.colorCulture), lineWidth: 4)
+                                .stroke(Color(.colorCulture), lineWidth: 5)
                         )
                         .fullScreenCover(isPresented: $isCulturePresented){
                             CultureView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)
@@ -118,7 +126,7 @@ struct CategoriesView: View {
                         }
                         .overlay(
                             RoundedRectangle(cornerRadius: corners)
-                                .stroke(Color(.colorOffensive), lineWidth: 4)
+                                .stroke(Color(.colorOffensive), lineWidth: 5)
                         )
                         .fullScreenCover(isPresented: $isOffensivePresented){
                             OffensiveView(numParticipants: $numParticipants, participants: $participants, numRounds: $numRounds, turnDuration: $turnDuration, onHome: onHome, selectedCountry : selectedCountry)

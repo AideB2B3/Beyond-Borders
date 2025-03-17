@@ -311,7 +311,7 @@ struct OffensiveView: View {
                         .resizable()
                         .scaledToFill()
                 } else {
-                    Image("Alien_Bar")
+                    Image("Alien_BA")
                         .resizable()
                         .scaledToFill()
                 }

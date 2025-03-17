@@ -8,6 +8,7 @@ struct ContentView: View {
     @State var numRounds: Int
     @State var turnDuration: Int
     @State private var isJumping = false
+    @State private var widthAnimation = false
     var onStart: () -> Void
     var onHome: () -> Void
     
@@ -36,7 +37,7 @@ struct ContentView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 250, height: 250)
-                            .offset(y: isJumping ? -8 : 8)
+                            .offset(y: isJumping ? -6 : 6)
                             .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJumping)
                             .onAppear {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -44,6 +45,14 @@ struct ContentView: View {
                                 }
                             }
                     }
+                    Image("Alien_Shadow")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: widthAnimation ? 230 : 280, height: 10)
+                        .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: widthAnimation)
+                        .onAppear {
+                            widthAnimation = true
+                        }
                     
                     Spacer()
 

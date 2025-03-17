@@ -299,7 +299,7 @@ struct FoodView: View {
         @State private var showFirstImage = true
         
         // Timer per l'animazione
-        let timer = Timer.publish(every: 0.6, on: .main, in: .common).autoconnect()
+        let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
         
         var body: some View {
             // Mostra solo un'immagine alla volta
@@ -309,7 +309,7 @@ struct FoodView: View {
                         .resizable()
                         .scaledToFill()
                 } else {
-                    Image("Alien_Bar")
+                    Image("Alien_BA")
                         .resizable()
                         .scaledToFill()
                 }
