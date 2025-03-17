@@ -103,7 +103,7 @@ struct OffensiveView: View {
                 } else {
                     
                     VStack {
-                        Text("Offensive - \(selectedCountry.name)")
+                        Text("Stereotypes - \(selectedCountry.name)")
                             .font(.custom("Atma-Bold", fixedSize: 40))
                             .foregroundColor(Color(.colorWritten))
                             .padding(.top, 10)

@@ -42,20 +42,20 @@ struct SettingsView: View {
                                         participants = Array(participants.prefix(numParticipants))
                                     }
                                 }
-                                .font(.custom("Atma", fixedSize: 20))
+                                .font(.custom("Atma-SemiBold", fixedSize: 20))
                                 .listRowBackground(Color(.beigeBack))
                                 .foregroundColor(Color(.colorWritten))
                             
                             ForEach(participants.indices, id: \.self) { i in
                                 TextField("Insert Name \(i + 1)", text: $participants[i])
-                                    .font(.custom("Atma", fixedSize: 20))
+                                    .font(.custom("Atma-Regular", fixedSize: 20))
                                     .textFieldStyle(PlainTextFieldStyle())
                                     .foregroundColor(Color(.colorWritten))
                                     .listRowBackground(Color(.beigeBack))
                             }
                             
                             Stepper("Turn Duration: \(turnDuration) sec", value: $turnDuration, in: 30...600, step: 30)
-                                .font(.custom("Atma", fixedSize: 20))
+                                .font(.custom("Atma-SemiBold", fixedSize: 20))
                                 .listRowBackground(Color(.beigeBack))
                                 .foregroundColor(Color(.colorWritten))
                         }
