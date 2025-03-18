@@ -146,7 +146,7 @@ struct CategoriesView_Previews: PreviewProvider {
         CategoriesView(
             numParticipants: .constant(3),
             participants: .constant(["Alice", "Bob", "Charlie"]),
-            numRounds: .constant(3),
+            numRounds: .constant(1),
             turnDuration: .constant(60),
             onHome: {},
             selectedCountry: Country(name: "Italy", flagImage: "flags_italy")

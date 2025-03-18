@@ -123,7 +123,7 @@ struct OffensiveView: View {
                         }
                         
                         // Alien con animazione di parlato
-                        AlienSpeakingView()
+                        AlienSpeakingView(hasAnswered: showTimer)
                             .frame(width: 170, height: 170)
                             .offset(x: -130, y: -20)
                         
@@ -285,31 +285,44 @@ struct OffensiveView: View {
     }
     
     struct AlienSpeakingView: View {
+        // Nuovo parametro per sapere se l'utente ha risposto
+        var hasAnswered: Bool = false
+        
         // Stato per tracciare quale immagine mostrare
         @State private var showFirstImage = true
         
         // Timer per l'animazione
-        let timer = Timer.publish(every: 0.6, on: .main, in: .common).autoconnect()
+        let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
         
         var body: some View {
-            // Mostra solo un'immagine alla volta
             Group {
-                if showFirstImage {
-                    Image("Alien")
+                if hasAnswered {
+                    // Mostra un'immagine diversa dopo la risposta
+                    Image("Beybo") // Sostituisci con il nome della tua nuova immagine
                         .resizable()
                         .scaledToFill()
                 } else {
-                    Image("Alien_BA")
-                        .resizable()
-                        .scaledToFill()
+                    // Comportamento originale con alternanza di immagini
+                    if showFirstImage {
+                        Image("Alien")
+                            .resizable()
+                            .scaledToFill()
+                    } else {
+                        Image("Alien_BA")
+                            .resizable()
+                            .scaledToFill()
+                    }
                 }
             }
-            // Ogni volta che il timer "scatta", inverti l'immagine da mostrare
+            // Attiva il timer solo se non è stata data una risposta
             .onReceive(timer) { _ in
-                showFirstImage.toggle()
+                if !hasAnswered {
+                    showFirstImage.toggle()
+                }
             }
         }
     }
+
     
     
     func stopTimer() {

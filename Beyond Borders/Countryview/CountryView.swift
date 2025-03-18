@@ -119,19 +119,26 @@ struct CountryView: View {
                                 .scaledToFill()
                                 .frame(width: 350, height: 350)
                                 .padding(.bottom,-25)
-                            //    .offset(y: isJump ? -8 : 8)
-//                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
-//                                .onAppear {
-//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//                                        isJump = true
-//                                    }
-//                                }
+                                .offset(y: isJump ? -8 : 8)
+                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
+                                .onAppear {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                        isJump = true
+                                    }
+                                }
 
                             Image(selectedCountry.flagImage)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 150, height: 100)
                                 .shadow(radius: 5)
+                                .offset(y: isJump ? -8 : 8)
+                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
+                                .onAppear {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                        isJump = true
+                                    }
+                                }
                             
                             Text(displayedText)
                                 .font(.custom("Atma-Bold", fixedSize: 35))
