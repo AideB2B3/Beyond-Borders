@@ -114,17 +114,18 @@ struct CountryView: View {
                             Spacer()
                             
                             
-                            Image("Alien_Spaceship")
+                            Image("Spaceship_flash")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 200, height: 200)
-                                .offset(y: isJump ? -8 : 8)
-                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
-                                .onAppear {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        isJump = true
-                                    }
-                                }
+                                .frame(width: 350, height: 350)
+                                .padding(.bottom,-25)
+                            //    .offset(y: isJump ? -8 : 8)
+//                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
+//                                .onAppear {
+//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                                        isJump = true
+//                                    }
+//                                }
 
                             Image(selectedCountry.flagImage)
                                 .resizable()
