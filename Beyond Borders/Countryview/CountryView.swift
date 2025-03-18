@@ -65,14 +65,13 @@ struct CountryView: View {
             VStack(spacing: 20) {
                 
                 if showText {
-                    VStack(spacing: 15) {
+                    VStack() {
                         Text("Tap the world to extract a random country")
                             .font(.custom("Atma-Bold", fixedSize: 35))
                             .foregroundColor(Color(.colorWritten))
                             .multilineTextAlignment(.center)
-                            .frame(width: 280)
                             .minimumScaleFactor(0.7)
-                            .padding(.horizontal, 10)
+                            .padding(.horizontal, 15)
                     }
                     .padding(.horizontal, 20)
                     .transition(.opacity.combined(with: .scale))
@@ -115,17 +114,18 @@ struct CountryView: View {
                             Spacer()
                             
                             
-                            Image("Alien_Spaceship")
+                            Image("Spaceship_flash")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 200, height: 200)
-                                .offset(y: isJump ? -8 : 8)
-                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
-                                .onAppear {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        isJump = true
-                                    }
-                                }
+                                .frame(width: 350, height: 350)
+                                .padding(.bottom,-25)
+                            //    .offset(y: isJump ? -8 : 8)
+//                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
+//                                .onAppear {
+//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                                        isJump = true
+//                                    }
+//                                }
 
                             Image(selectedCountry.flagImage)
                                 .resizable()

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "app.icon.nobackground.png",
+      "filename" : "Spaceship_Alien.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "app.icon.nobackground 1.png",
+      "filename" : "Spaceship_Alien 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "app.icon.nobackground 2.png",
+      "filename" : "Spaceship_Alien 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
