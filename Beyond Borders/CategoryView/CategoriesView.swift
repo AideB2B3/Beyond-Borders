@@ -116,7 +116,7 @@ struct CategoriesView: View {
                             isOffensivePresented = true
                             
                         }) {
-                            Text("Stereotypes")
+                            Text("Rumors")
                                 .font(.custom("Atma", fixedSize: 25))
                                 .bold()
                                 .frame(width: 160, height: 160)

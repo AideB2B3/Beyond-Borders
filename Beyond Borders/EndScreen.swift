@@ -32,13 +32,13 @@ struct EndScreen: View {
                     
                     List(responses, id: \.name) { response in
                         HStack {
-                            Text(response.name)
+                            Text("\(response.name )  said:")
                                 .foregroundColor(Color(.colorWritten))
                                 .font(.custom("Atma-Bold", fixedSize: 25))
                             Spacer()
                             Text(response.answer)
                                 .foregroundColor(Color(.colorWritten))
-                                .font(.custom("Atma-Bold", fixedSize: 20))
+                                .font(.custom("Atma-Bold", fixedSize: 25))
                         }
                         .background(Color.clear)
                         .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 50))
@@ -55,11 +55,12 @@ struct EndScreen: View {
                         isCountryPresented = true
                     }){
                         Label("Round", systemImage: "arrow.clockwise")
-                            .font(.custom("Atma-Bold", fixedSize: 20))
+                            .font(.custom("Atma-Bold", fixedSize: 25))
                             .padding()
-                            .frame(maxWidth: 150)
+                            .bold()
+                            .frame(width: 150, height: 70)
                             .background(Color(.colorWritten))
-                            .foregroundColor(Color(.white))
+                            .foregroundColor(.white)
                             .cornerRadius(30)
                     }
                     .padding(.horizontal)
@@ -84,9 +85,9 @@ struct EndScreen: View {
                             .font(.custom("Atma-Bold", fixedSize: 25))
                             .padding()
                             .bold()
-                            .frame(maxWidth: 150)
+                            .frame(width: 150, height: 70)
                             .background(Color(.colorWritten))
-                            .foregroundColor(Color(.white))
+                            .foregroundColor(.white)
                             .cornerRadius(30)
                     }
                     .padding(.horizontal)

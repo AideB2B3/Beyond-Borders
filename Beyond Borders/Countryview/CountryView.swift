@@ -188,9 +188,9 @@ struct CountryView: View {
                             }
                         }) {
                             Text("Re-tap")
-                                .font(.custom("Atma-Bold", fixedSize: 25))
+                                .font(.custom("Atma-Bold", fixedSize: 30))
                                 .padding()
-                                .frame(width: 130, height: 70)
+                                .frame(width: 150, height: 70)
                                 .background(Color(.colorWritten))
                                 .foregroundColor(.white)
                                 .cornerRadius(30)
@@ -202,9 +202,9 @@ struct CountryView: View {
                             isCategoriesPresented = true
                         }) {
                             Text("Next")
-                                .font(.custom("Atma-Bold", fixedSize: 25))
+                                .font(.custom("Atma-Bold", fixedSize: 30))
                                 .padding()
-                                .frame(width: 130, height: 70)
+                                .frame(width: 150, height: 70)
                                 .background(Color(.colorWritten))
                                 .foregroundColor(.white)
                                 .cornerRadius(30)

@@ -109,7 +109,7 @@ struct CultureView: View {
                     
                     VStack {
                         Text("Culture - \(selectedCountry.name)")
-                            .font(.custom("Atma-Bold", fixedSize: 40))
+                            .font(.custom("Atma-Bold", fixedSize: 35))
                             
                             .foregroundColor(Color(.colorWritten))
                             .padding(.top, 10)
@@ -180,9 +180,9 @@ struct CultureView: View {
                                             showTimer = true
                                         }) {
                                             Text("Yes")
-                                                .font(.custom("Atma-Bold", fixedSize: 25))
+                                                .font(.custom("Atma-Bold", fixedSize: 30))
                                                 .padding()
-                                                .frame(width: 130, height: 70)
+                                                .frame(width: 150, height: 70)
                                                 .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
@@ -194,9 +194,9 @@ struct CultureView: View {
                                             showTimer = true
                                         }) {
                                             Text("No")
-                                                .font(.custom("Atma-Bold", fixedSize: 25))
+                                                .font(.custom("Atma-Bold", fixedSize: 30))
                                                 .padding()
-                                                .frame(width: 130, height: 70)
+                                                .frame(width: 150, height: 70)
                                                 .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)
@@ -240,9 +240,9 @@ struct CultureView: View {
                                         Button(action: endTurn)
                                         {
                                             Text("Skip")
-                                                .font(.custom("Atma-Bold", fixedSize: 25))
+                                                .font(.custom("Atma-Bold", fixedSize: 30))
                                                 .padding()
-                                                .frame(width: 130, height: 70)
+                                                .frame(width: 150, height: 70)
                                                 .background(Color(.colorWritten))
                                                 .foregroundColor(.white)
                                                 .cornerRadius(30)

@@ -69,10 +69,10 @@ struct SettingsView: View {
                         
                     }) {
                         Text("Next")
-                            .font(.custom("Atma-SemiBold", fixedSize: 30))
+                            .font(.custom("Atma-SemiBold", fixedSize: 35))
                             .padding()
                             .bold()
-                            .frame(width: 130, height: 70)
+                            .frame(width: 150, height: 70)
                             .background(Color(.colorWritten))
                             .foregroundColor(.white)
                             .cornerRadius(30)

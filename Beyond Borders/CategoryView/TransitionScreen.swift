@@ -9,13 +9,13 @@ struct TransitionScreen: View {
     var body: some View {
         VStack {
             Text("Next turn: \(nextParticipant)")
-                .font(.custom("Atma-SemiBold", fixedSize: 20))
+                .font(.custom("Atma-SemiBold", fixedSize: 30))
                 .foregroundColor(Color(.colorWritten))
                 .bold()
                 .padding()
             
             Text("Tap to Start the Turn")
-                .font(.custom("Atma-SemiBold", fixedSize: 20))
+                .font(.custom("Atma-SemiBold", fixedSize: 30))
                 .foregroundColor(Color(.colorWritten))
             
             Image(systemName: "hand.tap.fill")

@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "\n\nTap the world to extract a random country" : {
+      "extractionState" : "stale",
       "localizations" : {
         "hi" : {
           "stringUnit" : {
@@ -478,6 +479,12 @@
         }
       }
     },
+    "Rumors" : {
+
+    },
+    "Rumors - %@" : {
+
+    },
     "Skip" : {
       "localizations" : {
         "hi" : {
@@ -517,6 +524,7 @@
       }
     },
     "Stereotypes" : {
+      "extractionState" : "stale",
       "localizations" : {
         "hi" : {
           "stringUnit" : {
@@ -539,6 +547,7 @@
       }
     },
     "Stereotypes - %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "hi" : {
           "stringUnit" : {
@@ -559,6 +568,9 @@
           }
         }
       }
+    },
+    "Tap the world to extract a random country" : {
+
     },
     "Tap to Start the Turn" : {
       "localizations" : {
