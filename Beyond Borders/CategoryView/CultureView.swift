@@ -121,7 +121,7 @@ struct CultureView: View {
                                 .scaledToFit( )
 
                             Text(randomQuestion)
-                                .font(.custom("Atma-SemiBold", fixedSize: 20))
+                                .font(.custom("Atma-SemiBold", fixedSize: 23))
                                 .foregroundColor(Color(.colorWritten))
                                 .frame(width: 320)
                                 .multilineTextAlignment(.center)
@@ -154,7 +154,7 @@ struct CultureView: View {
 
                                 if let currentParticipant = currentTurnSafe() {
                                     Text("\(currentParticipant)")
-                                        .font(.custom("Atma-Bold", fixedSize: 25))
+                                        .font(.custom("Atma-Bold", fixedSize: 30))
                                         .foregroundColor(Color(.colorWritten))
                                 }
                                 else {

@@ -12,6 +12,9 @@
         }
       }
     },
+    "-  %@  said:" : {
+
+    },
     "%@" : {
       "comment" : "%@ = country",
       "localizations" : {
@@ -34,9 +37,6 @@
           }
         }
       }
-    },
-    "%@  said:" : {
-
     },
     "Beyond Borders" : {
       "localizations" : {
@@ -262,6 +262,9 @@
         }
       }
     },
+    "Match" : {
+
+    },
     "Match Settings" : {
       "localizations" : {
         "hi" : {
@@ -306,7 +309,11 @@
         }
       }
     },
+    "Next turn:\n%@" : {
+
+    },
     "Next turn: %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "hi" : {
           "stringUnit" : {
@@ -455,6 +462,7 @@
       }
     },
     "Round" : {
+      "extractionState" : "stale",
       "localizations" : {
         "hi" : {
           "stringUnit" : {

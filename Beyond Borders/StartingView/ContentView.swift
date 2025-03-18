@@ -94,6 +94,7 @@ struct ContentView: View {
                 }
             }
         }
+        .tint(Color(.colorWritten))
     }
 }
 

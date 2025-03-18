@@ -32,7 +32,7 @@ struct EndScreen: View {
                     
                     List(responses, id: \.name) { response in
                         HStack {
-                            Text("\(response.name )  said:")
+                            Text("-  \(response.name )  said:")
                                 .foregroundColor(Color(.colorWritten))
                                 .font(.custom("Atma-Bold", fixedSize: 25))
                             Spacer()
@@ -41,7 +41,7 @@ struct EndScreen: View {
                                 .font(.custom("Atma-Bold", fixedSize: 25))
                         }
                         .background(Color.clear)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 50))
+                        .listRowInsets(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 70))
                         .listRowBackground(Color.clear)
                     }
                     .listStyle(PlainListStyle())
@@ -54,7 +54,7 @@ struct EndScreen: View {
                     Button(action: {
                         isCountryPresented = true
                     }){
-                        Label("Round", systemImage: "arrow.clockwise")
+                        Label("Match", systemImage: "arrow.clockwise")
                             .font(.custom("Atma-Bold", fixedSize: 25))
                             .padding()
                             .bold()
@@ -124,4 +124,22 @@ struct RootResetView: View {
 // Classe ObservableObject per gestire lo stato di navigazione globale
 class NavigationState: ObservableObject {
     @Published var resetToRoot = false
+}
+
+struct EndScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        EndScreen(
+            onRestart: {},
+            onHome: {},
+            numParticipants: .constant(3),
+            participants: .constant(["Alice", "Bob", "Charlie"]),
+            numRounds: .constant(2),
+            turnDuration: .constant(60),
+            responses: [
+                (name: "Alice", answer: "Yes"),
+                (name: "Bob", answer: "Yes"),
+                (name: "Charlie", answer: "No")
+            ]
+        )
+    }
 }
