@@ -65,14 +65,13 @@ struct CountryView: View {
             VStack(spacing: 20) {
                 
                 if showText {
-                    VStack(spacing: 15) {
+                    VStack() {
                         Text("Tap the world to extract a random country")
                             .font(.custom("Atma-Bold", fixedSize: 35))
                             .foregroundColor(Color(.colorWritten))
                             .multilineTextAlignment(.center)
-                            .frame(width: 280)
                             .minimumScaleFactor(0.7)
-                            .padding(.horizontal, 10)
+                            .padding(.horizontal, 15)
                     }
                     .padding(.horizontal, 20)
                     .transition(.opacity.combined(with: .scale))

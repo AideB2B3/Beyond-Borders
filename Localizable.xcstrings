@@ -2,19 +2,8 @@
   "sourceLanguage" : "en",
   "strings" : {
     "\n\nTap the world to extract a random country" : {
+      "extractionState" : "manual",
       "localizations" : {
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कोई देश चुनने के लिए विश्व पर टैप करें"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap il mondo per estrarre random il paese "
-          }
-        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -560,6 +549,28 @@
         }
       }
     },
+    "Tap the world to extract a random country" : {
+      "localizations" : {
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कोई देश चुनने के लिए विश्व पर टैप करें"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap il mondo per estrarre random il paese "
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dünyaya dokunarak rastgele bir ülke seç!"
+          }
+        }
+      }
+    },
     "Tap to Start the Turn" : {
       "localizations" : {
         "hi" : {
@@ -623,7 +634,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tur süresi: %lld क्षण"
+            "value" : "Tur süresi: %lld  Saniye"
           }
         }
       }
