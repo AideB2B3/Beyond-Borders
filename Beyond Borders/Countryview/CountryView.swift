@@ -1,6 +1,7 @@
 import SwiftUI
 import Lottie
 import AVFoundation
+import SDWebImageSwiftUI
 
 struct CountryView: View {
     
@@ -42,7 +43,7 @@ struct CountryView: View {
         Country(name: "Kenya", flagImage: "flags_kenya"),
         Country(name: "Mexico", flagImage: "flags_mexico"),
         Country(name: "Morocco", flagImage: "flags_morocco"),
-        Country(name: "Nepal", flagImage: "flags_nepal"),
+//      Country(name: "Nepal", flagImage: "flags_nepal"),
         Country(name: "Nigeria", flagImage: "flags_nigeria"),
         Country(name: "Pakistan", flagImage: "flags_pakistan"),
         Country(name: "Portugal", flagImage: "flags_portugal"),
@@ -114,31 +115,18 @@ struct CountryView: View {
                             Spacer()
                             
                             
-                            Image("Spaceship_flash")
+                            AnimatedImage(name: "Alien_Light.gif")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 350, height: 350)
-                                .padding(.bottom,-25)
-                                .offset(y: isJump ? -8 : 8)
-                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
-                                .onAppear {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        isJump = true
-                                    }
-                                }
+                                .padding(.bottom,-28)
+
 
                             Image(selectedCountry.flagImage)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 150, height: 100)
+                                .frame(width: 155, height: 100)
                                 .shadow(radius: 5)
-                                .offset(y: isJump ? -8 : 8)
-                                .animation(Animation.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: isJump)
-                                .onAppear {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        isJump = true
-                                    }
-                                }
                             
                             Text(displayedText)
                                 .font(.custom("Atma-Bold", fixedSize: 35))

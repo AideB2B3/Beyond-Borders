@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2958543F2D89D350001BDB39 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2958543E2D89D350001BDB39 /* SDWebImageSwiftUI */; };
 		B72477B02D79FDEC009F61B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B72477AF2D79FDEC009F61B5 /* Localizable.xcstrings */; };
 		B7EA5D1F2D71FD05002CFAF4 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7EA5D1E2D71FD05002CFAF4 /* Lottie */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2958543F2D89D350001BDB39 /* SDWebImageSwiftUI in Frameworks */,
 				B7EA5D1F2D71FD05002CFAF4 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +76,7 @@
 			name = "Beyond Borders";
 			packageProductDependencies = (
 				B7EA5D1E2D71FD05002CFAF4 /* Lottie */,
+				2958543E2D89D350001BDB39 /* SDWebImageSwiftUI */,
 			);
 			productName = "Beyond Borders";
 			productReference = B74ABA362D6FB0A900CB2173 /* Beyond Borders.app */;
@@ -108,6 +111,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				B7EA5D1D2D71FD05002CFAF4 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				2958543D2D89D350001BDB39 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B74ABA372D6FB0A900CB2173 /* Products */;
@@ -354,6 +358,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2958543D2D89D350001BDB39 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
 		B7EA5D1D2D71FD05002CFAF4 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -365,6 +377,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2958543E2D89D350001BDB39 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2958543D2D89D350001BDB39 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		B7EA5D1E2D71FD05002CFAF4 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B7EA5D1D2D71FD05002CFAF4 /* XCRemoteSwiftPackageReference "lottie-spm" */;
