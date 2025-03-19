@@ -35,9 +35,9 @@ struct CategoriesView: View {
                         .font(.custom("Atma", fixedSize: 35))
                         .bold()
                         .foregroundColor(Color(.colorWritten))
-                        .padding(.top, 50)
+                        .padding(.top, 40)
                     
-                    Image("Spaceship_Alien")
+                    Image("Alien_Category")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 220, height: 220)
@@ -48,7 +48,6 @@ struct CategoriesView: View {
                                 isJump = true
                             }
                         }
-                    Spacer()
                     
                     LazyVGrid(columns: columns) {
                         

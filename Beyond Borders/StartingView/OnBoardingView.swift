@@ -5,8 +5,7 @@ struct OnBoardingView: View {
     @State private var currentImageIndex = 0
     @State private var timer: Timer?
     
-//    let images = ["onboarding1", "onboarding2", "onboarding3", "onboarding4"]
-    let images = ["1", "2", "3", "4"]
+    let images = ["onboarding1", "onboarding2", "onboarding3", "onboarding4"]
 
     var body: some View {
         ZStack {
@@ -46,7 +45,6 @@ struct OnBoardingView: View {
         timer?.invalidate()
         timer = nil
     }
-    
     
     private func dismissOnboarding() {
         stopTimer()

@@ -18,14 +18,12 @@ struct CountryView: View {
     @State private var isPlaying = false
     @State private var isSoundPlaying = false
     @State private var selectedCountry: Country = Country(name: "", flagImage: "")
-    @State private var floatEffect: CGFloat = -5
     @State private var displayedText = ""
     @State private var index = 0
     @State private var isJump = false
     @State private var isCategoriesPresented = false
     
     let countries: [Country] = [
-        
         Country(name: "Afghanistan", flagImage: "flags_afghanistan"),
         Country(name: "Albania", flagImage: "flags_albania"),
         Country(name: "Bangladesh", flagImage: "flags_bangladesh"),
@@ -43,7 +41,6 @@ struct CountryView: View {
         Country(name: "Kenya", flagImage: "flags_kenya"),
         Country(name: "Mexico", flagImage: "flags_mexico"),
         Country(name: "Morocco", flagImage: "flags_morocco"),
-//      Country(name: "Nepal", flagImage: "flags_nepal"),
         Country(name: "Nigeria", flagImage: "flags_nigeria"),
         Country(name: "Pakistan", flagImage: "flags_pakistan"),
         Country(name: "Portugal", flagImage: "flags_portugal"),
@@ -54,7 +51,6 @@ struct CountryView: View {
         Country(name: "Sri Lanka", flagImage: "flags_srilanka"),
         Country(name: "Turkey", flagImage: "flags_turkey"),
         Country(name: "Vietnam", flagImage: "flags_vietnam")
-        
     ]
     
     var body: some View {
@@ -113,9 +109,8 @@ struct CountryView: View {
                         VStack() {
                             
                             Spacer()
-                            
-                            
-                            AnimatedImage(name: "Alien_Light.gif")
+ 
+                            AnimatedImage(name: "Alien_Flag.gif")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 350, height: 350)

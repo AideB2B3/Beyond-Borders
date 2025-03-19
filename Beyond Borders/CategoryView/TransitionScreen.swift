@@ -9,7 +9,7 @@ struct TransitionScreen: View {
     var body: some View {
         VStack {
             Text("Next turn:\n\(nextParticipant)")
-                .font(.custom("Atma-SemiBold", fixedSize: 30))
+                .font(.custom("Atma-Bold", fixedSize: 40))
                 .foregroundColor(Color(.colorWritten))
                 .bold()
                 .multilineTextAlignment(.center)
@@ -37,7 +37,7 @@ struct TransitionScreen_Previews: PreviewProvider {
         TransitionScreen(
             nextParticipant: "Alice",
             onTap: {},
-            backgroundColor: Color(.colorWritten)
+            backgroundColor: Color(.beigeBack)
         )
     }
 }

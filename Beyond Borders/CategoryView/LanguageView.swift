@@ -19,9 +19,7 @@ struct LanguageView: View {
     
     @State private var showEndScreen = false
     @State private var showTransitionScreen = false
-    
-    
-    
+
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
@@ -31,7 +29,7 @@ struct LanguageView: View {
     @State private var responses: [(name: String, answer: String)] = []
     
     @State private var randomQuestion: String = ""
-    @State private var showStart = true // Controlla la visibilità del pulsante Start
+    @State private var showStart = true
     @State private var showNo = false
     @State private var showYes = false
     @State private var showTimer = false
@@ -50,7 +48,6 @@ struct LanguageView: View {
         self.responses = responses
         
         self.languagequestions = [
-            
             "The official language is widely spoken by the entire population in \(selectedCountry.name).",
             "English is commonly used as a second language in \(selectedCountry.name).",
             "People in \(selectedCountry.name) have a distinct accent that is difficult to understand for outsiders.",
@@ -71,7 +68,6 @@ struct LanguageView: View {
             "The local language in \(selectedCountry.name) has many borrowed words from other languages.",
             "The local language in \(selectedCountry.name) has a unique set of phonetic rules.",
             "The way people speak in \(selectedCountry.name) changes based on formality and the situation."
-            
         ]
         
         _remainingTime = State(initialValue: turnDuration.wrappedValue)
@@ -98,7 +94,7 @@ struct LanguageView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(.colorLanguage)  // Culture View's background color
+                            backgroundColor: Color(.colorLanguage)
                         )
                     }
                 } else {
@@ -123,7 +119,6 @@ struct LanguageView: View {
                                 .padding()
                         }
                         
-                        // Alien con animazione di parlato
                         AlienSpeakingView(hasAnswered: showTimer)
                             .frame(width: 170, height: 170)
                             .offset(x: -130, y: -20)
@@ -132,7 +127,7 @@ struct LanguageView: View {
                         
                         if showStart {
                             Button(action: {
-                                showStart = false // Nasconde il pulsante Start e mostra nuovi elementi
+                                showStart = false
                             }) {
                                 Text("Play")
                                     .font(.custom("Atma", fixedSize: 30))
@@ -145,11 +140,9 @@ struct LanguageView: View {
                             }
                             .padding()
                         } else {
-                            // Qui puoi aggiungere il nuovo contenuto che comparirà dopo aver premuto Start
+
                             VStack(spacing: 20) {
-                                
-                                //                                Spacer()
-                                
+                          
                                 if let currentParticipant = currentTurnSafe() {
                                     Text("\(currentParticipant)")
                                         .font(.custom("Atma-Bold", fixedSize: 30))
@@ -160,7 +153,6 @@ struct LanguageView: View {
                                         .font(.custom("Atma", fixedSize: 25))
                                         .foregroundColor(Color(.colorWritten))
                                 }
-                                
                                 
                                 Spacer()
                                 
@@ -201,12 +193,9 @@ struct LanguageView: View {
                                                 .cornerRadius(30)
                                         }
                                         
-                                        
                                         Spacer()
                                         
                                     }
-                                    //                                    .padding()
-                                    
                                 } //End IF
                                 else{
                                     
@@ -254,24 +243,21 @@ struct LanguageView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(.colorLanguage)  // Culture View's background color
+                                                backgroundColor: Color(.colorLanguage)
                                             )
                                         }
-                                        
                                     }
                                     .padding()
-                                    .transition(.opacity) // Effetto di transizione
+                                    .transition(.opacity)
                                     .onAppear {
                                         startTimer()
                                     }
                                     .onDisappear {
                                         stopTimer()
                                     }
-                                    
                                 }
                             }
-                            .transition(.opacity) // Effetto di transizione
-                            
+                            .transition(.opacity)
                         }
                     }
                 }
@@ -283,28 +269,22 @@ struct LanguageView: View {
                 }
             }
         }// End Nav Stack
-        
     }
     
     struct AlienSpeakingView: View {
-        // Nuovo parametro per sapere se l'utente ha risposto
+        
         var hasAnswered: Bool = false
-        
-        // Stato per tracciare quale immagine mostrare
         @State private var showFirstImage = true
-        
-        // Timer per l'animazione
         let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
         
         var body: some View {
             Group {
                 if hasAnswered {
-                    // Mostra un'immagine diversa dopo la risposta
-                    Image("Beybo") // Sostituisci con il nome della tua nuova immagine
+
+                    Image("Beybo")
                         .resizable()
                         .scaledToFill()
                 } else {
-                    // Comportamento originale con alternanza di immagini
                     if showFirstImage {
                         Image("Alien")
                             .resizable()
@@ -316,7 +296,6 @@ struct LanguageView: View {
                     }
                 }
             }
-            // Attiva il timer solo se non è stata data una risposta
             .onReceive(timer) { _ in
                 if !hasAnswered {
                     showFirstImage.toggle()
@@ -325,8 +304,6 @@ struct LanguageView: View {
         }
     }
 
-    
-    
     func stopTimer() {
         if let timer = timer {
             timer.invalidate()
@@ -357,7 +334,6 @@ struct LanguageView: View {
         } else {
             showEndScreen = true
         }
-        
     }
     
     func playSound() {
@@ -398,9 +374,6 @@ struct LanguageView: View {
             lastParticipant = order.last ?? ""
             turnOrder.append(order)
         }
-        
-        // Debug print to verify turn order generation
-        print("Generated Turn Order: \(turnOrder)")
     }
     
     func handleHome() {

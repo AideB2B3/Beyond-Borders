@@ -55,7 +55,6 @@ struct CultureView: View {
         self.responses = responses
         
         self.culturequestions = [
-            
             "Family remains the cornerstone of society in \(selectedCountry.name), shaping traditions and daily life.",
             "In \(selectedCountry.name), great emphasis is placed on showing respect to elders in both speech and actions.",
             "Traditional festivals and celebrations in \(selectedCountry.name) are deeply rooted in history and widely observed.",
@@ -110,7 +109,6 @@ struct CultureView: View {
                     VStack {
                         Text("Culture - \(selectedCountry.name)")
                             .font(.custom("Atma-Bold", fixedSize: 35))
-                            
                             .foregroundColor(Color(.colorWritten))
                             .padding(.top, 10)
                         
@@ -128,7 +126,6 @@ struct CultureView: View {
                                 .padding()
                         }
                         
-                        // Alien view con comportamento modificato
                         AlienSpeakingView(hasAnswered: showTimer)
                             .frame(width: 170, height: 170)
                             .offset(x: -130, y: -20)
@@ -162,7 +159,6 @@ struct CultureView: View {
                                         .font(.custom("Atma", fixedSize: 25))
                                         .foregroundColor(Color(.colorWritten))
                                 }
-                                
                                 
                                 Spacer()
                                 
@@ -205,7 +201,6 @@ struct CultureView: View {
                                         Spacer()
                                         
                                     }
-                                    
                                 } //End IF
                                 else{
                                     VStack{
@@ -252,30 +247,26 @@ struct CultureView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(.colorCulture)  // Culture View's background color
+                                                backgroundColor: Color(.colorCulture)
                                             )
                                         }
-                                        
                                     }
                                     .padding()
-                                    .transition(.opacity) // Effetto di transizione
+                                    .transition(.opacity)
                                     .onAppear {
                                         startTimer()
                                     }
                                     .onDisappear {
                                         stopTimer()
                                     }
-                                    
                                 }
                             }
-                            .transition(.opacity) // Effetto di transizione
-                            
+                            .transition(.opacity)
                         }
                     }
                 }
             }
             .onAppear {
-                // Ensure turn order is generated when view appears
                 if turnOrder.isEmpty {
                     generateTurnOrder()
                 }
@@ -284,24 +275,18 @@ struct CultureView: View {
     }
 
     struct AlienSpeakingView: View {
-        // Nuovo parametro per sapere se l'utente ha risposto
+
         var hasAnswered: Bool = false
-        
-        // Stato per tracciare quale immagine mostrare
         @State private var showFirstImage = true
-        
-        // Timer per l'animazione
         let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
         
         var body: some View {
             Group {
                 if hasAnswered {
-                    // Mostra un'immagine diversa dopo la risposta
-                    Image("Beybo") // Sostituisci con il nome della tua nuova immagine
+                    Image("Beybo")
                         .resizable()
                         .scaledToFill()
                 } else {
-                    // Comportamento originale con alternanza di immagini
                     if showFirstImage {
                         Image("Alien")
                             .resizable()
@@ -313,7 +298,6 @@ struct CultureView: View {
                     }
                 }
             }
-            // Attiva il timer solo se non è stata data una risposta
             .onReceive(timer) { _ in
                 if !hasAnswered {
                     showFirstImage.toggle()
@@ -392,9 +376,6 @@ struct CultureView: View {
             lastParticipant = order.last ?? ""
             turnOrder.append(order)
         }
-        
-        // Debug print to verify turn order generation
-        print("Generated Turn Order: \(turnOrder)")
     }
     
     func handleHome() {
@@ -418,8 +399,6 @@ struct CultureView: View {
         generateTurnOrder()
         startTimer()
     }
-    
-    
 }
 
 struct CultureView_Previews: PreviewProvider {

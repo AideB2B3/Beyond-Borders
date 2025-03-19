@@ -23,7 +23,6 @@ struct OffensiveView: View {
     @State private var extraRound = false
     @State private var turnOrder: [[String]] = []
     
-    //    let selectedCountry: Country
     @State private var selectedCountry: Country
     private var offensivequestions: [String] = []
     
@@ -72,7 +71,6 @@ struct OffensiveView: View {
             "People in \(selectedCountry.name) are often portrayed as being obsessed with rules and regulations."
         ]
         
-        // Inizializzazione delle variabili di stato
         _remainingTime = State(initialValue: turnDuration.wrappedValue)
         _randomQuestion = State(initialValue: offensivequestions.randomElement() ?? "No questions available")
     }
@@ -97,7 +95,7 @@ struct OffensiveView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(.colorOffensive)  // Culture View's background color
+                            backgroundColor: Color(.colorOffensive)
                         )
                     }
                 } else {
@@ -122,7 +120,6 @@ struct OffensiveView: View {
                                 .padding()
                         }
                         
-                        // Alien con animazione di parlato
                         AlienSpeakingView(hasAnswered: showTimer)
                             .frame(width: 170, height: 170)
                             .offset(x: -130, y: -20)
@@ -131,7 +128,7 @@ struct OffensiveView: View {
                         
                         if showStart {
                             Button(action: {
-                                showStart = false // Nasconde il pulsante Start e mostra nuovi elementi
+                                showStart = false
                             }) {
                                 Text("Play")
                                     .font(.custom("Atma", fixedSize: 30))
@@ -144,10 +141,8 @@ struct OffensiveView: View {
                             }
                             .padding()
                         } else {
-                            // Qui puoi aggiungere il nuovo contenuto che comparirà dopo aver premuto Start
+                            
                             VStack(spacing: 20) {
-                                
-                                //                                Spacer()
                                 
                                 if let currentParticipant = currentTurnSafe() {
                                     Text("\(currentParticipant)")
@@ -199,12 +194,9 @@ struct OffensiveView: View {
                                                 .cornerRadius(30)
                                         }
                                         
-                                        
                                         Spacer()
                                         
                                     }
-                                    //                                    .padding()
-                                    
                                 } //End IF
                                 else{
                                     
@@ -252,57 +244,48 @@ struct OffensiveView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(.colorOffensive)  // Culture View's background color
+                                                backgroundColor: Color(.colorOffensive)
                                             )
                                         }
-                                        
                                     }
                                     .padding()
-                                    .transition(.opacity) // Effetto di transizione
+                                    .transition(.opacity)
                                     .onAppear {
                                         startTimer()
                                     }
                                     .onDisappear {
                                         stopTimer()
                                     }
-                                    
                                 }
                             }
-                            .transition(.opacity) // Effetto di transizione
-                            
+                            .transition(.opacity)
                         }
                     }
                 }
             }
             .onAppear {
-                // Ensure turn order is generated when view appears
                 if turnOrder.isEmpty {
                     generateTurnOrder()
                 }
             }
         }// End Nav Stack
-        
     }
     
     struct AlienSpeakingView: View {
-        // Nuovo parametro per sapere se l'utente ha risposto
+
         var hasAnswered: Bool = false
-        
-        // Stato per tracciare quale immagine mostrare
         @State private var showFirstImage = true
-        
-        // Timer per l'animazione
+
         let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
         
         var body: some View {
             Group {
                 if hasAnswered {
-                    // Mostra un'immagine diversa dopo la risposta
-                    Image("Beybo") // Sostituisci con il nome della tua nuova immagine
+                    
+                    Image("Beybo")
                         .resizable()
                         .scaledToFill()
                 } else {
-                    // Comportamento originale con alternanza di immagini
                     if showFirstImage {
                         Image("Alien")
                             .resizable()
@@ -314,7 +297,6 @@ struct OffensiveView: View {
                     }
                 }
             }
-            // Attiva il timer solo se non è stata data una risposta
             .onReceive(timer) { _ in
                 if !hasAnswered {
                     showFirstImage.toggle()
@@ -323,8 +305,6 @@ struct OffensiveView: View {
         }
     }
 
-    
-    
     func stopTimer() {
         if let timer = timer {
             timer.invalidate()
@@ -396,9 +376,6 @@ struct OffensiveView: View {
             lastParticipant = order.last ?? ""
             turnOrder.append(order)
         }
-        
-        // Debug print to verify turn order generation
-        print("Generated Turn Order: \(turnOrder)")
     }
     
     func handleHome() {

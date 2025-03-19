@@ -1,5 +1,4 @@
 import SwiftUI
-import AVKit
 
 struct ContentView: View {
     
@@ -31,7 +30,7 @@ struct ContentView: View {
                         .foregroundColor(Color(.colorWritten))
                         .bold()
                     Spacer()
-
+                    
                     HStack {
                         Image("Alien_hi")
                             .resizable()
@@ -55,7 +54,7 @@ struct ContentView: View {
                         }
                     
                     Spacer()
-
+                    
                     Button(action: {
                         if !hasSeenOnboarding {
                             showOnboarding = true

@@ -2,7 +2,6 @@ import SwiftUI
 import AVFoundation
 import AudioToolbox
 
-
 struct FoodView: View {
     
     @Binding var participants: [String]
@@ -52,7 +51,6 @@ struct FoodView: View {
         self.responses = responses
         
         self.foodquestions = [
-            
             "Food in \(selectedCountry.name) is known for being very spicy.",
             "Rice and bread are staple foods in \(selectedCountry.name).",
             "Street food is a significant part of the food culture in \(selectedCountry.name).",
@@ -100,7 +98,7 @@ struct FoodView: View {
                                 startTimer()
                                 showTransitionScreen = false
                             },
-                            backgroundColor: Color(.colorFood)  // Culture View's background color
+                            backgroundColor: Color(.colorFood)
                         )
                     }
                 } else {
@@ -125,7 +123,6 @@ struct FoodView: View {
                                 .padding()
                         }
                         
-                        // Alien con animazione di parlato
                         AlienSpeakingView(hasAnswered: showTimer)
                             .frame(width: 170, height: 170)
                             .offset(x: -130, y: -20)
@@ -148,9 +145,7 @@ struct FoodView: View {
                             .padding()
                         } else {
                             VStack(spacing: 20) {
-                                
-                                //                                Spacer()
-                                
+                           
                                 if let currentParticipant = currentTurnSafe() {
                                     Text("\(currentParticipant)")
                                         .font(.custom("Atma-Bold", fixedSize: 30))
@@ -165,7 +160,6 @@ struct FoodView: View {
                                 Spacer()
                                 
                                 if !showTimer{
-                                    
                                     
                                     Text("Do you agree?")
                                         .font(.custom("Atma-Bold", fixedSize: 30))
@@ -202,12 +196,9 @@ struct FoodView: View {
                                                 .cornerRadius(30)
                                         }
                                         
-                                        
                                         Spacer()
                                         
                                     }
-                                    //                                    .padding()
-                                    
                                 } //End IF
                                 else{
                                     
@@ -253,7 +244,7 @@ struct FoodView: View {
                                             TransitionScreen(
                                                 nextParticipant: participants[Int.random(in: 0..<participants.count)],
                                                 onTap: {},
-                                                backgroundColor: Color(.colorFood)  // Culture View's background color
+                                                backgroundColor: Color(.colorFood)
                                             )
                                         }
                                     }
@@ -279,28 +270,21 @@ struct FoodView: View {
                 }
             }
         }// End Nav Stack
-        
     }
     
     struct AlienSpeakingView: View {
-        // Nuovo parametro per sapere se l'utente ha risposto
         var hasAnswered: Bool = false
-        
-        // Stato per tracciare quale immagine mostrare
         @State private var showFirstImage = true
-        
-        // Timer per l'animazione
         let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
         
         var body: some View {
             Group {
                 if hasAnswered {
-                    // Mostra un'immagine diversa dopo la risposta
-                    Image("Beybo") // Sostituisci con il nome della tua nuova immagine
+
+                    Image("Beybo")
                         .resizable()
                         .scaledToFill()
                 } else {
-                    // Comportamento originale con alternanza di immagini
                     if showFirstImage {
                         Image("Alien")
                             .resizable()
@@ -312,7 +296,6 @@ struct FoodView: View {
                     }
                 }
             }
-            // Attiva il timer solo se non è stata data una risposta
             .onReceive(timer) { _ in
                 if !hasAnswered {
                     showFirstImage.toggle()
@@ -321,8 +304,6 @@ struct FoodView: View {
         }
     }
 
-    
-    
     func stopTimer() {
         if let timer = timer {
             timer.invalidate()
@@ -353,7 +334,6 @@ struct FoodView: View {
         } else {
             showEndScreen = true
         }
-        
     }
     
     func playSound() {
@@ -394,9 +374,6 @@ struct FoodView: View {
             lastParticipant = order.last ?? ""
             turnOrder.append(order)
         }
-        
-        // Debug print to verify turn order generation
-        print("Generated Turn Order: \(turnOrder)")
     }
     
     func handleHome() {
@@ -420,7 +397,6 @@ struct FoodView: View {
         generateTurnOrder()
         startTimer()
     }
-    
 }
 
 struct FoodView_Previews: PreviewProvider {
