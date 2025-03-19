@@ -23,18 +23,22 @@ struct SettingsView: View {
                 Color(.beigeBack)
                     .ignoresSafeArea()
                 
-                VStack(spacing: 0) {
+                VStack() {
                     
-                    VStack(spacing: 35) {
+                    VStack() {
                         Text("Match Settings")
-                            .font(.custom("Atma-SemiBold", fixedSize: 40))
+                            .font(.custom("Atma-SemiBold", fixedSize: 38))
                             .bold()
                             .foregroundColor(Color(.colorWritten))
                         
-                        Spacer()
+                        Image("Alien_Settings")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 160, height: 160)
+                            .padding(.top, -37)
                         
                         Form {
-                            Stepper("Total People: \(numParticipants)", value: $numParticipants, in: 2...8)
+                            Stepper("Total People: \(numParticipants)", value: $numParticipants, in: 2...6)
                                 .onChange(of: numParticipants) {
                                     if numParticipants > participants.count {
                                         participants.append(contentsOf: Array(repeating: "", count: numParticipants - participants.count))
@@ -61,6 +65,7 @@ struct SettingsView: View {
                         }
                         .scrollContentBackground(.hidden)
                         .background(Color(.beigeBack))
+                        .padding(.vertical, -20)
                     }
                     
                     Button(action: {
