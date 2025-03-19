@@ -282,7 +282,7 @@ struct OffensiveView: View {
             Group {
                 if hasAnswered {
                     
-                    Image("Beybo")
+                    Image("Alien_Timer")
                         .resizable()
                         .scaledToFill()
                 } else {
